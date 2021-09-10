@@ -1,30 +1,34 @@
 version: "2.0"
 
 stories:
-
-- story: happy path
+- story: bot challenge path
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
+  - intent: bot_challenge
+  - action: utter_iamabot
 
-- story: sad path 1
+- story: action hello world path
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
+  - intent: hello_world
+  - action: action_hello_world
 
-- story: sad path 2
+- story: search restaurant path
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
+  - intent: search_restaurant
+  - action: action_search_restaurant
+
+- story: corona tracker path
+  steps:
+  - intent: corona_province
+  - action: action_corona_tracker
+
+- story: fill biodata path
+  steps:
+  - intent: fill_biodata
+  - action: utter_enter_name
+
+  - intent: name_entry
+  - action: utter_enter_country
+
+  - intent: country_entry
+  - action: utter_show_name_and_country
+  - action: action_country_president_name

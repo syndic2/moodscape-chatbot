@@ -1,33 +1,78 @@
 version: "2.0"
 
+slots:
+  name: 
+    type: text
+  country:
+    type: text
+  name_user:
+    type: text
+  email_user:
+    type: text
+
+entities:
+  - restaurant
+  - province
+  - name
+  - country
+  - name_user
+  - email_user
+
 intents:
   - greet
   - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
   - bot_challenge
+  - hello_world
+  - search_restaurant
+  - corona_province
+  - fill_biodata
+  - name_entry
+  - country_entry
+  - email_subscription
+  - name_user_entry
+  - email_user_entry
+
+actions:
+  - action_hello_world
+  - action_search_restaurant
+  - action_corona_tracker
+  - action_country_president_name
+  - validate_email_subscription_form
+
+forms:
+  email_subscription_form:
+    name_user:
+      - type: from_text
+    email_user:
+      - type: from_text
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
+  - text: 'Siapa namamu?'
 
   utter_goodbye:
-  - text: "Bye"
+  - text: 'Selamat tinggal juga :)'
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  - text: 'Saya adalah bot dibangun menggunakan RASA Framework'
+  
+  utter_enter_name:
+  - text: 'Nama anda siapa?'
+
+  utter_enter_country:
+  - text: 'Nama negara anda apa?'
+
+  utter_show_name_and_country:
+  - text: 'Nama anda {name} dan berkenegaraan {country}'
+
+  utter_ask_name_user:
+  - text: 'Nama anda?'
+
+  utter_ask_email_user:
+  - text: 'Email anda?'
+
+  utter_email_subscription_submit:
+  - text: "Nama anda: {name_user}\nEmail anda: {email_user}\nTerima kasih sudah berlangganan!"
 
 session_config:
   session_expiration_time: 60

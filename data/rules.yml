@@ -2,12 +2,26 @@ version: "2.0"
 
 rules:
 
-- rule: Say goodbye anytime the user says goodbye
+- rule: start conversation
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: end conversation
   steps:
   - intent: goodbye
   - action: utter_goodbye
 
-- rule: Say 'I am a bot' anytime the user challenges
+- rule: activate email subscription form
   steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+  - intent: email_subscription
+  - action: email_subscription_form
+  - active_loop: email_subscription_form
+
+- rule: submit email subscription form
+  condition:
+  - active_loop: email_subscription_form
+  steps:
+  - action: email_subscription_form
+  - active_loop: null
+  - action: utter_email_subscription_submit
