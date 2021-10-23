@@ -1,27 +1,37 @@
 version: "2.0"
 
 rules:
+  - rule: greet
+    steps:
+    - intent: greet
+    - action: utter_greet
 
-- rule: start conversation
-  steps:
-  - intent: greet
-  - action: utter_greet
+  - rule: leave
+    steps:
+    - intent: leave
+    - action: utter_leave
 
-- rule: end conversation
-  steps:
-  - intent: goodbye
-  - action: utter_goodbye
+  - rule: ask bot identity
+    steps:
+    - intent: ask_bot_who_are_you
+    - action: utter_ask_bot_who_are_you
 
-- rule: activate email subscription form
-  steps:
-  - intent: email_subscription
-  - action: email_subscription_form
-  - active_loop: email_subscription_form
+  - rule: ask bot gender
+    steps:
+    - intent: ask_bot_gender
+    - action: utter_ask_bot_gender
 
-- rule: submit email subscription form
-  condition:
-  - active_loop: email_subscription_form
-  steps:
-  - action: email_subscription_form
-  - active_loop: null
-  - action: utter_email_subscription_submit
+  - rule: ask bot age
+    steps:
+    - intent: ask_bot_age
+    - action: utter_ask_bot_age
+
+  - rule: ask bot location
+    steps:
+    - intent: ask_bot_location
+    - action: utter_ask_bot_location
+
+  - rule: ask bot if remember user name
+    steps:
+    - intent: ask_bot_if_remember_user_name
+    - action: utter_ask_bot_if_remember_user_name

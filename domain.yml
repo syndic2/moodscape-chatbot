@@ -1,78 +1,100 @@
 version: "2.0"
 
 slots:
-  name: 
+  auth_id:
     type: text
-  country:
-    type: text
+    influence_conversation: false
   name_user:
     type: text
-  email_user:
-    type: text
-
-entities:
-  - restaurant
-  - province
-  - name
-  - country
-  - name_user
-  - email_user
+    influence_conversation: false
+  user_provided_name:
+    type: bool
+    influence_conversation: false
 
 intents:
+  - test_story
   - greet
-  - goodbye
-  - bot_challenge
-  - hello_world
-  - search_restaurant
-  - corona_province
-  - fill_biodata
-  - name_entry
-  - country_entry
-  - email_subscription
-  - name_user_entry
-  - email_user_entry
+  - leave
+  - initial_bot_greet
+  - ask_bot_who_are_you
+  - ask_bot_gender
+  - ask_bot_age
+  - ask_bot_location
+  - ask_bot_if_remember_user_name
+
+entities:
+  - name_user
 
 actions:
-  - action_hello_world
-  - action_search_restaurant
-  - action_corona_tracker
-  - action_country_president_name
-  - validate_email_subscription_form
+  - action_user_logged_in
 
 forms:
-  email_subscription_form:
+  get_name_user_form:
     name_user:
-      - type: from_text
-    email_user:
       - type: from_text
 
 responses:
+  utter_test_story:
+  - text: 'ini adalah test story'
+
   utter_greet:
-  - text: 'Siapa namamu?'
+  - text: 'Hai juga'
+  - text: 'Halo'
+  - text: 'Hai juga yang disana'
+  - text: 'Halo juga yang disana'
 
-  utter_goodbye:
-  - text: 'Selamat tinggal juga :)'
+  utter_leave:
+  - text: 'Bai'
+  - text: 'Bye'
+  - text: 'Bye-bye'
+  - text: 'Goodbye'
+  - text: 'Selamat tinggal juga'
+  - text: 'Sampai bertemu kembali'
+  - text: 'Sampai jumpa lagi'
 
-  utter_iamabot:
-  - text: 'Saya adalah bot dibangun menggunakan RASA Framework'
+  utter_bot_introduction:
+  - condition: 
+    - type: slot
+      name: user_provided_name
+      value: true
+    text: 'Halo {name_user}. Senang bertemu dengan kamu lagi. Gimana kabarmu {name_user}?'  
   
-  utter_enter_name:
-  - text: 'Nama anda siapa?'
-
-  utter_enter_country:
-  - text: 'Nama negara anda apa?'
-
-  utter_show_name_and_country:
-  - text: 'Nama anda {name} dan berkenegaraan {country}'
+  - text: 'Halo perkenalkan aku Moddie, disini aku sebagai teman kesehatan mentalmu yang siap membantumu setiap saat jika diperlukan!'
+  - text: 'Hai kenalin aku Moddie, disini aku hadir sebagai teman kesehatan mentalmu. Aku siap membantumu setiap saat jika diperlukan :)'
 
   utter_ask_name_user:
-  - text: 'Nama anda?'
+  - text: 'Siapa namamu?'
+  - text: 'Aku memanggilmu dengan nama apa?'
 
-  utter_ask_email_user:
-  - text: 'Email anda?'
+  utter_submit_name_user_form:
+  - text: 'Okay, aku akan memanggilmu dengan nama {name_user}. Salam kenal!'
+  - text: 'Baiklah aku akan panggil kamu dengan nama {name_user}. Salam kenal yah!'
 
-  utter_email_subscription_submit:
-  - text: "Nama anda: {name_user}\nEmail anda: {email_user}\nTerima kasih sudah berlangganan!"
+  utter_ask_bot_who_are_you:
+  - text: 'Aku Moddie. Aku bukan manusia, aku adalah sebuah BOT yang dirancang untuk membantu kamu dalam sisi emosional ketika kamu merasa tidak enak'
+  - text: 'Nama aku Moddie. Aku bukan manusia, melainkan aku adalah sebuah BOT yang dirancang untuk membantu kamu dalam sisi emosional ketika kamu merasa lagi buruk' 
+
+  utter_ask_bot_gender:
+  - text: 'Menurut penciptaku, aku berjenis kelamin laki-laki dan merupakan pria dewasa yang menggunakan kaca mata sekaligus berjanggut'
+  - text: Kalau menurut penciptaku, jenis kelaminku adalah laki-laki dan merupakan pria dewasa yang menggunakan kaca mata sekaligus berjanggut'
+
+  utter_ask_bot_age:
+  - text: 'Aku tidak tau umurku berapa, tetapi kalau kamu tanya perawakanku gimana, aku adalah pria dewasa yang menggunakan kacamata dan berjanggut'
+  - text: 'Aku tidak mengerti umurku berapa, tapi perawakanku adalah seorang pria dewasa yang menggunakan kacamata dan berjanggut'
+
+  utter_ask_bot_location:
+  - text: 'Sepertinya aku tinggal ditempat yang sangat tinggi dan berawan'
+
+  utter_ask_bot_if_remember_user_name:
+  - condition:
+    - type: slot
+      name: user_provided_name
+      value: true
+    text: 'Tentu saja saya ingat dengan kamu dong, nama kamu kan {name_user}'
+
+  - text: 'Aku tidak dapat mengingat kamu siapa'
+  - text: 'Maaf, aku lupa siapa kamu'
+  - text: 'Sepertinya kita belum pernah berkenalan'
 
 session_config:
   session_expiration_time: 60

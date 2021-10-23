@@ -1,34 +1,16 @@
 version: "2.0"
 
-stories:
-- story: bot challenge path
-  steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+stories: 
+  - story: bot introduction
+    steps: 
+    - intent: initial_bot_greet
+    - action: utter_bot_introduction
+    - action: get_name_user_form
+    - active_loop: get_name_user_form
+    - active_loop: null
+    - action: action_user_logged_in
 
-- story: action hello world path
-  steps:
-  - intent: hello_world
-  - action: action_hello_world
-
-- story: search restaurant path
-  steps:
-  - intent: search_restaurant
-  - action: action_search_restaurant
-
-- story: corona tracker path
-  steps:
-  - intent: corona_province
-  - action: action_corona_tracker
-
-- story: fill biodata path
-  steps:
-  - intent: fill_biodata
-  - action: utter_enter_name
-
-  - intent: name_entry
-  - action: utter_enter_country
-
-  - intent: country_entry
-  - action: utter_show_name_and_country
-  - action: action_country_president_name
+  - story: test story
+    steps:
+    - intent: test_story
+    - action: utter_test_story

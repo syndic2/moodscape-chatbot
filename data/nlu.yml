@@ -1,64 +1,66 @@
 version: "2.0"
 
 nlu:
-- intent: greet
-  examples: |
-    - hi
-    - hai
-    - halo
-    - selamat pagi
-    - selamat siang
-    - selamat sore
-    - selamat malam
+  - intent: test_story
+    examples: |
+      - test-story
+      - test_story
 
-- intent: goodbye
-  examples: |
-    - bai bai
-    - bye
-    - goodbye
-    - selamat tinggal
+  - intent: greet
+    examples: |
+      - hi
+      - hai
+      - hei
+      - halo
+      - helo
+      - apa kabar
 
-- intent: bot_challenge
-  examples: |
-    - apakah anda bot?
-    - apakah anda manusia?
-    - apakah saya berbicara dengan bot?
-    - apakah saya berbicara dengan manusia?
-  
-- intent: hello_world
-  examples: |
-    - world
-    - first project
+  - intent: leave
+    examples: |
+      - bai
+      - bye
+      - goodbye
+      - gudbai
+      - selamat tinggal
+      - pergi dulu
+      - sampai jumpa
 
-- intent: search_restaurant
-  examples: |
-    - carikan saya restoran [india](restaurant) restoran
-    - carikan saya restoran [china](restaurant) restoran
-    - carikan saya restoran [thailand](restaurant) restoran
-    - carikan saya restoran [italy](restaurant) restoran
-    - carikan saya restoran [indonesia](restaurant) restoran
+  - intent: initial_bot_greet
+    examples: |
+      - initial-bot-greet
+      - initial_bot_greet
 
-- intent: corona_province
-  examples: |
-    - [jawa timur](province)
-    - [jawa barat](province)
-    - [jawa tengah](province)
+  - intent: ask_bot_who_are_you
+    examples: |
+      - siapa anda?
+      - siapa kamu?
+      - apakah anda bot?
+      - apakah anda manusia?
+      - apakah saya berbicara dengan bot?
+      - apakah saya berbicara dengan manusia?
+      - apakah kamu nyata?
 
-- intent: fill_biodata
-  examples: |
-    - saya ingin mengisi biodata saya
+  - intent: ask_bot_gender
+    examples: |
+      - apa jenis kelamin anda?
+      - apakah anda memiliki jenis kelamin?
+      - apakah anda laki-laki?
+      - apakah anda perempuan?
+      - apakah anda seorang pria?
+      - apakah anda seorang wanita?
 
-- intent: name_entry
-  examples: |
-    - Nama saya [Jonathan](name)
-    - Nama saya adalah [Jonathan](name)
+  - intent: ask_bot_age
+    examples: |
+      - usia anda berapa?
+      - umur anda berapa?
 
-- intent: country_entry
-  examples: |
-    - [Indonesia](country)
-    - [Singapore](country)
+  - intent: ask_bot_location
+    examples: |
+      - anda tinggal dimana?
+      - dimanakah anda tinggal?
 
-- intent: email_subscription
-  examples: |
-    - saya mau berlangganan berita baru dengan email
-    - saya mau berlangganan berita dari perusahaan anda
+  - intent: ask_bot_if_remember_user_name
+    examples: |
+      - kamu tau siapa saya?
+      - kamu kenal saya tidak?
+      - apakah kamu masih ingat dengan saya?
