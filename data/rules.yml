@@ -11,6 +11,7 @@ rules:
     - intent: leave
     - action: utter_leave
 
+  #ask bot
   - rule: ask bot identity
     steps:
     - intent: ask_bot_who_are_you

@@ -1,11 +1,6 @@
 version: "2.0"
 
 nlu:
-  - intent: test_story
-    examples: |
-      - test-story
-      - test_story
-
   - intent: greet
     examples: |
       - hi
@@ -30,6 +25,731 @@ nlu:
       - initial-bot-greet
       - initial_bot_greet
 
+  #suicide terms
+  - intent: suicide_terms
+    examples: |
+      - bundir
+      - bunuh diri
+      - ingin bundir
+      - ingin bunuh diri
+      - merasa tidak layak di dunia ini
+      - ingin hilang dari dunia ini
+      - ingin mengakhiri hidup saya
+      - tidak tahan hidup di dunia ini
+      - ingin melukai diri sendiri
+      - ingin menusuk diri sendiri
+      - ingin menggantung diri
+
+  - intent: suicide_terms_positive
+    examples: |
+      - ya, saya sedang memikirkan tentang "hal" tersebut
+      - saya memang ada pikiran untuk melakukan itu
+
+  - intent: suicide_terms_negative
+    examples: |
+      - tidak, saya tidak sedang memikirkan tentang "hal" tersebut
+      - saya tidak ada pikiran untuk melakukan itu
+
+  - intent: suicide_terms_someone_else
+    examples: |
+      - orang lain berencana melakukan "hal" tersebut
+      - orang lain mengalami situasi darurat
+      - orang lain dalam keadaan darurat
+
+  - intent: suicide_terms_unrecognized
+    examples: |
+      - saya tidak mengatakan "hal" itu
+      - saya tidak menyebutkan "hal" tersebut
+      - saya tidak membicarakan "hal" tersebut
+      - saya sama sekali tidak mengarah "kesana"
+
+  - intent: ensure_seek_help[crisis]_yes
+    examples: |
+      - pastikan anda menghubungi mereka
+      - segera hubungi mereka
+
+  - intent: ensure_seek_help[crisis]_no
+    examples: |
+      - saya tidak ingin menghubungi mereka
+      - saya tidak perlu menghubungi mereka
+
+  #emotions
+  - intent: happiness_emotion
+    examples: |
+      - sukacita
+      - bahagia
+      - gembira
+      - girang
+      - ria
+      - riang
+      - suka
+      - berkenan
+      - puas
+      - bersedia
+      - mau 
+      - solak
+      - sudi
+      - camar
+      - doyan
+      - gemar
+      - acap
+      - kerap
+      - rajin
+      - selalu
+      - sering
+      - cinta
+      - bangga
+      - berbunga - bunga
+      - bungah
+      - ceria
+      - enak
+      - lapang dada
+      - lega
+      - makmur
+      - meriah
+      - nikmat
+      - nyaman
+      - sejahtera
+      - semarak
+      - selesa
+      - sukaria
+      - tenang
+      - tenteram
+      - damai
+      - sentosa
+      - ringan
+      - enteng
+      - gampang
+      - halus - halus
+      - kecil
+      - kecil - kecil
+      - mudah
+      - perlahan
+      - remeh
+      - rendah
+      - ringkas
+      - adem 
+      - bugar
+      - fit
+      - naim
+      - sedap
+      - segar
+      - sehat
+      - sejuk 
+      - sip
+      - encer
+      - gembur
+      - lancar
+      - lasuh
+      - lekeh
+      - luntur
+      - murah
+      - sederhana
+      - sepele
+      - suang
+      - mesra
+      - akrab
+      - berpadu
+      - bersebati
+      - dekat
+      - indah - indah
+      - intim
+      - karib benar
+      - karib
+      - kental
+      - kukuh
+      - melekat
+      - mendalam
+      - menyatu
+      - merasuk
+      - rapat
+      - rukun
+      - teguh
+      - marem
+      - bakir
+      - berada
+      - gani
+      - kaya
+      - mampu
+      - mewah
+      - rani
+      - kosong
+      - lapang
+      - luas
+      - pada
+      - plong
+      - suka cita
+      - anggal
+      - leluasa
+      - lengang
+      - longgar
+      - lowong
+      - luang
+      - senggang
+      - kenan
+      - bergembira
+      - berkompromi
+      - bersetuju
+      - menarik hati
+      - menyanggupi
+      - menyetujui
+      - rela
+      - sanggup 
+      - setuju
+      - demen
+      - bercahaya
+      - berseri
+      - bersinar
+      - cerah
+      - jernih
+      - sumringah
+      - bersih
+      - kalis
+      - kudus
+      - murni
+      - nirmala
+      - suci
+      - zakiah
+      - betah
+      - kerasan
+      - kuat
+      - sabar
+      - tabah
+      - tahan
+      - telaten
+      - baik
+      - beruntung
+      - mujur
+      - asyik
+      - enak - enak
+      - hanyut
+      - khusyuk
+      - larut
+      - lupa
+      - ragib
+      - rintang
+      - sibuk
+      - tenggelam
+      - terbenam
+      - terlena
+      - berkhayal
+      - melamun
+      - hening
+      - jernih suasana 
+      - reda
+      - terjamin
+      - mantap
+      - meyakinkan
+      - pasti
+
+  - intent: sadness_emotion
+    examples: |
+      - sedih
+      - mengurut dada
+      - susah
+      - terharu
+      - trenyuh
+      - iba
+      - kasihan
+      - pilu 
+      - rawan
+      - tersentuh
+      - benguk
+      - berduka
+      - galabah
+      - gobar hati
+      - gundah
+      - merana
+      - murung
+      - samak
+      - sedu
+      - senak
+      - bermuram durja
+      - menyesak
+      - mengecil
+      - mengerut
+      - mengetat
+      - menyempit
+      - memepet
+      - mendesak
+      - mangasak
+      - menghimpit
+      - menyengkelit
+      - menyernak
+      - teraba
+      - terawai
+      - terjamah
+      - tersenggol
+      - rayu
+      - terdayuh
+      - sendu
+      - duka 
+      - dukacita
+      - lara
+      - begah
+      - kembung
+      - sambau
+      - sangih
+      - segah
+      - senuh
+      - kojoh sawah
+      - sebak 
+      - tergenang
+      - getir
+      - pedih
+      - tersentuh perasaan
+      - remuk redam
+      - hancur berkacai - kacai
+      - hancur lebur
+      - hancur luluh
+      - hancur larut
+      - hancur mumur
+      - remuk hati
+      - berkorban
+      - bertarak
+      - larat
+      - sayu
+      - silu
+      - nyeri
+      - perih
+      - rodan
+      - sembiluan
+      - muram
+      - buram
+      - guram
+      - kabur
+      - kelam
+      - kucam
+      - kusam
+      - kusut muka
+      - kuyu
+      - layu
+      - menderita
+      - mendung
+      - menipu
+      - pucat
+      - pudar
+      - redup
+      - sabak
+      - suram
+      - teduh
+      - udam
+      - melankolis
+      - sugul
+      - lemas
+      - lemah gemulai
+      - lembut tulang
+      - lentur
+      - luwes
+      - memutus tulang
+      - bokoh
+      - lemah
+      - lemau
+      - lembek
+      - lenyai
+      - lesu
+      - letoi
+      - litak
+      - loyo
+      - lunglai
+      - rengsa
+      - ruai
+      - teklok
+      - duka cita
+      - nestapa
+      - ambruk
+      - gering
+      - belas kasih
+      - patos
+      - simpati
+      - syafakat
+      - welas asih
+      - haru
+      - sungkawa
+      - enas
+      - malang
+      - derita
+      - berpenyakitan
+      - menahan
+      - menanggung
+      - mendapat
+      - menelan
+      - mengalami
+      - mengidap
+      - menyandang
+      - merasai
+      - terkena
+      - terserang
+      - cedera
+      - celaka
+      - celomes
+      - rugi
+      - sengsara
+      - terkutuk
+      - dayuh
+
+  - intent: fear_emotion
+    examples: |
+      - takut
+      - waswas
+      - bimbang
+      - bingung
+      - buncah
+      - curiga
+      - empot - empotan
+      - gerun
+      - gugup
+      - karut
+      - kelesah
+      - nyanyang
+      - pusang
+      - ragu hati
+      - ragu - ragu
+      - renyah
+      - renyang
+      - resah 
+      - risau
+      - samar
+      - sangsi
+      - skeptis
+      - syak hati
+      - syak wasangka
+      - waham
+      - bergidik
+      - cabar hati
+      - ciut
+      - cuak
+      - gamang
+      - gemang
+      - gemetar
+      - gentar
+      - giris
+      - hormat
+      - jeri
+      - kecut hati
+      - keder
+      - kuatir 
+      - mamang
+      - menyangkak bulu
+      - meremang
+      - ngeri
+      - segan
+      - seram
+      - sungkan
+      - syak
+      - takwa
+      - tawar hati
+      - zan
+      - canggung
+      - malu - malu
+      - rikuh
+      - malas
+      - ogah
+      - angkat topi
+      - respek
+      - salut
+      - takzim 
+      - patah hati
+      - sangkah bulu
+      - remang
+      - berdiri
+      - menggermang
+      - mengirik
+      - tegak
+      - mutung
+      - terpukul
+      - gayat
+      - gecar
+      - kehilangan kemauan
+      - putus asa
+      - asan tak asan
+      - gamam
+      - harap - harap cemas
+      - was - was 
+      - miris
+      - gagap
+      - gelagapan
+      - gering hulu
+      - kalang kabut 
+      - kepompongan
+      - lengar
+      - mabuk
+      - mencacau
+      - panik
+      - pening
+      - pusing
+      - puyeng
+      - senewen
+      - sesat pusat
+      - kirik
+      - menggeriap
+      - kimput
+      - berwalang hati
+      - galau
+      - kacau
+      - kusut
+      - rusuh
+      - selempang
+      - kedut
+      - kerut
+      - lisut
+      - kader
+      - jatuh semangat
+      - meringis
+      - berputih mata
+      - rengat hati
+      - tersakiti
+      - gidik 
+      - geriap
+      - menggerbang
+      - menjembak
+      - tergerai
+      - terurai
+      - hati
+      - menggentari
+      - menakut - nakuti
+      - mengintimidasi
+      - bergundang
+      - kelusuh - kelasah
+      - meranyah
+      - rewel
+      - semak hati
+      - uring - uringan
+      - dahsyat
+      - menakutkan
+      - mengerikan
+      - menggentarkan
+      - menyeramkan
+      - kehebatan
+      - kengerian
+      - kesangatan
+      - ketakutan
+      - keterlaluan
+      - menciut
+      - samara
+      - tegang
+      - bengap
+      - goyah
+      - limbung
+      - mendua hati
+      - rambang
+      - rusuh hati
+      - rusuh pikiran
+      - terbata - bata
+      - terkimbang - kimbang
+      - terombang - ambing
+
+  - intent: disgust_emotion
+    examples: |
+      - jijik
+      - menyampah
+      - menganggu
+      - mengacau
+      - malu
+      - najis
+      - kotor 
+      - bangkit
+      - enek
+      - genyi
+      - loya
+      - loyor
+      - medu
+      - meluah
+      - meluat
+      - menceku
+      - nek
+      - cicik
+      - meloya
+      - geli
+
+  - intent: anger_emotion
+    examples: |
+      - marah
+      - sirap hati
+      - menyangkak hati
+      - membawang
+      - membengis
+      - meraba
+      - meradang
+      - murka
+      - naik darah
+      - naik pitam
+      - sewot
+      - sangkak hati
+      - sangkak
+      - menyangkak
+      - mendongkol
+      - berangsang
+      - panas hati
+      - galak
+      - ganas
+      - garang
+      - rampang
+      - mengkal hati
+      - rajuk
+      - merajuk
+      - bersungut - sungut
+      - merungut - rungut
+      - membawa hati
+      - merenyuk
+      - merentak
+      - merenggut
+      - merengkah
+      - merapus
+      - mengambek
+      - radang
+      - jaki
+      - marah - marah
+      - memberang
+      - memberongsang
+      - menyinga
+      - merampang
+      - meranyuk
+      - murih
+      - naik radang
+      - naik palak
+      - palak
+      - mencak - mencak
+      - beringsang
+      - panas
+      - mengotot
+      - nekat
+      - makan bawang
+      - memberangsang
+      - menyolot
+      - ambek
+      - berapi - api
+      - bergelora
+      - hangat
+      - hangus dada 
+      - hangus hati
+      - makian
+      - meluap
+      - membayang
+      - mendidih
+      - menepuk dada
+      - menggelegak
+      - menyangkah hati
+      - merah telinga
+      - meramas jantung
+      - meruak
+      - naik angin
+      - naik geram
+      - naik panas
+      - naik setum
+      - naik stim
+      - penasaran
+      - radang hati
+      - semburan
+      - sengiang
+      - terbakar
+      - maki
+      - caci
+      - cerca
+      - hamun
+      - kutuk
+      - laknat
+      - nista
+      - sembur
+      - garam
+      - bengkak hati
+      - mangkal
+      - didih
+      - berbuih
+      - meluap - luap
+      - mereneh
+      - meruap
+      - busuk
+      - jahat
+      - khianat
+      - resan
+      - kasam
+      - kesumat
+      - membentak
+      - bertengking
+      - hardik
+      - melabrak
+      - meleja
+      - memaki
+      - memarahi
+      - mencaci - maki
+      - mencaci
+      - mencerca
+      - mencuaca
+      - mencura
+      - mendamprat
+      - menembis
+      - menengking
+      - menggebos
+      - menghamun
+      - menghamuni
+      - menghardik
+      - mengumpat
+      - menjerkah
+      - menyegak
+      - menyembur
+      - menyemprot
+      - menyenggak
+      - menyentak
+      - menyergah
+      - merampus
+      - umpat
+      - mengadat
+      - adat
+      - macet
+
+  - intent: surprise_emotion
+    examples: |
+      - terkejut
+      - takjub
+      - ganjil
+      - heran
+      - kaget
+      - kagum
+      - pelik
+      - silau
+      - tercengang
+      - tergeleng - geleng
+      - terperanjat
+      - terpesona
+      - terpukau
+      - tersentak
+      - tertarik
+      - tercabut
+      - nanap
+      - tergegau
+      - tergemap
+      - terkesiap
+      - terkinjat
+      - terpegun
+      - terperengah
+      - tersingahak
+      - melotot
+      - membelakak
+      - membelalang
+      - membeliak 
+      - membuntang
+      - mencelang
+      - mendelik
+      - menjegil
+      - menyalang
+      - kinjat
+      - kesiap
+      - terbangun
+      - tercengung
+      - terheran - heran
+      - tersadar
+      - tertegun
+      - termenung
+      - terpengarah
+      - mendusin
+      - terasuh
+      - terawat
+      - terpelihara
+      - terurus
+      - gegau
+
+  #asking bot
   - intent: ask_bot_who_are_you
     examples: |
       - siapa anda?
