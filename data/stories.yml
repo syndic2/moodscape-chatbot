@@ -3,7 +3,7 @@ version: "2.0"
 stories: 
   - story: bot introduction
     steps: 
-    - intent: initial_bot_greet
+    - intent: initiate_bot_greet
     - action: utter_bot_introduction
     - action: get_name_user_form
     - active_loop: get_name_user_form
@@ -11,78 +11,7 @@ stories:
     - action: action_user_logged_in
     - checkpoint: ask_user_condition
   
-  #emergency situation path
-  - story: ask user if really in emergency situation
-    steps:
-    - intent: suicide_terms
-    - action: utter_suicide_terms.confirmation_1
-    - action: utter_suicide_terms.confirmation_2
-    - checkpoint: suicide_terms_confirmation
-  
-  #user in emergency situation
-  - story: user in emergency situation
-    steps:
-    - checkpoint: suicide_terms_confirmation
-    - intent: suicide_terms_positive
-    - action: utter_suicide_terms.positive_response_1
-    - checkpoint: provide_suicide_hotline_information
-
-  #user not in emergency situation
-  - story: user not in emergency situation
-    steps:
-    - checkpoint: suicide_terms_confirmation
-    - intent: suicide_terms_negative
-    - action: utter_suicide_terms.negative_response_1
-    - action: utter_suicide_terms.negative_response_2
-
-  #user friends or families in emergency situation
-  - story: user friends or families in emergency situation
-    steps: 
-    - checkpoint: suicide_terms_confirmation
-    - intent: suicide_terms_someone_else
-    - action: utter_suicide_terms.someone_else_response_1
-    - checkpoint: provide_suicide_hotline_information
-
-  #bot missunderstood about suicide terms
-  - story: bot missunderstood about suicide terms
-    steps:
-    - checkpoint: suicide_terms_confirmation
-    - intent: suicide_terms_unrecognized
-    - action: utter_suicide_terms.unrecognized_response_1
-    - action: utter_suicide_terms.unrecognized_response_2
-    - action: utter_suicide_terms.unrecognized_response_3
-
-  #provide user suicide hotline information path
-  - story: provide user suicide hotline information
-    steps:
-    - checkpoint: provide_suicide_hotline_information
-    - action: utter_suicide_terms.positive_response_2
-    - action: utter_suicide_terms.positive_response_3
-    - action: utter_suicide_terms.hotline_1
-    - action: utter_suicide_terms.hotline_2
-    - action: utter_suicide_terms.hotline_3
-    - action: utter_suicide_terms.hotline_4
-    - action: utter_suicide_terms.hotline_5
-    - action: utter_ensure_seek_help.crisis_confirmation
-    - checkpoint: ensure_seek_help[crisis]_confirmation
-
-  #ensure user to call hotline for seek help path
-  - story: user seek help
-    steps:
-    - checkpoint: ensure_seek_help[crisis]_confirmation
-    - intent: ensure_seek_help[crisis]_yes
-    - action: utter_ensure_seek_help.crisis_response_1
-    - action: utter_ensure_seek_help.crisis_response_3
-    - action: utter_suicide_terms.quotes  
-    - action: utter_ensure_seek_help.crisis_response_4
-
-  - story: user dont want to seek help
-    steps:
-    - checkpoint: ensure_seek_help[crisis]_confirmation
-    - intent: ensure_seek_help[crisis]_no
-    - action: utter_ensure_seek_help.crisis_response_2
-
-  #ask user feelings path
+    #start - ask user feelings path
   - story: ask user feelings (happiness)
     steps:
     - checkpoint: ask_user_condition
@@ -124,3 +53,71 @@ stories:
     - action: utter_ask_user_condition
     - intent: surprise_emotion
     - action: utter_surprise_emotion
+  #end - ask user feelings path
+
+  #start - mental disorders awareness path
+  #end - mental disorders awareness path  
+
+  #start - emergency situation path
+  - story: ask user if really in emergency situation
+    steps:
+    - intent: suicide_terms
+    - action: utter_suicide_terms.confirmation_1
+    - action: utter_suicide_terms.confirmation_2
+  
+  #user in emergency situation
+  - story: user in emergency situation
+    steps:
+    - intent: suicide_terms_positive
+    - action: utter_suicide_terms.positive_response_1
+    - checkpoint: provide_suicide_hotline_information
+
+  #user not in emergency situation
+  - story: user not in emergency situation
+    steps:
+    - intent: suicide_terms_negative
+    - action: utter_suicide_terms.negative_response_1
+    - action: utter_suicide_terms.negative_response_2
+
+  #user friends or families in emergency situation
+  - story: user friends or families in emergency situation
+    steps: 
+    - intent: suicide_terms_someone_else
+    - action: utter_suicide_terms.someone_else_response_1
+    - checkpoint: provide_suicide_hotline_information
+
+  #bot missunderstood about suicide terms
+  - story: bot missunderstood about suicide terms
+    steps:
+    - intent: suicide_terms_unrecognized
+    - action: utter_suicide_terms.unrecognized_response_1
+    - action: utter_suicide_terms.unrecognized_response_2
+    - action: utter_suicide_terms.unrecognized_response_3
+
+  #provide user suicide hotline information
+  - story: provide user suicide hotline information
+    steps:
+    - checkpoint: provide_suicide_hotline_information
+    - action: utter_suicide_terms.positive_response_2
+    - action: utter_suicide_terms.positive_response_3
+    - action: utter_suicide_terms.hotline_1
+    - action: utter_suicide_terms.hotline_2
+    - action: utter_suicide_terms.hotline_3
+    - action: utter_suicide_terms.hotline_4
+    - action: utter_suicide_terms.hotline_5
+    - action: utter_ensure_seek_help.crisis_confirmation
+
+  #ensure user to call hotline for seek help
+  - story: user seek help
+    steps:
+    - intent: ensure_seek_help[crisis]_yes
+    - action: utter_ensure_seek_help.crisis_response_1
+    - action: utter_ensure_seek_help.crisis_response_3
+    - action: utter_suicide_terms.quotes  
+    - action: utter_ensure_seek_help.crisis_response_4
+
+  - story: user dont want to seek help
+    steps:
+    - intent: ensure_seek_help[crisis]_no
+    - action: utter_ensure_seek_help.crisis_response_2
+  #end - emergency situation path

@@ -1,6 +1,6 @@
 version: "2.0"
 
-nlu:
+nlu:    
   - intent: greet
     examples: |
       - hi
@@ -20,60 +20,55 @@ nlu:
       - pergi dulu
       - sampai jumpa
 
-  - intent: initial_bot_greet
+  - intent: initiate_bot_greet
     examples: |
-      - initial-bot-greet
-      - initial_bot_greet
+      - initiate-bot-greet
+      - initiate_bot_greet
 
-  #suicide terms
-  - intent: suicide_terms
+  - intent: ask_current_dialog_topic
     examples: |
-      - bundir
-      - bunuh diri
-      - ingin bundir
-      - ingin bunuh diri
-      - merasa tidak layak di dunia ini
-      - ingin hilang dari dunia ini
-      - ingin mengakhiri hidup saya
-      - tidak tahan hidup di dunia ini
-      - ingin melukai diri sendiri
-      - ingin menusuk diri sendiri
-      - ingin menggantung diri
+      - apa yang sedang kita bicarakan
+      - kita sedang membahas apa ya
+      - topik apa yang sedang kita omongkan
+      - kita lagi ngomongin apa sekarang ya
 
-  - intent: suicide_terms_positive
+    #asking bot
+  - intent: ask_bot_who_are_you
     examples: |
-      - ya, saya sedang memikirkan tentang "hal" tersebut
-      - saya memang ada pikiran untuk melakukan itu
+      - siapa anda?
+      - siapa kamu?
+      - apakah anda bot?
+      - apakah anda manusia?
+      - apakah saya berbicara dengan bot?
+      - apakah saya berbicara dengan manusia?
+      - apakah kamu nyata?
 
-  - intent: suicide_terms_negative
+  - intent: ask_bot_gender
     examples: |
-      - tidak, saya tidak sedang memikirkan tentang "hal" tersebut
-      - saya tidak ada pikiran untuk melakukan itu
+      - apa jenis kelamin anda?
+      - apakah anda memiliki jenis kelamin?
+      - apakah anda laki-laki?
+      - apakah anda perempuan?
+      - apakah anda seorang pria?
+      - apakah anda seorang wanita?
 
-  - intent: suicide_terms_someone_else
+  - intent: ask_bot_age
     examples: |
-      - orang lain berencana melakukan "hal" tersebut
-      - orang lain mengalami situasi darurat
-      - orang lain dalam keadaan darurat
+      - usia anda berapa?
+      - umur anda berapa?
 
-  - intent: suicide_terms_unrecognized
+  - intent: ask_bot_location
     examples: |
-      - saya tidak mengatakan "hal" itu
-      - saya tidak menyebutkan "hal" tersebut
-      - saya tidak membicarakan "hal" tersebut
-      - saya sama sekali tidak mengarah "kesana"
+      - anda tinggal dimana?
+      - dimanakah anda tinggal?
 
-  - intent: ensure_seek_help[crisis]_yes
+  - intent: ask_bot_if_remember_user_name
     examples: |
-      - pastikan anda menghubungi mereka
-      - segera hubungi mereka
+      - kamu tau siapa saya?
+      - kamu kenal saya tidak?
+      - apakah kamu masih ingat dengan saya?
 
-  - intent: ensure_seek_help[crisis]_no
-    examples: |
-      - saya tidak ingin menghubungi mereka
-      - saya tidak perlu menghubungi mereka
-
-  #emotions
+    #emotions
   - intent: happiness_emotion
     examples: |
       - sukacita
@@ -748,39 +743,238 @@ nlu:
       - terpelihara
       - terurus
       - gegau
-
-  #asking bot
-  - intent: ask_bot_who_are_you
+  
+  #mental disorders awareness
+  - intent: ask_mental_disorder_description
     examples: |
-      - siapa anda?
-      - siapa kamu?
-      - apakah anda bot?
-      - apakah anda manusia?
-      - apakah saya berbicara dengan bot?
-      - apakah saya berbicara dengan manusia?
-      - apakah kamu nyata?
+      - apa itu [Agorofobia]{ "entity": "mental_disorder" }
+      - apa yang dimaksud dengan [Anoreksia Nervosa]{ "entity": "mental_disorder" }
+      - apa yang dimaksud dengan [Autisme]{ "entity": "mental_disorder" }
+      - [Bad Mood]{ "entity": "mental_disorder" } itu apa
+      - [Bruxism]{ "entity": "mental_disorder" } itu apa ya
+      - pengertian dari [Bulimia Nervosa]{ "entity": "mental_disorder" } apa ya
+      - pengertian dari [Delirium]{ "entity": "mental_disorder" } itu apa ya
+      - jelaskan yang dimaksud dengan [Delusional]{ "entity": "mental_disorder" }
 
-  - intent: ask_bot_gender
+  - intent: ask_mental_disorder_types
     examples: |
-      - apa jenis kelamin anda?
-      - apakah anda memiliki jenis kelamin?
-      - apakah anda laki-laki?
-      - apakah anda perempuan?
-      - apakah anda seorang pria?
-      - apakah anda seorang wanita?
+      - jenis dari gangguan [Agorofobia]{ "entity": "mental_disorder" }
+      - apa saja jenis gangguan dari [Anoreksia Nervosa]{ "entity": "mental_disorder" }
+      - jelsakan jenis - jenis dari gangguan [Autisme]{ "entity": "mental_disorder" }
+      - [Bad Mood]{ "entity": "mental_disorder" } jenisnya apa saja
+      - ada berapa jenis gangguan dari [Bruxism]{ "entity": "mental_disorder" }
+      - gangguan [Bulimia Nervosa]{ "entity": "mental_disorder" } jenisnya apa saja ya
+      - apakah gangguan [Delirium]{ "entity": "mental_disorder" } memiliki jenis yang berbeda - beda
+      - macam macam jenis dari gangguan [Delusional]{ "entity": "mental_disorder" }
 
-  - intent: ask_bot_age
+  - intent: ask_mental_disorder_signs_and_sympthomps
     examples: |
-      - usia anda berapa?
-      - umur anda berapa?
+      - tanda dari gangguan [Agorofobia]{ "entity": "mental_disorder" }
+      - gejala dari gangguan [Anoreksia Nervosa]{ "entity": "mental_disorder" }
+      - apa tanda dari gangguan [Autisme]{ "entity": "mental_disorder" }
+      - apa gejala dari gangguan [Bad Mood]{ "entity": "mental_disorder" }
+      - tanda dan gejala dari gangguan [Bruxism]{ "entity": "mental_disorder" } apa saja
+      - gangguan [Bulimia Nervosa]{ "entity": "mental_disorder" } tandanya apa saja ya
+      - gangguan [Delirium]{ "entity": "mental_disorder" } gejalanya apa saja ya
+      - apa tanda dan gejala dari gangguan [Delusional]{ "entity": "mental_disorder" }
 
-  - intent: ask_bot_location
+  - intent: ask_mental_disorder_causes
     examples: |
-      - anda tinggal dimana?
-      - dimanakah anda tinggal?
+      - penyebab dari gangguan [Agorofobia]{ "entity": "mental_disorder" }
+      - apa penyebab dari gangguan [Anoreksia Nervosa]{ "entity": "mental_disorder" }
+      - apa saja penyebab dari gangguan [Autisme]{ "entity": "mental_disorder" }
+      - gangguan [Bad Mood]{ "entity": "mental_disorder" } penyebabnya apa saja
+      - gangguan [Bruxism]{ "entity": "mental_disorder" } penyebabnya itu apa saja ya
+      - gangguan [Bulimia Nervosa]{ "entity": "mental_disorder" } penyebabnya apa
+      - apa yang menyebabkan munculnya gangguan [Delirium]{ "entity": "mental_disorder" }
+      - gangguan [Delusional]{ "entity": "mental_disorder" } terjadi karena apa
+  
+  - intent: ask_mental_disorder_diagnosis
+    examples: |
+      - diagnosa gangguan [Agorofobia]{ "entity": "mental_disorder" } apa saja
+      - gimana diagnosa gangguan [Anoreksia Nervosa]{ "entity": "mental_disorder" }
+      - cara mendiagnosa gangguan [Autisme]{ "entity": "mental_disorder" }
+      - bagaimana mendiagnosa gangguan [Bad Mood]{ "entity": "mental_disorder" }
+      - bagaimana cara melakukan diagnosa gangguan [Bruxism]{ "entity": "mental_disorder" }
+      - apa saja yang dilakukan untuk mendiagnosa gangguan [Bulimia Nervosa]{ "entity": "mental_disorder" }
+      - langkah yang dilakukan untuk mendiagnosa gangguan [Delirium]{ "entity": "mental_disorder" }
+      - langkah apa saja yang dilakukan untuk mendiagnosa gangguan [Delusional]{ "entity": "mental_disorder" }
 
-  - intent: ask_bot_if_remember_user_name
+  - intent: ask_mental_disorder_complications
     examples: |
-      - kamu tau siapa saya?
-      - kamu kenal saya tidak?
-      - apakah kamu masih ingat dengan saya?
+      - komplikasi gangguan [Agorofobia]{ "entity": "mental_disorder" }
+      - apa saja komplikasi gangguan [Anoreksia Nervosa]{ "entity": "mental_disorder" }
+      - komplikasi apa saja yang dapat dialami dari gangguan [Autisme]{ "entity": "mental_disorder" }
+      - dampak komplikasi dari gangguan [Bad Mood]{ "entity": "mental_disorder" }
+      - apa saja dampak komplikasi dari gangguan  [Bruxism]{ "entity": "mental_disorder" }
+      - gangguan [Bulimia Nervosa] komplikasinya apa
+      - gangguan [Delirium]{ "entity": "mental_disorder" } apa saja komplikasinya
+      - sebutkan komplikasi gangguan [Delusional]{ "entity": "mental_disorder" }
+
+  - intent: ask_mental_disorder_how_to_treat
+    examples: |
+      - bagaimana cara menangani [Agorofobia]{ "entity": "mental_disorder" }
+      - cara apa saja yang dapat digunakan untuk menangani [Anoreksia Nervosa]{ "entity": "mental_disorder" }
+      - apa saja yang dibutuhkan untuk menangani [Autisme]{ "entity": "mental_disorder" }
+      - apa saja yang dapat dilakukan untuk menangani [Bad Mood]{ "entity": "mental_disorder" }
+      - penanganan apa yang dapat dilakukan untuk menangani [Bruxism]{ "entity": "mental_disorder" }
+      - apa yang perlu dilakukan untuk menangani gangguan [Bulimia Nervosa]{ "entity": "mental_disorder" }
+      - cara menangani gangguan [Delirium]{ "entity": "mental_disorder" } gimana ya
+      - gangguan [Delusional]{ "entity": "mental_disorder" } cara penangananya bagaimana
+
+  - intent: ask_mental_disorder_how_to_prevent
+    examples: |
+      - pencegahan gangguan [Agorofobia]{ "entity": "mental_disorder" }
+      - mencegah gangguan [Anoreksia Nervosa]{ "entity": "mental_disorder" }
+      - bagaimana mencegah gangguan [Autisme]{ "entity": "mental_disorder" }
+      - bagaimana cara mencegah gangguan [Bad Mood]{ "entity": "mental_disorder" }
+      - gangguan [Bruxism]{ "entity": "mental_disorder" } pencegahannya bagaimana
+      - gangguan [Bulimia Nervosa] dicegah bagaimana
+      - upaya apa yang dilakukan untuk pencegahan gangguan [Delirium]{ "entity": "mental_disorder" }
+      - upaya apa saja yang dilakukan untuk mencegah gangguan [Delusional]{ "entity": "mental_disorder" }
+
+  - intent: ask_mental_disorder_when_to_consult
+    examples: |
+      - kapan harus konsultasi ketika mengidap gangguan
+      - apakah dibutuhkan untuk melakukan konsultasi ketika mengalami gangguan
+      - haruskah melakukan konsultasi ketika mengidap gangguan
+      - ketika mengalami gangguan apakah perlu konsultasi
+
+  - intent: ask_mental_disorder_preparation_before_consulting
+    examples: |
+      - apa saja yang perlu dipersiapkan sebelum melakukan konsultasi
+      - keperluan apa saja yang dibutuhkan sebelum melakukan konsultasi
+      - apa yang dibutuhkan sebelum melakukan konsultasi
+      - perlukah mempersiapkan diri sebelum melakukan konsultasi
+
+  - intent: ask_mental_disorder_during_the_consultation
+    examples: |
+      - kira-kira pertanyaan apa saja yang akan ditanyakan oleh dokter saat melakukan konsultasi
+      - pertanyaan apa saja yang ditanyakan saat melakukan konsultasi
+      - pertanyaan apa yang muncul saat melakukan konsultasi
+      - saat melakukan konsultasi apa yang akan ditanyakan oleh dokter
+
+  - lookup: mental_disorder 
+    examples: |
+      - Agorofobia
+      - Anoreksia Nervosa
+      - Autisme
+      - Bad Mood
+      - Bruxism
+      - Bulimia Nervosa
+      - Delirium
+      - Delusional
+      - Depresi
+      - Depresi Pasca-persalinan
+      - Fobia
+      - Gagap
+      - Gaming Disorder
+      - Bipolar
+      - Dismorfik Tubuh
+      - Identitas Disosiatif (Kepribadian Ganda)
+      - Kecemasan Sosial
+      - Kecemasan Umum
+      - Kepribadian
+      - Kepribadian Ambang
+      - Kepribadian Antisosial
+      - Kepribadian Narsisistik
+      - Kepribadian Paranoid 
+      - Koordinasi Perkembangan
+      - Makan
+      - Makan Pica
+      - Panik
+      - Pemusatan Perhatian dan Hiperaktivitas (ADHD)
+      - Stres Akut
+      - Tidur Berjalan
+      - Gelisah
+      - Halusinasi
+      - Hipersomnia
+      - Insomnia
+      - Katatonia
+      - Kecanduan Alkohol
+      - Kecanduan Makanan
+      - Kecanduan Nikotin
+      - Kleptomania
+      - Mimpi Buruk
+      - Narkolepsi
+      - Obsessive Compulsive Disorder (OCD)
+      - Oppositional Defiant Disorder
+      - Paraphilia
+      - Parenting Stress
+      - Pedofilia
+      - Penyakit Alzheimer
+      - Perubahan Sikap
+      - Post Traumatic Disorder (PTSD)
+      - Prolonged Grief Disorder
+      - Psikosis
+      - Psikosis Postpartum
+      - Retardasi Mental
+      - Sindrom Asperger
+      - Sindrom Munchausen
+      - Skizofrenia
+      - Skizofrenia Katatonik
+      - Skizofrenia Paranoid
+      - Sleep Paralysis
+      - Sleepwalking
+      - Stres
+      - Substance Abuse Disorder
+      - Trikotilomania
+      - Trypophobia
+  
+  - intent: want_to_know_more_about_mental_disorder
+    examples: |
+      - berikan informasi mengenai gangguan tersebut
+      - saya ingin mengetahui lebih mengenani gangguan tersebut
+
+  - intent: dont_want_to_know_more_about_mental_disorder
+    examples: |
+      - jangan berikan informasi tersebut
+      - saya tidak memerlukan informasi tersebut
+
+  #suicide terms
+  - intent: suicide_terms
+    examples: |
+      - bundir
+      - bunuh diri
+      - ingin bundir
+      - ingin bunuh diri
+      - merasa tidak layak di dunia ini
+      - ingin hilang dari dunia ini
+      - ingin mengakhiri hidup saya
+      - tidak tahan hidup di dunia ini
+      - ingin melukai diri sendiri
+      - ingin menusuk diri sendiri
+      - ingin menggantung diri
+
+  - intent: suicide_terms_positive
+    examples: |
+      - ya, saya sedang memikirkan tentang "hal" tersebut
+      - saya memang ada pikiran untuk melakukan itu
+
+  - intent: suicide_terms_negative
+    examples: |
+      - tidak, saya tidak sedang memikirkan tentang "hal" tersebut
+      - saya tidak ada pikiran untuk melakukan itu
+
+  - intent: suicide_terms_someone_else
+    examples: |
+      - orang lain berencana melakukan "hal" tersebut
+      - orang lain mengalami situasi darurat
+      - orang lain dalam keadaan darurat
+
+  - intent: suicide_terms_unrecognized
+    examples: |
+      - saya tidak mengatakan "hal" itu
+      - saya tidak menyebutkan "hal" tersebut
+      - saya tidak membicarakan "hal" tersebut
+      - saya sama sekali tidak mengarah "kesana"
+
+  - intent: ensure_seek_help[crisis]_yes
+    examples: |
+      - pastikan anda menghubungi mereka
+      - segera hubungi mereka
+
+  - intent: ensure_seek_help[crisis]_no
+    examples: |
+      - saya tidak ingin menghubungi mereka
+      - saya tidak perlu menghubungi mereka

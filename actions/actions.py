@@ -12,22 +12,18 @@ from rasa_sdk import Action, FormValidationAction, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
 
-import requests
-
-from utilities.helpers import extract_entity
-
-# class ActionHelloWorld(Action):
+#class ActionHelloWorld(Action):
 #
-#     def name(self) -> Text:
-#         return "action_hello_world"
+#    def name(self) -> Text:
+#        return "action_hello_world"
 #
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#    def run(self, dispatcher: CollectingDispatcher,
+#            tracker: Tracker,
+#            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 #
-#         dispatcher.utter_message(text="Hello World!")
+#        dispatcher.utter_message(text= "Hello World!")
 #
-#         return []
+#        return []
 
 class ActionUserLoggedIn(Action):
 
@@ -41,7 +37,26 @@ class ActionUserLoggedIn(Action):
         events= []
     
         if tracker.get_slot('user_provided_name') is None:
-            dispatcher.utter_template('utter_submit_name_user_form', tracker)
+            dispatcher.utter_message(response= 'utter_submit_name_user_form')
             events.append(SlotSet('user_provided_name', True))
         
         return events
+
+class ActionGetCurrentDialogTopic(Action):
+
+    def name(self) -> Text:
+        return 'action_get_current_dialog_topic'
+    
+    def run(self, dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        current_intent= tracker.latest_message['intent']['name']
+        current_dialog_topic= tracker.get_slot('current_dialog_topic')
+
+        if current_dialog_topic is None:
+            dispatcher.utter_message(response= 'utter_not_know_about_current_dialog_yet')
+
+        dispatcher.utter_message(text= current_dialog_topic)
+
+        return []        

@@ -1,6 +1,10 @@
 version: "2.0"
 
 slots:
+  current_dialog_topic:
+    type: text
+    influence_conversation: true
+
   auth_id:
     type: text
     influence_conversation: false
@@ -10,13 +14,20 @@ slots:
   user_provided_name:
     type: bool
     influence_conversation: false
+    
+  mental_disorder_dict:
+    type: any
+    influence_conversation: false
+  start_auto_explanation:
+    type: bool
+    influence_conversation: false
 
 intents:
   - greet
   - leave
-  - initial_bot_greet
-  
-  #emotions
+  - initiate_bot_greet
+  - ask_current_dialog_topic
+
   - happiness_emotion
   - sadness_emotion
   - fear_emotion
@@ -24,7 +35,20 @@ intents:
   - anger_emotion
   - surprise_emotion
 
-  #suicide terms
+  - ask_mental_disorder_description
+  - ask_mental_disorder_types
+  - ask_mental_disorder_signs_and_sympthomps
+  - ask_mental_disorder_causes
+  - ask_mental_disorder_diagnosis
+  - ask_mental_disorder_complications
+  - ask_mental_disorder_how_to_treat
+  - ask_mental_disorder_how_to_prevent
+  - ask_mental_disorder_when_to_consult
+  - ask_mental_disorder_preparation_before_consulting
+  - ask_mental_disorder_during_the_consultation
+  - want_to_know_more_about_mental_disorder
+  - dont_want_to_know_more_about_mental_disorder
+
   - suicide_terms
   - suicide_terms_positive
   - suicide_terms_negative
@@ -32,8 +56,7 @@ intents:
   - suicide_terms_unrecognized
   - ensure_seek_help[crisis]_yes
   - ensure_seek_help[crisis]_no
-
-  #asking bot
+  
   - ask_bot_who_are_you
   - ask_bot_gender
   - ask_bot_age
@@ -42,9 +65,20 @@ intents:
 
 entities:
   - name_user
+  - mental_disorder
 
 actions:
   - action_user_logged_in
+  - action_get_current_dialog_topic
+
+  - action_mental_disorder_description
+  - action_mental_disorder_types
+  - action_mental_disorder_signs_and_sympthomps
+  - action_mental_disorder_causes
+  - action_mental_disorder_diagnosis
+  - action_mental_disorder_complications
+  - action_mental_disorder_how_to_treat
+  - action_mental_disorder_how_to_prevent
 
 forms:
   get_name_user_form:
@@ -53,6 +87,15 @@ forms:
       - type: from_text
 
 responses:
+  utter_default:
+  - text: 'Maaf, aku tidak mengerti apa yang kamu maksud. Tolong ulangi apa yang kamu katakan'
+  - text: 'Sorry, aku belum mengerti apa yang kamu maksudkan. Tolong ulangi lagi'
+
+  utter_not_know_about_current_dialog_yet:
+  - text: 'Kita belum membahas topik hari ini'
+  - text: 'Kita tidak membicarakan apa-apa hari ini'
+  - text: 'Belum ada yang kita bicarakan atau bahas hari ini'
+
   utter_greet:
   - text: 'Hai juga'
   - text: 'Halo'
@@ -68,6 +111,7 @@ responses:
   - text: 'Sampai bertemu kembali'
   - text: 'Sampai jumpa lagi'
 
+  #start - bot introduction
   utter_bot_introduction:
   - condition: 
     - type: slot
@@ -91,6 +135,86 @@ responses:
   - text: 'Gimana perasaanmu sekarang?'
   - text: 'Bagaimana kabarmu hari ini?'
   - text: 'Bagaimana perasaanmu sekarang?'
+  #end - bot introduction
+
+  #start - asking bot
+  utter_ask_bot_who_are_you:
+  - text: 'Aku Moddie. Aku bukan manusia, aku adalah sebuah BOT yang dirancang untuk membantu kamu dalam sisi emosional ketika kamu merasa tidak enak'
+  - text: 'Nama aku Moddie. Aku bukan manusia, melainkan aku adalah sebuah BOT yang dirancang untuk membantu kamu dalam sisi emosional ketika kamu merasa lagi buruk' 
+
+  utter_ask_bot_gender:
+  - text: 'Menurut penciptaku, aku berjenis kelamin laki-laki dan merupakan pria dewasa yang menggunakan kaca mata sekaligus berjanggut'
+  - text: Kalau menurut penciptaku, jenis kelaminku adalah laki-laki dan merupakan pria dewasa yang menggunakan kaca mata sekaligus berjanggut'
+
+  utter_ask_bot_age:
+  - text: 'Aku tidak tau umurku berapa, tetapi kalau kamu tanya perawakanku gimana, aku adalah pria dewasa yang menggunakan kacamata dan berjanggut'
+  - text: 'Aku tidak mengerti umurku berapa, tapi perawakanku adalah seorang pria dewasa yang menggunakan kacamata dan berjanggut'
+
+  utter_ask_bot_location:
+  - text: 'Sepertinya aku tinggal ditempat yang sangat tinggi dan berawan'
+
+  utter_ask_bot_if_remember_user_name:
+  - condition:
+    - type: slot
+      name: user_provided_name
+      value: true
+    text: 'Tentu saja saya ingat dengan kamu dong, nama kamu kan {name_user}'
+
+  - text: 'Aku tidak dapat mengingat kamu siapa'
+  - text: 'Maaf, aku lupa siapa kamu'
+  - text: 'Sepertinya kita belum pernah berkenalan'
+  #end - asking bot
+
+  #start - mental disorders awareness
+  #confirmation
+  #...
+
+  #response
+  utter_not_yet_learn_mental_disorder:
+  - text: 'Maaf, aku belum mengerti tentang gangguan tersebut'
+  - text: 'Sorry, aku belum dilatih untuk mengetahui tentang gangguan tersebut'
+
+  #when to consult
+  utter_mental_disorder.when_to_consult_mental_disorder:
+  - text: 'Berkonsultasilah dengan dokter atau psikolog jika Anda mengalami gejala gangguan tersebut. Jangan membiarkan kondisi Anda bertambah parah.'
+  
+  #preparation before consulting
+  utter_mental_disorder.preparation_before_consulting:
+  - text: |
+        Sebelum melakukan konsultasi kepada psikolog atau dokter, sebaikanya kamu mempersipakan terlebih dahulu apa yang harus dilakukan:
+        - Buatlah daftar mengenai gejala yang muncul.
+        - Catat riwayat penyakit yang pernah dan sedang dialami. Demikian pula dengan riwayat medis keluarga.
+        - Catat semua obat, suplemen, obat herbal, atau vitamin yang dikonsumsi.
+        - Catat pertanyaan-pertanyaan yang ingin diajukan kepada dokter.
+        - Mintalah keluarga atau teman untuk mendampingi saat berkonsultasi ke dokter. Mereka bisa memberi dukungan moral maupun membantu mengingat informasi yang disampaikan dokter.
+
+  #during the consultation
+  utter_mental_disorder.during_the_consultation:
+  - text: |
+        Dalam sesi sebuah konsultasi mungkin saja psikolog atau dokter akan bertanya hal berikut ini:
+        - Apa saja gejala yang Anda rasakan?
+        - Kapan gejala pertama kali muncul?
+        - Apakah Anda memiliki faktor risiko terkait gangguan tersebut?
+        - Apakah Anda rutin mengonsumsi obat-obatan tertentu?
+        - Apakah Anda pernah mencari bantuan medis? Bila iya, apa saja pengobatan yang telah Anda coba?
+
+  #want to know more
+  utter_want_to_know_more_about_mental_disorder.response_1:
+  - text: "Baik aku akan melanjutkan memberikan informasi mengenai gangguan mental {mental_disorder_dict['name']}"
+
+  utter_want_to_know_more_about_mental_disorder.response_2:
+  - text: 'Untuk informasi yang akan aku berikan, aku dapat dari website resmi pemiliki KEMENKES Indonesia yaitu https://www.sehatq.com'
+
+  #utter_want_to_know_more_about_mental_disorder.response[signs_and_sympthomps]:
+  #- text: "Berikutnya aku akan menjelaskan untuk mengenai tanda dan gejala pada gangguan mental {mental_disorder_dict['name']}"
+
+  #dont want to know more
+  utter_dont_want_to_know_more_about_mental_disorder.response_1:
+  - text: 'Baik kalo begitu'
+
+  utter_dont_want_to_know_more_about_mental_disorder.response_2:
+  - text: 'Apa bila kamu ingin mengetahui tentang gangguan mental, kamu dapat menanyakannya kembali kepadaku'
+  #end - mental disorders awareness
 
   #start - suicide terms
   #confirmation
@@ -116,7 +240,7 @@ responses:
       payload: '/ensure_seek_help[crisis]_yes'
     - title: 'Tidak, saya tidak mau'
       payload: '/ensure_seek_help[crisis]_no'
-
+  
   #response
   #positive
   utter_suicide_terms.positive_response_1:
@@ -204,34 +328,6 @@ responses:
   utter_surprise_emotion:
   - text: 'emotion detected: terkejut'
   #end - bot response about user feelings
-
-  #start - asking bot
-  utter_ask_bot_who_are_you:
-  - text: 'Aku Moddie. Aku bukan manusia, aku adalah sebuah BOT yang dirancang untuk membantu kamu dalam sisi emosional ketika kamu merasa tidak enak'
-  - text: 'Nama aku Moddie. Aku bukan manusia, melainkan aku adalah sebuah BOT yang dirancang untuk membantu kamu dalam sisi emosional ketika kamu merasa lagi buruk' 
-
-  utter_ask_bot_gender:
-  - text: 'Menurut penciptaku, aku berjenis kelamin laki-laki dan merupakan pria dewasa yang menggunakan kaca mata sekaligus berjanggut'
-  - text: Kalau menurut penciptaku, jenis kelaminku adalah laki-laki dan merupakan pria dewasa yang menggunakan kaca mata sekaligus berjanggut'
-
-  utter_ask_bot_age:
-  - text: 'Aku tidak tau umurku berapa, tetapi kalau kamu tanya perawakanku gimana, aku adalah pria dewasa yang menggunakan kacamata dan berjanggut'
-  - text: 'Aku tidak mengerti umurku berapa, tapi perawakanku adalah seorang pria dewasa yang menggunakan kacamata dan berjanggut'
-
-  utter_ask_bot_location:
-  - text: 'Sepertinya aku tinggal ditempat yang sangat tinggi dan berawan'
-
-  utter_ask_bot_if_remember_user_name:
-  - condition:
-    - type: slot
-      name: user_provided_name
-      value: true
-    text: 'Tentu saja saya ingat dengan kamu dong, nama kamu kan {name_user}'
-
-  - text: 'Aku tidak dapat mengingat kamu siapa'
-  - text: 'Maaf, aku lupa siapa kamu'
-  - text: 'Sepertinya kita belum pernah berkenalan'
-  #end - asking bot
 
 session_config:
   session_expiration_time: 60
