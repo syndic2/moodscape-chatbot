@@ -9,50 +9,50 @@ stories:
     - active_loop: get_name_user_form
     - active_loop: null
     - action: action_user_logged_in
-    - checkpoint: ask_user_condition
+    # - checkpoint: ask_user_condition
   
     #start - ask user feelings path
-  - story: ask user feelings (happiness)
-    steps:
-    - checkpoint: ask_user_condition
-    - action: utter_ask_user_condition
-    - intent: happiness_emotion
-    - action: utter_happiness_emotion
+  # - story: ask user feelings (happiness)
+  #   steps:
+  #   - checkpoint: ask_user_condition
+  #   - action: utter_ask_user_condition
+  #   - intent: happiness_emotion
+  #   - action: utter_happiness_emotion
 
-  - story: ask user feelings (sadness)
-    steps:
-    - checkpoint: ask_user_condition
-    - action: utter_ask_user_condition
-    - intent: sadness_emotion
-    - action: utter_sadness_emotion
+  # - story: ask user feelings (sadness)
+  #   steps:
+  #   - checkpoint: ask_user_condition
+  #   - action: utter_ask_user_condition
+  #   - intent: sadness_emotion
+  #   - action: utter_sadness_emotion
   
-  - story: ask user feelings (fear)
-    steps:
-    - checkpoint: ask_user_condition
-    - action: utter_ask_user_condition
-    - intent: fear_emotion
-    - action: utter_fear_emotion
+  # - story: ask user feelings (fear)
+  #   steps:
+  #   - checkpoint: ask_user_condition
+  #   - action: utter_ask_user_condition
+  #   - intent: fear_emotion
+  #   - action: utter_fear_emotion
   
-  - story: ask user feelings (disgust)
-    steps:
-    - checkpoint: ask_user_condition
-    - action: utter_ask_user_condition
-    - intent: disgust_emotion
-    - action: utter_disgust_emotion
+  # - story: ask user feelings (disgust)
+  #   steps:
+  #   - checkpoint: ask_user_condition
+  #   - action: utter_ask_user_condition
+  #   - intent: disgust_emotion
+  #   - action: utter_disgust_emotion
   
-  - story: ask user feelings (anger)
-    steps:
-    - checkpoint: ask_user_condition
-    - action: utter_ask_user_condition
-    - intent: anger_emotion
-    - action: utter_anger_emotion
+  # - story: ask user feelings (anger)
+  #   steps:
+  #   - checkpoint: ask_user_condition
+  #   - action: utter_ask_user_condition
+  #   - intent: anger_emotion
+  #   - action: utter_anger_emotion
   
-  - story: ask user feelings (surprise)
-    steps:
-    - checkpoint: ask_user_condition
-    - action: utter_ask_user_condition
-    - intent: surprise_emotion
-    - action: utter_surprise_emotion
+  # - story: ask user feelings (surprise)
+  #   steps:
+  #   - checkpoint: ask_user_condition
+  #   - action: utter_ask_user_condition
+  #   - intent: surprise_emotion
+  #   - action: utter_surprise_emotion
   #end - ask user feelings path
 
   #start - mental disorders awareness path

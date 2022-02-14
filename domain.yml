@@ -28,12 +28,12 @@ intents:
   - initiate_bot_greet
   - ask_current_dialog_topic
 
-  - happiness_emotion
-  - sadness_emotion
-  - fear_emotion
-  - disgust_emotion
-  - anger_emotion
-  - surprise_emotion
+  # - happiness_emotion
+  # - sadness_emotion
+  # - fear_emotion
+  # - disgust_emotion
+  # - anger_emotion
+  # - surprise_emotion
 
   - ask_mental_disorder_description
   - ask_mental_disorder_types
