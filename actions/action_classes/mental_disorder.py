@@ -5,12 +5,13 @@ from rasa_sdk.events import SlotSet
 
 import requests
 
+from utilities.constants import api_urls
 from utilities.helpers import extract_entity
 
 not_yet_learn_template= 'utter_not_yet_learn_mental_disorder'
 
 def get_mental_disorder(mental_disorder_name):
-    response= requests.get(f'http://127.0.0.1:5000/api/mental-disorders?name={mental_disorder_name}').json()
+    response= requests.get(f'{api_urls["development"]}/mental-disorders?name={mental_disorder_name}').json()
 
     if len(response['mental_disorders']) == 0:
         return None

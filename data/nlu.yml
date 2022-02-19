@@ -9,6 +9,8 @@ nlu:
       - halo
       - helo
       - apa kabar
+      - apa kabarmu
+      - apa kabar kamu
 
   - intent: leave
     examples: |
@@ -32,6 +34,14 @@ nlu:
       - topik apa yang sedang kita omongkan
       - kita lagi ngomongin apa sekarang ya
 
+  - intent: set_datepicker_dates
+    examples: |
+      - datepicker_dates: [2021-1-11/2022-2-18](datepicker_dates)
+      - datepicker_dates: [2021-1-12/2022-2-17](datepicker_dates)
+      - datepicker_dates: [2021-1-13/2022-2-16](datepicker_dates)
+      - datepicker_dates: [2021-1-14/2022-2-15](datepicker_dates)
+      - datepicker_dates: [2021-1-15/2022-2-14](datepicker_dates)
+  
     #asking bot
   - intent: ask_bot_who_are_you
     examples: |
@@ -747,6 +757,103 @@ nlu:
   #     - terurus
   #     - gegau
   
+  #Brief-COPE
+  - intent: what_is_brief_cope
+    examples: |
+      - apa itu Brief-COPE
+      - kuesioner Brief-COPE apa itu
+      - apa yang dimaksud dengan Brief-COPE
+      - apa yang dimaksud dengan metode Brief-COPE
+      - apa yang dimaksud dengan evaluasi Brief-COPE
+      - jelaskan kepadaku mengenai Brief-COPE
+      - aku tidak mengerti Brief-COPE itu apa
+  
+  - intent: how_to_choose_coping_strategy
+    examples: |
+      - cara mengetahui teknik koping
+      - cara mengetahui teknik coping
+      - cara mengetahui teknik koping yang cocok
+      - cara mengetahui teknik coping yang cocok
+      - bagaimana cara mengetahui teknik koping yang cocok untuk aku
+      - bagaimana cara mengetahui teknik koping yang cocok untuk saya
+      - kira-kira teknik koping yang cocok untuk saya apa ya
+
+  - intent: already_know_brief_cope
+    examples: |
+      - sudah tau Brief-COPE
+      - ya, sudah tau Brief-COPE
+      - ya, saya sudah tau apa itu Brief-COPE
+      - ya, aku sudah tau apa itu Brief-COPE
+      - ya, sudah pernah denga tentang metode Brief-COPE
+
+  - intent: do_not_know_brief_cope
+    examples: |
+      - belum tau tentang Brief-COPE
+      - tidak, belum tau tentang Brief-COPE
+      - tidak, saya belum tau apa itu Brief-COPE
+      - tidak, aku belumtau apa itu Brief-COPE
+      - tidak, belum pernah dengar tentang metode Brief-COPE
+
+  - intent: start_brief_cope
+    examples: |
+      - coping
+      - coping strategy
+      - koping
+      - strategi koping
+      - mulai evaluasi strategi koping
+      - bagaimana cara menentukan strategi koping
+      - bagaimana cara menentukan coping strategy
+      - saya ingin mengevaluasi strategi koping
+      - saya ingin memulai evaluasi untuk strategi koping
+
+  - intent: start_brief_cope_yes
+    examples: |
+      - ya evaluasi strategi koping
+      - ya mulai evaluasi sekarang
+      - ya mulai strategi koping sekarang
+      - ya mulai evaluasi strategi koping sekarang
+
+  - intent: start_brief_cope_no
+    examples: |
+      - tidak ingin memulai koping
+      - tidak ingin memulai strategi koping
+      - tidak, saya tidak ingin memulai evaluasi strategi koping
+      - tidak, saya tidak ingin memulai strategi koping
+
+  - intent: get_brief_cope_result_histories
+    examples: |
+      - aku ingin melihat riwayat evaluasi strategi coping
+      - saya ingin melihat riwayat evaluasi strategi coping
+      - saya ingin melihat riwayat evaluasi strategi coping saya
+      - tunjukkan riwayat evaluasi strategi coping
+      - tolong tunjukkan riwayat evaluasi strategi coping
+      - tunjukkan semua hasil evaluasi strategi coping saya
+      - tunjukkan semua hasil evaluasi strategi coping saya yang sebelumnya
+
+  - intent: brief_cope_options_never
+    examples: |
+      - brief cope options: never
+      - brief-COPE options: never
+      - Brief-COPE options: never
+
+  - intent: brief_cope_options_sometimes
+    examples: |
+      - brief cope options: sometimes
+      - brief-COPE options: sometimes
+      - Brief-COPE options: sometimes
+
+  - intent: brief_cope_options_often
+    examples: |
+      - brief cope options: often
+      - brief-COPE options: often
+      - Brief-COPE options: often
+
+  - intent: brief_cope_options_always
+    examples: |
+      - brief cope options: always
+      - brief-COPE options: always
+      - Brief-COPE options: always
+
   #mental disorders awareness
   - intent: ask_mental_disorder_description
     examples: |

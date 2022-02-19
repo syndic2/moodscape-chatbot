@@ -58,6 +58,68 @@ stories:
   #start - mental disorders awareness path
   #end - mental disorders awareness path  
 
+  #start - Brief-COPE evaluation path
+  #user ask about what is Brief-COPE  
+  - story: user ask about what is Brief-COPE
+    steps:
+    - intent: what_is_brief_cope
+    - action: utter_explain_brief_cope.response[explaination_1]
+    - action: utter_explain_brief_cope.response[explaination_2]
+
+  #user ask about choosing coping strategy: yes
+  - story: user ask about how to choose coping strategy (yes)
+    steps:
+    - intent: how_to_choose_coping_strategy
+    - action: utter_how_to_choose_coping_strategy.response_1
+    - action: utter_how_to_choose_coping_strategy.response_2
+    - intent: already_know_brief_cope
+    - action: utter_already_know_brief_cope.response
+    - action: utter_start_brief_cope.confirmation
+
+  #user ask about choosing coping strategy: no
+  - story: user ask about how to choose coping strategy (no)
+    steps:
+    - intent: how_to_choose_coping_strategy
+    - action: utter_how_to_choose_coping_strategy.response_1
+    - action: utter_how_to_choose_coping_strategy.response_2
+    - intent: do_not_know_brief_cope
+    - action: utter_explain_brief_cope.response[explaination_1]
+    - action: utter_explain_brief_cope.response[explaination_2]
+    - action: utter_start_brief_cope.confirmation
+
+  #start evaluation: yes  
+  - story: ask user for start Brief-COPE evaluation (yes) 
+    steps:
+    - intent: start_brief_cope
+    - action: utter_start_brief_cope.confirmation
+    - intent: start_brief_cope_yes
+    - action: utter_start_brief_cope.response[confirm_yes]
+    - action: get_brief_cope_answer
+    - active_loop: get_brief_cope_answer
+    - active_loop: null
+    - action: utter_end_brief_cope.response[finish]
+    - action: action_brief_cope_result
+    - action: utter_end_brief_cope.response[notes_1]
+    - action: utter_end_brief_cope.response[notes_2]
+    - action: action_reset_brief_cope_evaluation
+
+  #start evaluation: no
+  - story: ask user for start Brief-COPE evaluation (no)
+    steps:
+    - intent: start_brief_cope
+    - action: utter_start_brief_cope.confirmation
+    - intent: start_brief_cope_no
+    - action: utter_start_brief_cope.response[confirm_no]
+  
+  #user want to see their evaluation result histories
+  - story: user want to see Brief-COPE evaluation result histories
+    steps:
+    - intent: get_brief_cope_result_histories
+    - action: action_inform_show_datepicker
+    - intent: set_datepicker_dates
+    - action: action_brief_cope_result_histories
+  #end - Brief-COPE evaluation path
+
   #start - emergency situation path
   - story: ask user if really in emergency situation
     steps:
