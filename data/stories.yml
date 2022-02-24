@@ -9,6 +9,7 @@ stories:
     - active_loop: get_name_user_form
     - active_loop: null
     - action: action_user_logged_in
+    - action: utter_ask_user_what_can_be_helped
     # - checkpoint: ask_user_condition
   
     #start - ask user feelings path
@@ -55,8 +56,48 @@ stories:
   #   - action: utter_surprise_emotion
   #end - ask user feelings path
 
-  #start - mental disorders awareness path
-  #end - mental disorders awareness path  
+  # start - bot provide menu options
+  - story: user choose menu options - story topics
+    steps:
+    - intent: menu_options_story_topics
+    - action: utter_menu_options_story_topics.response_1
+    - action: utter_menu_options_story_topics.response_2
+  
+  - story: user choose menu options - explore mental disorders
+    steps:
+    - intent: menu_options_explore_mental_disorders
+    - action: utter_menu_options_explore_mental_disorders.response
+    - action: action_get_mental_disorder_list
+    - action: get_explore_mental_disorder_name_form
+    - active_loop: get_explore_mental_disorder_name_form
+    - active_loop: null
+    - action: action_get_mental_disorder_detail #short description
+    - intent: continue_explore_mental_disorders
+    - action: action_get_mental_disorder_detail #types
+    - intent: continue_explore_mental_disorders 
+    - action: action_get_mental_disorder_detail #signs  and sympthomps
+    - intent: continue_explore_mental_disorders 
+    - action: action_get_mental_disorder_detail #causes
+    - intent: continue_explore_mental_disorders
+    - action: action_get_mental_disorder_detail #diagnosis
+    - intent: continue_explore_mental_disorders
+    - action: action_get_mental_disorder_detail #complications
+    - intent: continue_explore_mental_disorders
+    - action: action_get_mental_disorder_detail #how to treat
+    - intent: continue_explore_mental_disorders
+    - action: action_get_mental_disorder_detail #how to prevent
+
+  - story: user choose menu options - brief cope
+    steps:
+    - intent: menu_options_brief_cope
+    - action: utter_how_to_choose_coping_strategy.response_1
+    - action: utter_start_brief_cope.confirmation
+
+  - story: user choose menu options - just write
+    steps:
+    - intent: menu_options_just_write
+    - action: utter_menu_options_just_write.response
+  #end - bot provide menu options 
 
   #start - Brief-COPE evaluation path
   #user ask about what is Brief-COPE  
@@ -94,8 +135,8 @@ stories:
     - action: utter_start_brief_cope.confirmation
     - intent: start_brief_cope_yes
     - action: utter_start_brief_cope.response[confirm_yes]
-    - action: get_brief_cope_answer
-    - active_loop: get_brief_cope_answer
+    - action: get_brief_cope_answer_form
+    - active_loop: get_brief_cope_answer_form
     - active_loop: null
     - action: utter_end_brief_cope.response[finish]
     - action: action_brief_cope_result

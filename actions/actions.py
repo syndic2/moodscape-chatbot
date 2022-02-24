@@ -8,9 +8,10 @@
 
 import json
 from typing import Any, Text, Dict, List
-from rasa_sdk import Action, FormValidationAction, Tracker
+from rasa_sdk import Tracker, Action, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
+from rasa_sdk.types import DomainDict
 
 import requests
 
@@ -41,10 +42,29 @@ class ActionUserLoggedIn(Action):
         events= []
     
         if tracker.get_slot('user_provided_name') is None:
-            dispatcher.utter_message(response= 'utter_submit_name_user_form')
+            dispatcher.utter_message(template= 'utter_submit_name_user_form')
             events.append(SlotSet('user_provided_name', True))
         
         return events
+
+class ValidateGetNameUserForm(FormValidationAction):
+    def name(self) -> Text: 
+        return 'validate_get_name_user_form'
+
+    def validate_name_user(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict
+    ) -> Dict[Text, Any]:
+
+        name_user= slot_value
+
+        if name_user == 'initiate_bot_greet':
+            return { 'name_user': None }
+
+        return { 'name_user': slot_value }
 
 class ActionGetCurrentDialogTopic(Action):
 
@@ -59,7 +79,7 @@ class ActionGetCurrentDialogTopic(Action):
         current_dialog_topic= tracker.get_slot('current_dialog_topic')
 
         if current_dialog_topic is None:
-            dispatcher.utter_message(response= 'utter_not_know_about_current_dialog_yet')
+            dispatcher.utter_message(template= 'utter_not_know_about_current_dialog_yet')
 
         dispatcher.utter_message(text= current_dialog_topic)
 

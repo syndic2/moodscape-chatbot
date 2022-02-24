@@ -81,6 +81,62 @@ nlu:
       - kamu masih ingat dengan saya?
       - apakah kamu masih ingat dengan saya?
 
+  #menu options
+  - intent: menu_options_help
+    examples: |
+      - /help
+      - menu options: help
+      - menu_options: help
+      - help: menu options
+      - help: menu_options
+
+  - intent: menu_options_story_topics
+    examples: |
+      - menu options: story topics
+      - menu options: story topic
+      - menu options: topics
+      - menu options: topic
+      - menu_options: story topics
+      - menu_options: story_topics
+
+  - intent: menu_options_brief_cope
+    examples: |
+      - menu options: brief cope
+      - menu options: brief
+      - menu options: cope
+      - menu_options: brief cope
+      - menu_options: brief_cope
+  
+  - intent: menu_options_explore_mental_disorders
+    examples: |
+      - menu options: mental disorders
+      - menu options: mental
+      - menu options: disorders
+      - menu_options: mental disorders
+      - menu_options: mental_disorders
+
+  - intent: menu_options_just_write
+    examples: |
+      - menu options: just write
+      - menu options: just
+      - menu options: write
+      - menu_options: just write
+      - menu_options: just_write 
+
+  - intent: continue_explore_mental_disorders
+    examples: |
+      - explore mental disorders: continue
+      - explore_mental_disorders: continue
+      - explore-mental-disorders: continue
+      - explore/mental/disorders: continue
+
+  - intent: stop_explore_mental_disorders
+    examples: |
+      - explore mental disorders: stop
+      - explore_mental_disorders: stop
+      - explore-mental-disorders: stop
+      - explore/mental/disorders: stop
+
   #   #emotions
   # - intent: happiness_emotion
   #   examples: |
@@ -1030,16 +1086,6 @@ nlu:
       - Substance Abuse Disorder
       - Trikotilomania
       - Trypophobia
-  
-  - intent: want_to_know_more_about_mental_disorder
-    examples: |
-      - berikan informasi mengenai gangguan tersebut
-      - saya ingin mengetahui lebih mengenani gangguan tersebut
-
-  - intent: dont_want_to_know_more_about_mental_disorder
-    examples: |
-      - jangan berikan informasi tersebut
-      - saya tidak memerlukan informasi tersebut
 
   #suicide terms
   - intent: suicide_terms
@@ -1088,3 +1134,63 @@ nlu:
     examples: |
       - saya tidak ingin menghubungi mereka
       - saya tidak perlu menghubungi mereka
+
+  - intent: mental_health_faq/the_mean_of_having_mental_illness
+    examples: |
+      - apa yang dimaksud dengan penyakit atau gangguan mental
+      - apa sebenarnya yang dimaksud dengan penyakit atau gangguan mental
+      - apa artinya jika memiliki penyakit atau gangguan mental
+      - apa artinya menderita penyakit atau gangguan mental
+      - apa sebenarnya yang dimaksud dengan menderita penyakit atau gangguan mental
+  
+  - intent: mental_health_faq/mental_ilness_affect_who
+    examples: |
+      - siapa yang dapat terkena penyakit atau gangguan mental
+      - siapa saja yang dapat terkena penyakit atau gangguan mental
+      - siapa yang terkena dampak penyakit atau gangguan mental
+      - gangguan mental dapat mengenai siapa saja
+    
+  - intent: mental_health_faq/causes_of_mental_illness
+    examples: |
+      - apa penyebab penyakit atau gangguan mental
+      - apa penyebab munculnya penyakit atau gangguan mental
+      - apa yang menyebabkan munculnya penyakit atau gangguan mental
+      - munculnya penyakit atau gangguan mental disebabkan karena apa
+
+  - intent: mental_health_faq/warning_signs_of_mental_illness
+    examples: |
+      - tanda-tanda apa saja yang menunjukkan adanya penyakit atau gangguan mental
+      - apa saja tanda-tanda yang menunjukkan adanya penyakit atau gangguan mental
+      - penyakit atau gangguan mental tanda-tandanya apa saja
+      - tanda yang menunjukkan adanya penyakit atau gangguan mental apa saja
+      - tanda-tanda gejala yang menunjukkan adanya penyakit atau gangguan mental apa saja
+  
+  - intent: mental_health_faq/can_mental_illness_recovered
+    examples: |
+      - apakah penderita penyakit atau gangguan mental bisa sembuh
+      - penderita penyakit atau gangguan mental bisa sembuh apakah bisa sembuh
+      - apakah orang yang menderita penyakit atau gangguan mental bisa sembuh
+      - orang yang menderita penyakit atau gangguan mental apakah bisa sembuh
+      - penyakit atau ganggual mental apakah bisa disembuhkan
+
+  - intent: mental_health_faq/someone_who_have_mental_illness
+    examples: |
+      - apa yang harus saya lakukan jika saya mengenal seseorang yang tampaknya memiliki gejala penyakit atau gangguan mental
+      - apa yang dapat dilakukan jika kita mengenal seseorang yang tampaknya memiliki gejala penyakit atau gangguan mental
+      - jika kita mengenal seseorang yang memiliki gejala penyakit atau gangguan mental, apa yang dapat kita lakukan
+      - apa yang dapat kita lakukan apabila kita mengenal seseorang yang memiliki gejala penyakit atau gangguan mental
+      - kita dapat melakukan apa bila kita mengenal seseorang yang memiliki gejala penyakit atau gangguan mental
+
+  - intent: mental_health_faq/how_to_find_mental_health_professional
+    examples: |
+      - bagaimana saya bisa menemukan profesional kesehatan mental untuk diri saya atau kerabat saya
+      - bagaimana cara menemukan pakar kesehatan mental untuk diri saya atau kerabat saya
+      - cara mencari profesional bidang kesehatan mental untuk diri saya atau kerabat saya
+      - dimana saya dapat mencari psikolog atau psikiater untuk diri saya atau kerabat saya
+  
+  - intent: mental_health_faq/available_treatment_options
+    examples: | 
+      - pilihan pengobatan apa yang tersedia
+      - pengobatan apa saja yang tersedia
+      - jenis pengobatan apa saja yang tersedia
+      - apa saja pilihan pengobatan yang tersedia

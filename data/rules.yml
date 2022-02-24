@@ -11,12 +11,17 @@ rules:
     - intent: leave
     - action: utter_leave
 
+  - rule: bot show help for menu options
+    steps:
+    - intent: menu_options_help
+    - action: utter_ask_user_what_can_be_helped
+
   - rule: user ask bot about current dialog topic
     steps:
     - intent: ask_current_dialog_topic
     - action: action_get_current_dialog_topic
 
-  #ask bot
+  #start - ask bot
   - rule: user ask about bot identity
     steps:
     - intent: ask_bot_who_are_you
@@ -41,47 +46,53 @@ rules:
     steps:
     - intent: ask_bot_if_remember_user_name
     - action: utter_ask_bot_if_remember_user_name
+  #end - ask bot
 
-  #ask about mental disorder
+  #start - ask about mental disorder
+  - rule: user stop from mental disorder explaination
+    steps:
+    - intent: stop_explore_mental_disorders
+    - action: utter_user_stop_from_mental_disorder_auto_exaplaination
+
   - rule: user ask about mental disorder description
     steps:
     - intent: ask_mental_disorder_description
-    - action: action_mental_disorder_description
+    - action: action_get_mental_disorder_description
 
   - rule: user ask about mental disorder types
     steps:
     - intent: ask_mental_disorder_types
-    - action: action_mental_disorder_types
+    - action: action_get_mental_disorder_types
 
   - rule: user ask about mental disorder signs and sympthomps
     steps:
     - intent: ask_mental_disorder_signs_and_sympthomps
-    - action: action_mental_disorder_signs_and_sympthomps
+    - action: action_get_mental_disorder_signs_and_sympthomps
 
   - rule: user ask about mental disorder causes
     steps:
     - intent: ask_mental_disorder_causes
-    - action: action_mental_disorder_causes
+    - action: action_get_mental_disorder_causes
 
   - rule: user ask about mental disorder diagnosis
     steps:
     - intent: ask_mental_disorder_diagnosis
-    - action: action_mental_disorder_diagnosis
+    - action: action_get_mental_disorder_diagnosis
 
   - rule: user ask about mental disorder complications
     steps:
     - intent: ask_mental_disorder_complications
-    - action: action_mental_disorder_complications
+    - action: action_get_mental_disorder_complications
 
   - rule: user ask about mental disorder how to treat
     steps:
     - intent: ask_mental_disorder_how_to_treat
-    - action: action_mental_disorder_how_to_treat
+    - action: action_get_mental_disorder_how_to_treat
 
   - rule: user ask about mental disorder how to prevent
     steps:
     - intent: ask_mental_disorder_how_to_prevent
-    - action: action_mental_disorder_how_to_prevent
+    - action: action_get_mental_disorder_how_to_prevent
 
   - rule: user ask about when to consult to a therapist or doctor
     steps:
@@ -97,3 +108,9 @@ rules:
     steps:
     - intent: ask_mental_disorder_during_the_consultation
     - action: utter_mental_disorder.during_the_consultation
+  #end - ask about mental disorder
+
+  - rule: mental health faq
+    steps:
+    - intent: mental_health_faq
+    - action: utter_mental_health_faq

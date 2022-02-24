@@ -15,6 +15,15 @@ slots:
     type: bool
     influence_conversation: false
   
+  explore_mental_disorder_name:
+    type: text
+    influence_conversation: false
+  explore_mental_disorder_list:
+    type: list
+  next_explore_mental_disorder_field:
+    type: text
+    influence_conversation: false
+
   #start - Brief-COPE attributes
   current_coping_strategy:
     type: text
@@ -104,17 +113,14 @@ slots:
     type: any
     influence_conversation: false        
   #end - Brief-COPE attributes
-  
-  mental_disorder_dict:
-    type: any
-    influence_conversation: false
-  start_auto_explanation:
-    type: bool
-    influence_conversation: false
 
 entities:
   - name_user
   - datepicker_dates
+
+  - explore_mental_disorder_name
+  - next_explore_mental_disorder_field
+  - mental_disorder
 
   #start - Brief-COPE attributes
   - brief_cope_answer.score_1
@@ -147,12 +153,11 @@ entities:
   - brief_cope_answer.score_28
   #start - Brief-COPE attributes
 
-  - mental_disorder
-
 intents:
   - greet
   - leave
   - initiate_bot_greet
+  - menu_options_help
   - ask_current_dialog_topic
   - set_datepicker_dates
 
@@ -163,6 +168,14 @@ intents:
   # - anger_emotion
   # - surprise_emotion
 
+  - menu_options_story_topics
+  - menu_options_explore_mental_disorders
+  - menu_options_brief_cope
+  - menu_options_just_write
+
+  - continue_explore_mental_disorders
+  - stop_explore_mental_disorders
+  
   - what_is_brief_cope
   - how_to_choose_coping_strategy
   - already_know_brief_cope
@@ -187,8 +200,6 @@ intents:
   - ask_mental_disorder_when_to_consult
   - ask_mental_disorder_preparation_before_consulting
   - ask_mental_disorder_during_the_consultation
-  - want_to_know_more_about_mental_disorder
-  - dont_want_to_know_more_about_mental_disorder
 
   - suicide_terms
   - suicide_terms_positive
@@ -204,6 +215,8 @@ intents:
   - ask_bot_location
   - ask_bot_if_remember_user_name
 
+  - mental_health_faq
+
 actions:
   - action_user_logged_in
   - action_get_current_dialog_topic
@@ -213,22 +226,33 @@ actions:
   - action_brief_cope_result
   - action_brief_cope_result_histories
 
-  - action_mental_disorder_description
-  - action_mental_disorder_types
-  - action_mental_disorder_signs_and_sympthomps
-  - action_mental_disorder_causes
-  - action_mental_disorder_diagnosis
-  - action_mental_disorder_complications
-  - action_mental_disorder_how_to_treat
-  - action_mental_disorder_how_to_prevent
+  - action_get_mental_disorder_list
+  - action_get_mental_disorder_detail
+  - action_get_mental_disorder_description
+  - action_get_mental_disorder_types
+  - action_get_mental_disorder_signs_and_sympthomps
+  - action_get_mental_disorder_causes
+  - action_get_mental_disorder_diagnosis
+  - action_get_mental_disorder_complications
+  - action_get_mental_disorder_how_to_treat
+  - action_get_mental_disorder_how_to_prevent
+
+  #validation
+  - validate_get_name_user_form
+  - validate_get_explore_mental_disorder_name_form
 
 forms:
   get_name_user_form:
     required_slots:
       name_user:
       - type: from_text
-  
-  get_brief_cope_answer:
+
+  get_explore_mental_disorder_name_form:
+    required_slots:
+      explore_mental_disorder_name:
+      - type: from_text
+
+  get_brief_cope_answer_form:
     required_slots:
       brief_cope_answer.score_1:
       - type: from_entity
@@ -314,7 +338,7 @@ forms:
       brief_cope_answer.score_28:
       - type: from_entity
         entity: brief_cope_answer.score_28
-  
+
 responses:
   utter_default:
   - text: 'Maaf, aku tidak mengerti apa yang kamu maksud. Tolong ulangi apa yang kamu katakan'
@@ -366,6 +390,35 @@ responses:
   - text: 'Bagaimana perasaanmu sekarang?'
   #end - bot introduction
 
+  #start - bot provides menu options
+  utter_ask_user_what_can_be_helped:
+  - text: 'Apa yang bisa aku bantu {name_user}?'
+    buttons: 
+    - title: 'Bercerita mengenai suatu topik tertentu'
+      payload: '/menu_options_story_topics'
+    - title: 'Bagaimana menentukan strategi atau teknik koping yang cocok?'
+      payload: '/menu_options_brief_cope'
+    - title: 'Jelajahi gangguan mental'
+      payload: '/menu_options_explore_mental_disorders'
+    - title: 'Tulisa saja...'
+      payload: '/menu_options_just_write'
+    - title: 'Bye'
+      payload: '/leave'
+  
+  #response
+  utter_menu_options_story_topics.response_1:
+  - text: 'Fitur ini masih eksperimental ya'
+
+  utter_menu_options_story_topics.response_2:
+  - text: 'Jadi aku akan merespon sebisaku sesuai dengan topik dan pengetahuan yang aku punya ^^'
+
+  utter_menu_options_explore_mental_disorders.response:
+  - text: 'Sepertinya kamu ingin mengetahui informasi mengenai gangguan mental ya, baik aku akan memberikan daftar gangguan yang aku mengerti ya'
+  
+  utter_menu_options_just_write.response:
+  - text: 'Baik, apa yang kamu pikirkan atau mungkin bertanya mengenani sesuatu?'
+  #end - bot provides menu options
+
   #start - asking bot
   utter_ask_bot_who_are_you:
   - text: 'Aku Moddie. Aku bukan manusia, aku adalah sebuah BOT yang dirancang untuk membantu kamu dalam sisi emosional ketika kamu merasa tidak enak'
@@ -393,6 +446,43 @@ responses:
   - text: 'Maaf, aku lupa siapa kamu'
   - text: 'Sepertinya kita belum pernah berkenalan'
   #end - asking bot
+
+  #start - explore mental disorder explaination
+  utter_ask_explore_mental_disorder_name:
+  - text: 'Gangguan mental apa yang ingin kamu ketahui? (Ketik dengan angka)'
+
+  utter_user_stop_from_mental_disorder_auto_exaplaination:
+  - text: 'Baik, mungkin lain kali lagi, apabila kamu masih ingin tau tentang masalah gangguan kesehatan mental, kamu dapat menghubungi aku kembali'
+  - text: 'Okay, mungkin lain kali lagi ya untuk penjelasannya. Apabila kamu masih pensaran dapat menanyakannya kembali kepadaku ^^'
+
+  utter_not_yet_learn_mental_disorder:
+  - text: 'Maaf, aku belum mengerti tentang gangguan tersebut'
+  - text: 'Sorry, aku belum dilatih untuk mengetahui tentang gangguan tersebut'
+
+  #when to consult
+  utter_mental_disorder.when_to_consult_mental_disorder:
+  - text: 'Berkonsultasilah dengan dokter atau psikolog jika Anda mengalami gejala gangguan tersebut. Jangan membiarkan kondisi Anda bertambah parah.'
+  
+  #preparation before consulting
+  utter_mental_disorder.preparation_before_consulting:
+  - text: |
+        Sebelum melakukan konsultasi kepada psikolog atau dokter, sebaikanya kamu mempersipakan terlebih dahulu apa yang harus dilakukan:
+        - Buatlah daftar mengenai gejala yang muncul.
+        - Catat riwayat penyakit yang pernah dan sedang dialami. Demikian pula dengan riwayat medis keluarga.
+        - Catat semua obat, suplemen, obat herbal, atau vitamin yang dikonsumsi.
+        - Catat pertanyaan-pertanyaan yang ingin diajukan kepada dokter.
+        - Mintalah keluarga atau teman untuk mendampingi saat berkonsultasi ke dokter. Mereka bisa memberi dukungan moral maupun membantu mengingat informasi yang disampaikan dokter.
+
+  #during the consultation
+  utter_mental_disorder.during_the_consultation:
+  - text: |
+        Dalam sesi sebuah konsultasi mungkin saja psikolog atau dokter akan bertanya hal berikut ini:
+        - Apa saja gejala yang Anda rasakan?
+        - Kapan gejala pertama kali muncul?
+        - Apakah Anda memiliki faktor risiko terkait gangguan tersebut?
+        - Apakah Anda rutin mengonsumsi obat-obatan tertentu?
+        - Apakah Anda pernah mencari bantuan medis? Bila iya, apa saja pengobatan yang telah Anda coba?
+  #end - explore mental disorder explaination
 
   #start - Brief-COPE evaluation
   #confirmation
@@ -782,57 +872,6 @@ responses:
       payload: '/brief_cope_options_always{{ "brief_cope_answer.score_28": 4 }}'
   #end - Brief-COPE evaluation
 
-  #start - mental disorders awareness
-  #confirmation
-  #...
-
-  #response
-  utter_not_yet_learn_mental_disorder:
-  - text: 'Maaf, aku belum mengerti tentang gangguan tersebut'
-  - text: 'Sorry, aku belum dilatih untuk mengetahui tentang gangguan tersebut'
-
-  #when to consult
-  utter_mental_disorder.when_to_consult_mental_disorder:
-  - text: 'Berkonsultasilah dengan dokter atau psikolog jika Anda mengalami gejala gangguan tersebut. Jangan membiarkan kondisi Anda bertambah parah.'
-  
-  #preparation before consulting
-  utter_mental_disorder.preparation_before_consulting:
-  - text: |
-        Sebelum melakukan konsultasi kepada psikolog atau dokter, sebaikanya kamu mempersipakan terlebih dahulu apa yang harus dilakukan:
-        - Buatlah daftar mengenai gejala yang muncul.
-        - Catat riwayat penyakit yang pernah dan sedang dialami. Demikian pula dengan riwayat medis keluarga.
-        - Catat semua obat, suplemen, obat herbal, atau vitamin yang dikonsumsi.
-        - Catat pertanyaan-pertanyaan yang ingin diajukan kepada dokter.
-        - Mintalah keluarga atau teman untuk mendampingi saat berkonsultasi ke dokter. Mereka bisa memberi dukungan moral maupun membantu mengingat informasi yang disampaikan dokter.
-
-  #during the consultation
-  utter_mental_disorder.during_the_consultation:
-  - text: |
-        Dalam sesi sebuah konsultasi mungkin saja psikolog atau dokter akan bertanya hal berikut ini:
-        - Apa saja gejala yang Anda rasakan?
-        - Kapan gejala pertama kali muncul?
-        - Apakah Anda memiliki faktor risiko terkait gangguan tersebut?
-        - Apakah Anda rutin mengonsumsi obat-obatan tertentu?
-        - Apakah Anda pernah mencari bantuan medis? Bila iya, apa saja pengobatan yang telah Anda coba?
-
-  #want to know more
-  # utter_want_to_know_more_about_mental_disorder.response_1:
-  # - text: "Baik aku akan melanjutkan memberikan informasi mengenai gangguan mental {mental_disorder_dict['name']}"
-
-  # utter_want_to_know_more_about_mental_disorder.response_2:
-  # - text: 'Untuk informasi yang akan aku berikan, aku dapat dari website resmi pemiliki KEMENKES Indonesia yaitu https://www.sehatq.com'
-
-  #utter_want_to_know_more_about_mental_disorder.response[signs_and_sympthomps]:
-  #- text: "Berikutnya aku akan menjelaskan untuk mengenai tanda dan gejala pada gangguan mental {mental_disorder_dict['name']}"
-
-  #dont want to know more
-  # utter_dont_want_to_know_more_about_mental_disorder.response_1:
-  # - text: 'Baik kalo begitu'
-
-  # utter_dont_want_to_know_more_about_mental_disorder.response_2:
-  # - text: 'Apa bila kamu ingin mengetahui tentang gangguan mental, kamu dapat menanyakannya kembali kepadaku'
-  #end - mental disorders awareness
-
   #start - suicide terms
   #confirmation
   utter_suicide_terms.confirmation_1:
@@ -946,6 +985,9 @@ responses:
   # - text: 'emotion detected: terkejut'
   #end - bot response about user feelings
 
-session_config:
+  utter_mental_health_faq/the_mean_of_having_mental_illness:
+  - text: ''
+
+session_config: 
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
