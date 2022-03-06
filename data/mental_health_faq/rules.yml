@@ -1,0 +1,7 @@
+version: "2.0"
+
+rules:
+  - rule: mental health faq
+    steps:
+    - intent: mental_health_faq
+    - action: utter_mental_health_faq

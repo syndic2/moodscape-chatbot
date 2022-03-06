@@ -9,60 +9,50 @@ stories:
     - active_loop: get_name_user_form
     - active_loop: null
     - action: action_user_logged_in
+    - action: utter_ask_user_emotion
+    - intent: positive_emotion
+    - action: utter_user_positive_emotion.response
     - action: utter_ask_user_what_can_be_helped
-    # - checkpoint: ask_user_condition
-  
-    #start - ask user feelings path
-  # - story: ask user feelings (happiness)
-  #   steps:
-  #   - checkpoint: ask_user_condition
-  #   - action: utter_ask_user_condition
-  #   - intent: happiness_emotion
-  #   - action: utter_happiness_emotion
 
-  # - story: ask user feelings (sadness)
-  #   steps:
-  #   - checkpoint: ask_user_condition
-  #   - action: utter_ask_user_condition
-  #   - intent: sadness_emotion
-  #   - action: utter_sadness_emotion
-  
-  # - story: ask user feelings (fear)
-  #   steps:
-  #   - checkpoint: ask_user_condition
-  #   - action: utter_ask_user_condition
-  #   - intent: fear_emotion
-  #   - action: utter_fear_emotion
-  
-  # - story: ask user feelings (disgust)
-  #   steps:
-  #   - checkpoint: ask_user_condition
-  #   - action: utter_ask_user_condition
-  #   - intent: disgust_emotion
-  #   - action: utter_disgust_emotion
-  
-  # - story: ask user feelings (anger)
-  #   steps:
-  #   - checkpoint: ask_user_condition
-  #   - action: utter_ask_user_condition
-  #   - intent: anger_emotion
-  #   - action: utter_anger_emotion
-  
-  # - story: ask user feelings (surprise)
-  #   steps:
-  #   - checkpoint: ask_user_condition
-  #   - action: utter_ask_user_condition
-  #   - intent: surprise_emotion
-  #   - action: utter_surprise_emotion
-  #end - ask user feelings path
+  #start - user response with negative emotion
+  - story: user response with negative emotion
+    steps:
+    - intent: negative_emotion
+    - action: utter_user_negative_emotion.response_1
+    - action: utter_user_negative_emotion.response_2
 
-  # start - bot provide menu options
+  #user share their thoughts - yes
+  - story: user want to share their thoughts
+    steps:
+    - intent: start_share_thoughts_yes
+    - action: get_user_negative_thoughts_form
+    - active_loop: get_user_negative_thoughts_form
+    - active_loop: null
+    - action: utter_after_user_share_thoughts.response
+    - action: utter_ask_user_reframe_thoughts 
+    - intent: start_reframe_thoughts_yes
+    #lanjutkan ini besok untuk reframing thought
+
+  #user share their thoughts - no 
+  - story: user dont want to share their thoughts
+    steps:
+    - intent: start_share_thoughts_no
+    - action: utter_ask_user_reframe_thoughts
+  #end - user response with negative emotion
+
+  #start - bot provide menu options
   - story: user choose menu options - story topics
     steps:
     - intent: menu_options_story_topics
     - action: utter_menu_options_story_topics.response_1
     - action: utter_menu_options_story_topics.response_2
   
+  - story: user choose menu options - brief cope
+    steps:
+    - intent: menu_options_brief_cope
+    - action: utter_how_to_choose_coping_strategy.response_1
+    - action: utter_start_brief_cope.confirmation
+
   - story: user choose menu options - explore mental disorders
     steps:
     - intent: menu_options_explore_mental_disorders
@@ -86,80 +76,13 @@ stories:
     - action: action_get_mental_disorder_detail #how to treat
     - intent: continue_explore_mental_disorders
     - action: action_get_mental_disorder_detail #how to prevent
-
-  - story: user choose menu options - brief cope
-    steps:
-    - intent: menu_options_brief_cope
-    - action: utter_how_to_choose_coping_strategy.response_1
-    - action: utter_start_brief_cope.confirmation
+    - action: action_reset_explore_mental_disorder
 
   - story: user choose menu options - just write
     steps:
     - intent: menu_options_just_write
     - action: utter_menu_options_just_write.response
   #end - bot provide menu options 
-
-  #start - Brief-COPE evaluation path
-  #user ask about what is Brief-COPE  
-  - story: user ask about what is Brief-COPE
-    steps:
-    - intent: what_is_brief_cope
-    - action: utter_explain_brief_cope.response[explaination_1]
-    - action: utter_explain_brief_cope.response[explaination_2]
-
-  #user ask about choosing coping strategy: yes
-  - story: user ask about how to choose coping strategy (yes)
-    steps:
-    - intent: how_to_choose_coping_strategy
-    - action: utter_how_to_choose_coping_strategy.response_1
-    - action: utter_how_to_choose_coping_strategy.response_2
-    - intent: already_know_brief_cope
-    - action: utter_already_know_brief_cope.response
-    - action: utter_start_brief_cope.confirmation
-
-  #user ask about choosing coping strategy: no
-  - story: user ask about how to choose coping strategy (no)
-    steps:
-    - intent: how_to_choose_coping_strategy
-    - action: utter_how_to_choose_coping_strategy.response_1
-    - action: utter_how_to_choose_coping_strategy.response_2
-    - intent: do_not_know_brief_cope
-    - action: utter_explain_brief_cope.response[explaination_1]
-    - action: utter_explain_brief_cope.response[explaination_2]
-    - action: utter_start_brief_cope.confirmation
-
-  #start evaluation: yes  
-  - story: ask user for start Brief-COPE evaluation (yes) 
-    steps:
-    - intent: start_brief_cope
-    - action: utter_start_brief_cope.confirmation
-    - intent: start_brief_cope_yes
-    - action: utter_start_brief_cope.response[confirm_yes]
-    - action: get_brief_cope_answer_form
-    - active_loop: get_brief_cope_answer_form
-    - active_loop: null
-    - action: utter_end_brief_cope.response[finish]
-    - action: action_brief_cope_result
-    - action: utter_end_brief_cope.response[notes_1]
-    - action: utter_end_brief_cope.response[notes_2]
-    - action: action_reset_brief_cope_evaluation
-
-  #start evaluation: no
-  - story: ask user for start Brief-COPE evaluation (no)
-    steps:
-    - intent: start_brief_cope
-    - action: utter_start_brief_cope.confirmation
-    - intent: start_brief_cope_no
-    - action: utter_start_brief_cope.response[confirm_no]
-  
-  #user want to see their evaluation result histories
-  - story: user want to see Brief-COPE evaluation result histories
-    steps:
-    - intent: get_brief_cope_result_histories
-    - action: action_inform_show_datepicker
-    - intent: set_datepicker_dates
-    - action: action_brief_cope_result_histories
-  #end - Brief-COPE evaluation path
 
   #start - emergency situation path
   - story: ask user if really in emergency situation

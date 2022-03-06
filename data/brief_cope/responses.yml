@@ -1,0 +1,468 @@
+version: "2.0"
+
+responses:
+  #confirmation
+  utter_start_brief_cope.confirmation:
+  - text: 'Apakah anda ingin memulai untuk evaluasi startegi coping?'
+    buttons:
+    - title: 'Ya, mulai sekarang'
+      payload: '/start_brief_cope_yes'
+    - title: 'Tidak'
+      payload: '/start_brief_cope_no'
+  
+  #response
+  utter_explain_brief_cope.response[explanation_1]:
+  - text: 'Brief-COPE merupakan kuesioner laporan diri yang terdiri dari 28 item yang dirancang untuk mengukur cara efektif dan tidak efektif melakukan "coping" keadaan atau peristiwa kehidupan yang penuh tekanan'
+
+  utter_explain_brief_cope.response[explanation_2]:
+  - text: '"Koping" sendiri didefiniskan secara luas sebagai upaya yang digunakan untuk meminimalkan keadaan stres yang berpengaruh dengan pengalaman kehidupan'
+
+  utter_types_of_coping_strategy.response_1:
+  - text: "Strategi koping untuk setiap orang dapat berbeda-beda, tergantung kepribadian masing-masing serta jenis dan sumber stres yang dialami. Namun pada umumnya ahli psikologi membedakan strategi koping ke dalam kedua kategori utama, yaitu Emotion-focused Coping
+      dan Problem-focused coping"
+
+  utter_types_of_coping_strategy.response[emotion_focused_coping]:
+  - text: 'Emotion-focused coping merupakan salah satu jenis mekanisme koping yang fokus pada kondisi emosional anda. Caranya adalah dengan mengurangi respons emosi negatif dari suatu kondisi penyebab stres, misalnya merasa malu, cemas, takut, berduka, dan frustasi. 
+    Strategi yang satu ini merupakan satu-satunya cara yang menerapkan kemampuan koping ketika sumber stres tidak bisa dikendalikan. Namun terkadang, strategi emotion-focused coping justru membuat anda menunda-nunda mengatasi sumber masalahnya. Inilah yang membuat strategi
+    ini kurang efektif dalam menyelesaikan masalah jangka panjang. Strategi ini juga justru berbahaya ketika masalah yang anda hadapi memerlukan penanganan segera. Sebagai contoh, seperti pengobatan dini penyakit kronis dan masalah finansial. Selain itu, strategi Emotion-focused coping
+    juga dapat bersifat dekstruktif atau justru menambah masalah dan stres'
+
+  utter_types_of_coping_strategy.response[problem_focused_coping]:
+  - text: 'Problem-focused coping merupakan strategi koping terbaik. Metode ini tidak hanya fokus pada tingkat stres, tetapi juga pada akar masalah dari stres tersebut. Ini artinya anda bisa mengatasi stres sekaligus pemicunya menggunakan mekanisme koping yang satu ini. Hanya saja
+      strategi ini belum tentu dapat anda terapkan untuk setiap situasi. Cara ini sebenarnya paling efektif untuk mengatasi sumber stres yang berasal dari pekerjaan atau tekanan saat sedang mencapai suatu tujuan. Sementara itu, stres karena kehilangan seorang kerabat yang anda sayangi. 
+      atau depresi karena suatu hal yang tak bisa diubah, hanya bisa anda atasi dengan Emotion-focused coping. Dalam menerapkan mekanisme koping yang satu ini, ada tiga penting yang harus anda perhatikan yaitu, kemampuan pemecahan masalah, manajemen waktu yang baik, dan adanya dukungan sosial sekitar'
+
+  utter_how_to_choose_coping_strategy.response_1:
+  - text: 'Untuk menentukan strategi atau teknik koping mana yang cocok, kamu dapat melakukan evaluasi terlebih dahulu menggunakan Brief-COPE dan kebetulan aku di desain untuk menangani itu ^^'
+
+  utter_how_to_choose_coping_strategy.response_2:
+  - text: 'Sebelumnya apakah kamu pernah mendengar mengenai metode Brief-COPE tersebut?'
+    buttons:
+    - title: 'Sudah pernah'
+      payload: '/already_know_brief_cope'
+    - title: 'Belum pernah'
+      payload: '/do_not_know_brief_cope'
+
+  utter_already_know_brief_cope.response:
+  - text: 'Bagus kalau kamu sudah tau apa itu metode Brief-COPE. Karena metode ini dapat membantu kamu untuk menentukan strategi koping yang cocok untuk kamu ^^'
+
+  utter_start_brief_cope.response[confirm_yes]:
+  - text: 'Baik, evaluasi untuk strategi koping akan dimulai. Evaluasi ini terdiri dari 28 pertanyaan yang anda harus kamu jawab ya. Evaluasi ini akan menggunakan metode ukur yaitu Brief-COPE. Perlu diingat bahwa jawaban jujur akan menentukan akurasi hasil evaluasi tersebut'
+
+  utter_start_brief_cope.response[confirm_no]:
+  - text: 'Baik, kamu bisa kapan saja ya untuk mengevaluasi strategi koping. Aku akan tetap menyimpan hasil evaluasi kamu ketika ada perubahan'
+
+  utter_end_brief_cope.response[finish]:
+  - text: 'Pengisian kuesioner Brief-COPE telah selesai, aku akan mengkalkulasinya dan kamu dapat melihat hasilnya dibawah ini. Terima kasih kamu telah kuat untuk mengisi kuesioner tersebut ^^'
+
+  utter_end_brief_cope.response[notes_1]:
+  - text: 'Untuk menentukan strategi koping mana yang mungkin cocok untuk kamu yaitu dapat melihat dari nilai paling tinggi dari 3 strategi koping'
+
+  utter_end_brief_cope.response[notes_2]:
+  - text: |
+        *Catatan
+        - Untuk Problem-focused, skor tinggi menunjukkan strategi koping yang ditujukan untuk mengubah situasi stres dan menunjukkan kekuatan psikologis, ketabahan dan pendekatan kepraktisan untuk pemecahan masalah yang dihadapi
+        - Untuk Emotion-focused, skor tinggi menunjukkan strategi koping yang bertujuan untuk mengatur emosi yang terkait dengan situasi stres. Skor tinggi atau rendah tidak ada kaitan dengan kesehatan psikologis atau kesehatan yang buruk, tetapi dapat digunakan untuk menginformasikan formulasi yang lebih luas tentang gaya koping seseorang
+        - Untuk Avoidant, skor tinggi menunjukkan fisik atau upaya kognitif untuk melepaskan diri dari stresor, sedangkan untuk rendah adalah biasanya menunjukkan koping adaptif (koping baik)
+
+  utter_user_stop_brief_cope.confirmation:
+  - text: 'Sepertinya anda ingin berhenti dari evaluasi ini?'
+    buttons:
+      - title: 'Ya, berhenti sekarang'
+        payload: '/stop_brief_cope_yes'
+      - title: 'Tidak, lanjutkan'
+        payload: '/stop_brief_cope_no'
+
+  utter_user_stop_brief_cope.response[confirm_no]:
+  - text: 'Okay, aku akan melanjutkan untuk pertanyaan berikutnya ya kalau begitu'
+
+  #questions
+  utter_ask_brief_cope_answer.score_1:
+  - text: 'Saya telah beralih ke pekerjaan atau kegiatan lainnya untuk mengalihkan pikiran saya dari banyak hal'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_1": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_1": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_1": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_1": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'
+
+  utter_ask_brief_cope_answer.score_2:
+  - text: 'Saya telah memusatkan upaya saya dalam melakukan sesuatu tentang situasi yang saya alami'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_2": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_2": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_2": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_2": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'
+
+  utter_ask_brief_cope_answer.score_3:
+  - text: 'Saya telah berkata pada diri sendiri "ini bukan nyata"'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_3": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_3": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_3": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_3": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'
+
+  utter_ask_brief_cope_answer.score_4:
+  - text: 'Saya telah menggunakan alkohol atau obat lainnya untuk membuat diri saya merasa lebih baik'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_4": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_4": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_4": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_4": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'
+
+  utter_ask_brief_cope_answer.score_5:
+  - text: 'Saya telah mendapatkan dukungan emosional dari orang lain'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_5": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_5": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_5": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_5": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'
+
+  utter_ask_brief_cope_answer.score_6:
+  - text: 'Saya sudah menyerah mencoba untuk berurusan dengan itu'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_6": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_6": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_6": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_6": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'
+
+  utter_ask_brief_cope_answer.score_7:
+  - text: 'Saya telah mengambil tindakan untuk mencoba membuat situasi menjadi lebih baik'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_7": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_7": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_7": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_7": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'
+
+  utter_ask_brief_cope_answer.score_8:
+  - text: 'Saya telah menolak untuk percaya bahwa itu sudah terjadi'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_8": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_8": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_8": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_8": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'
+
+  utter_ask_brief_cope_answer.score_9:
+  - text: 'Saya telah mengatakan hal-hal untuk menghilangkan perasaan yang tidak enak'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_9": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_9": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_9": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_9": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'
+
+  utter_ask_brief_cope_answer.score_10:
+  - text: 'Saya telah mendapatkan bantuan dan saran dari orang lain'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_10": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_10": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_10": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_10": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'
+
+  utter_ask_brief_cope_answer.score_11:
+  - text: 'Saya telah menggunakan alkohol atau obat lainnya untuk membantu saya melewati hal tersebut'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_11": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_11": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_11": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_11": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'
+
+  utter_ask_brief_cope_answer.score_12:
+  - text: 'Saya sudah mencoba melihatnya di penghlihatan yang berbeda, untuk membuat tampak lebih positif'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_12": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_12": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_12": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_12": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'
+
+  utter_ask_brief_cope_answer.score_13:
+  - text: 'Saya telah mengkritik diri saya sendiri'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_13": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_13": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_13": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_13": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'
+
+  utter_ask_brief_cope_answer.score_14:
+  - text: 'Saya sudah mencoba melakukannya dengan strategi mengenai apa yang harus dilakukan'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_14": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_14": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_14": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_14": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'
+
+  utter_ask_brief_cope_answer.score_15:
+  - text: 'Saya sudah mendapatkan kenyamanan dan pengertian dari seseorang'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_15": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_15": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_15": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_15": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'
+
+  utter_ask_brief_cope_answer.score_16:
+  - text: 'Saya sudah menyerah untuk mencoba menghadapi hal tersebut'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_16": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_16": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_16": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_16": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'
+
+  utter_ask_brief_cope_answer.score_17:
+  - text: 'Saya mencari sesuatu yang baik dalam sesuatu yang sedang terjadi'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_17": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_17": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_17": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_17": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'
+
+  utter_ask_brief_cope_answer.score_18:
+  - text: 'Saya telah membuat lelucon tentang itu'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_18": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_18": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_18": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_18": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'
+
+  utter_ask_brief_cope_answer.score_19:
+  - text: 'Saya telah melakukan sesuatu untuk mengurangi memikirkannya, seperti pergi ke bioskop, menonton TV, membaca, melamun, tidur, atau berbelanja'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_19": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_19": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_19": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_19": 4 }}'
+
+  utter_ask_brief_cope_answer.score_20:
+  - text: 'Aku sudah menerima kenyataan atau fakta bahwa itu telah terjadi'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_20": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_20": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_20": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_20": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'
+
+  utter_ask_brief_cope_answer.score_21:
+  - text: 'Saya telah mengekspresikan perasaan negatif saya'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_21": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_21": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_21": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_21": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'
+
+  utter_ask_brief_cope_answer.score_22:
+  - text: 'Saya sudah berusaha untuk menemukan kenyamanan dalam agama atau kepercayaan spiritual saya'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_22": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_22": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_22": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_22": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'
+
+  utter_ask_brief_cope_answer.score_23:
+  - text: 'Saya sudah mencoba untuk mendapatkan saran atau bantuan dari orang lain tentang apa yang harus lakukan'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_23": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_23": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_23": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_23": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'
+
+  utter_ask_brief_cope_answer.score_24:
+  - text: 'Saya telah belajar untuk menjalani atau hidup dengan hal itu'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_24": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_24": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_24": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_24": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'
+
+  utter_ask_brief_cope_answer.score_25:
+  - text: 'Saya sudah berpikir keras tentang langkah apa yang harus diambil'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_25": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_25": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_25": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_25": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'
+
+  utter_ask_brief_cope_answer.score_26:
+  - text: 'Saya telah menyalahkan diri sendiri untuk hal-hal yang terjadi'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_26": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_26": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_26": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_26": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'
+
+  utter_ask_brief_cope_answer.score_27:
+  - text: 'Saya sudah berdoa atau bermeditasi'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_27": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_27": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_27": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_27": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'
+
+  utter_ask_brief_cope_answer.score_28:
+  - text: 'Saya telah membuat candaan tentang situasi yang sedang terjadi'
+    buttons:
+    - title: 'Tidak pernah'
+      payload: '/brief_cope_options_never{{ "brief_cope_answer.score_28": 1 }}'
+    - title: 'Kadang-kadang'
+      payload: '/brief_cope_options_sometimes{{ "brief_cope_answer.score_28": 2 }}'
+    - title: 'Sering'
+      payload: '/brief_cope_options_often{{ "brief_cope_answer.score_28": 3 }}'
+    - title: 'Selalu'
+      payload: '/brief_cope_options_always{{ "brief_cope_answer.score_28": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'

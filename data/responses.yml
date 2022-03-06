@@ -1,0 +1,216 @@
+version: "2.0"
+
+responses:
+  utter_default:
+  - text: 'Maaf, aku tidak mengerti apa yang kamu maksud. Tolong ulangi apa yang kamu katakan'
+  - text: 'Sorry, aku belum mengerti apa yang kamu maksudkan. Tolong ulangi lagi'
+
+  utter_greet:
+  - text: 'Hai juga'
+  - text: 'Halo'
+  - text: 'Hai juga yang disana'
+  - text: 'Halo juga yang disana'
+
+  utter_leave:
+  - text: 'Bai'
+  - text: 'Bye'
+  - text: 'Bye-bye'
+  - text: 'Goodbye'
+  - text: 'Selamat tinggal juga'
+  - text: 'Sampai bertemu kembali'
+  - text: 'Sampai jumpa lagi'
+
+  #start - bot introduction
+  utter_bot_introduction:
+  - condition: 
+    - type: slot
+      name: user_provided_name
+      value: true
+    text: 'Halo {name_user}. Senang bertemu dengan kamu lagi'  
+  
+  - text: 'Halo perkenalkan aku Moddie, disini aku sebagai teman kesehatan mentalmu yang siap membantumu setiap saat jika diperlukan!'
+  - text: 'Hai kenalin aku Moddie, disini aku hadir sebagai teman kesehatan mentalmu. Aku siap membantumu setiap saat jika diperlukan :)'
+
+  utter_ask_name_user:
+  - text: 'Siapa namamu?'
+  - text: 'Aku memanggilmu dengan nama apa?'
+
+  utter_submit_name_user_form:
+  - text: 'Okay, aku akan memanggilmu dengan nama {name_user}. Salam kenal!'
+  - text: 'Baiklah aku akan panggil kamu dengan nama {name_user}. Salam kenal yah!'
+
+  utter_ask_user_condition:
+  - text: 'Gimana kabarmu?'
+  - text: 'Gimana perasaanmu sekarang?'
+  - text: 'Bagaimana kabarmu hari ini?'
+  - text: 'Bagaimana perasaanmu sekarang?'
+  #end - bot introduction
+
+  #start - bot ask about user feelings right now
+  utter_ask_user_emotion:
+  - text: 'Perasaanmu bagaimana saat ini? Aku berharap kamu baik-baik saja ya'
+    buttons:
+    - title: 'Senang'
+      payload: '/positive_emotion'
+    - title: 'Bersyukur'
+      payload: '/positive_emotion'
+    - title: 'Sedih'
+      payload: '/negative_emotion'
+    - title: 'Marah'
+      payload: '/negative_emotion'
+    - title: 'Takut'
+      payload: '/negative_emotion'
+
+  #response
+  utter_user_positive_emotion.response:
+  - text: 'Baguslah kalau ternyata kamu baik-baik saja, tetap pertahankan kondisi seperti ini ya!'
+
+  utter_user_negative_emotion.response_1:
+  - text: 'Saya turut prihatin bahwa kamu sedang mengalami situasi seperti ini'
+
+  utter_user_negative_emotion.response_2:
+  - text: 'Itu pasti sangat menyulitkan anda. Apakah anda ingin mengeluarkannya dari dada anda terlebih dahulu?'
+    buttons:
+    - title: 'Ya'
+      payload: '/start_share_thoughts_yes'
+    - title: 'Tidak'
+      payload: '/start_share_thoughts_no'
+  
+  utter_ask_user_negative_thoughts:
+  - text: 'Baik, tulis apa yang anda sedang pikirkan sekarang ya. Tenang aku tetap menjaga privasimu, sehingga apa yang anda ceritakan tidak akan bocor'
+
+  utter_after_user_share_thoughts.response:
+  - text: 'Terima kasih anda telah kuat untuk mengeluarkan isi hatimu {name_user}. Anggap saja aku ini sebagai temanmu yang selalu ada buat kamu {name_user} ^^'
+
+  utter_ask_user_reframe_thoughts:
+  - text: 'Apakah anda ingin melakukan reframing (membingkai ulang) pikiran negatif anda agar menjadi positif? Aku dapat menuntun anda dalam melakukan hal tersebut'
+    buttons:
+    - title: 'Ya'
+      payload: '/start_reframe_thoughts_yes'
+  
+  #reframing thoughts
+  #...
+
+  #end - bot ask about user feelings right now
+
+  #start - bot provides menu options
+  utter_ask_user_what_can_be_helped:
+  - text: 'Apa yang bisa aku bantu {name_user}?'
+    buttons: 
+    - title: 'Bercerita mengenai suatu topik tertentu'
+      payload: '/menu_options_story_topics'
+    - title: 'Bagaimana menentukan strategi atau teknik koping yang cocok?'
+      payload: '/menu_options_brief_cope'
+    - title: 'Jelajahi gangguan mental'
+      payload: '/menu_options_explore_mental_disorders'
+    - title: 'Tulisa saja...'
+      payload: '/menu_options_just_write'
+    - title: 'Bye'
+      payload: '/leave'
+  
+  #response
+  utter_menu_options_story_topics.response_1:
+  - text: 'Fitur ini masih eksperimental ya'
+
+  utter_menu_options_story_topics.response_2:
+  - text: 'Jadi aku akan merespon sebisaku sesuai dengan topik dan pengetahuan yang aku punya ^^'
+
+  utter_menu_options_explore_mental_disorders.response:
+  - text: 'Sepertinya kamu ingin mengetahui informasi mengenai gangguan mental ya, baik aku akan memberikan daftar gangguan yang aku mengerti ya'
+  
+  utter_menu_options_just_write.response:
+  - text: 'Baik, apa yang kamu pikirkan atau mungkin bertanya mengenani sesuatu?'
+  #end - bot provides menu options
+
+  #start - suicide terms
+  #confirmation
+  utter_suicide_terms.confirmation_1:
+  - text: 'Sistem darurat saya telah terpicu karena saya telah mendeteksi kondisi darurat. Apakah anda berpikiran untuk menuju arah "kesana"?'
+
+  utter_suicide_terms.confirmation_2:
+  - text: 'Maaf apabila saya salah paham dengan maksud anda, tetapi saya berpikir alangkah baiknya jika saya bertanya kepada anda'
+    buttons:
+    - title: 'Ya, saya sedang memikirkan "hal" tersebut'
+      payload: '/suicide_terms_positive'
+    - title: 'Tidak, saya tidak memikirkan "hal" tersebut lagi'
+      payload: '/suicide_terms_negative'
+    - title: 'Orang lain'
+      payload: '/suicide_terms_someone_else'
+    - title: 'Apa? Tidak sama sekali'
+      payload: '/suicide_terms_unrecognized'
+  
+  utter_ensure_seek_help.crisis_confirmation:
+  - text: 'Pastikan anda segera menghubungi mereka'
+    buttons:
+    - title: 'Saya sudah menghubungi'
+      payload: '/ensure_seek_help[crisis]_yes'
+    - title: 'Tidak, saya tidak mau'
+      payload: '/ensure_seek_help[crisis]_no'
+  
+  #response
+  #positive
+  utter_suicide_terms.positive_response_1:
+  - text: 'Saya minta maaf karena anda harus melewati situasi sulit seperti ini... Saya sangat menyarankan bahwa anda segera mencari pertolongan kepada ahli profesional yang dapat membantu anda dalam situasi seperti ini'
+
+  utter_suicide_terms.positive_response_2:
+  - text: 'Situasi seperti di luar dari kemampuan saya, karena saya tidak diprogram untuk membantu "hal" tersebut'
+
+  utter_suicide_terms.positive_response_3:
+  - text: 'Anda dapat menghubungi orang-orang tersebut dengan menggunakan informasi berikut ini'
+
+  #negative
+  utter_suicide_terms.negative_response_1:
+  - text: 'Baiklah, apabila anda membutuhkan informasi bantuan mengenai "hal" tersebut, anda dapat menghubungi saya lagi'
+
+  utter_suicide_terms.negative_response_2:
+  - text: 'Saya akan bantu memberikan informasi semampu saya agar anda dapat melewati situasi tersebut. Semoga anda selalu baik - baik saja'
+
+  #someone else
+  utter_suicide_terms.someone_else_response_1:
+  - text: 'Saya minta maaf bahwa orang yang anda kenal sedang melalui situasi sulit seperti ini... Saya sangat menyarankan bahwa anda segera mencari pertolongan kepada ahli profesional yang dapat membantu anda dalam situasi seperti ini'
+
+  #unrecognized
+  utter_suicide_terms.unrecognized_response_1:
+  - text: 'Baiklah kalo begitu, maaf atas kesalah pahamannya ya'
+
+  utter_suicide_terms.unrecognized_response_2:
+  - text: 'Saya telah diajarkan untuk mengenali kata atau kalimat yang berbau "sensitif", seperti "bunuh diri" atau "mati"'
+
+  utter_suicide_terms.unrecognized_response_3:
+  - text: 'Oleh karena itu, kalimat seperti demikian dapat memicu sistem darurat saya'
+
+  #crisis
+  utter_ensure_seek_help.crisis_response_1:
+  - text: 'Syukurlah anda menghubungi mereka, semoga anda baik - baik saja ya'
+
+  utter_ensure_seek_help.crisis_response_2:
+  - text: 'Menghubungi hotline layanan tersebut dapat menghubungkan anda berbicara ke seseorang atau bantuan saluran untuk membantu anda melewati situasi seperti ini'
+
+  utter_ensure_seek_help.crisis_response_3:
+  - text: 'Terdapat pepatah yang mengatakan...'
+
+  utter_ensure_seek_help.crisis_response_4:
+  - text: 'Ingatlah kalimat tersebut ketika anda sedang memikirkan hal "itu" lagi'
+
+  #hotline information
+  utter_suicide_terms.hotline_1:
+  - text: '1. Hotline Kesehatan Jiwa Kemenkes - (021-500-454)'
+
+  utter_suicide_terms.hotline_2:
+  - text: "2. LISA Suicide Prevention Helpline (Love Inside Suicide Awareness)\nUntuk Bahasa Indonesia: +628113855472\nFor English Language: +628113815472\nInformasi lebih detil dapat dilihat pada"
+  
+  utter_suicide_terms.hotline_3:
+  - text: "3. LSM Jangan Bunuh Diri\nNomor Telpon: 021-9696-9293\nEmail: janganbunuhdiri@yahoo.com"
+  
+  utter_suicide_terms.hotline_4:
+  - text: '4. KPSI (Komunitas Peduli Skizofernia Indonesia) - (021-857-9618)'
+
+  utter_suicide_terms.hotline_5:
+  - text: '5. Apabila situasi yang sedang dilalui sekarang sangat mengancam sekali terhadap keselamatan dan jiwa, segera hubungi nomor darurat 199 atau pergi ke Unit Gawat Darurat di rumah sakit setempat. Jangan menunggu'
+
+  #quotes
+  utter_suicide_terms.quotes:
+  - text: '"Teruntuk siapa pun yang sedang terluka, meminta bantuan bukan tanda bahwa kamu lemah. Melainkan justru tanda bahwa kamu kuat." - Barrack Obama'
+  - text: '"Tidak masalah selamban apapun kamu berjalan, asalkan kamu tidak berhenti." - Conficus'
+  - text: '"Hal paling berani yang pernah kulakukan adalah melanjutkan hidup ketika aku ingin mati." - Juliette Lewis'
+  #end - suicide terms

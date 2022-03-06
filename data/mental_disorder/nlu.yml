@@ -1,0 +1,178 @@
+version: "2.0"
+
+nlu:
+  - intent: ask_mental_disorder_description
+    examples: |
+      - apa itu [Agorofobia]{ "entity": "mental_disorder" }
+      - apa yang dimaksud dengan [Anoreksia Nervosa]{ "entity": "mental_disorder" }
+      - apa yang dimaksud dengan [Autisme]{ "entity": "mental_disorder" }
+      - [Bad Mood]{ "entity": "mental_disorder" } itu apa
+      - [Bruxism]{ "entity": "mental_disorder" } itu apa ya
+      - pengertian dari [Bulimia Nervosa]{ "entity": "mental_disorder" } apa ya
+      - pengertian dari [Delirium]{ "entity": "mental_disorder" } itu apa ya
+      - jelaskan yang dimaksud dengan [Delusional]{ "entity": "mental_disorder" }
+
+  - intent: ask_mental_disorder_types
+    examples: |
+      - jenis dari gangguan [Agorofobia]{ "entity": "mental_disorder" }
+      - apa saja jenis gangguan dari [Anoreksia Nervosa]{ "entity": "mental_disorder" }
+      - jelsakan jenis - jenis dari gangguan [Autisme]{ "entity": "mental_disorder" }
+      - [Bad Mood]{ "entity": "mental_disorder" } jenisnya apa saja
+      - ada berapa jenis gangguan dari [Bruxism]{ "entity": "mental_disorder" }
+      - gangguan [Bulimia Nervosa]{ "entity": "mental_disorder" } jenisnya apa saja ya
+      - apakah gangguan [Delirium]{ "entity": "mental_disorder" } memiliki jenis yang berbeda - beda
+      - macam macam jenis dari gangguan [Delusional]{ "entity": "mental_disorder" }
+
+  - intent: ask_mental_disorder_signs_and_sympthomps
+    examples: |
+      - tanda dari gangguan [Agorofobia]{ "entity": "mental_disorder" }
+      - gejala dari gangguan [Anoreksia Nervosa]{ "entity": "mental_disorder" }
+      - apa tanda dari gangguan [Autisme]{ "entity": "mental_disorder" }
+      - apa gejala dari gangguan [Bad Mood]{ "entity": "mental_disorder" }
+      - tanda dan gejala dari gangguan [Bruxism]{ "entity": "mental_disorder" } apa saja
+      - gangguan [Bulimia Nervosa]{ "entity": "mental_disorder" } tandanya apa saja ya
+      - gangguan [Delirium]{ "entity": "mental_disorder" } gejalanya apa saja ya
+      - apa tanda dan gejala dari gangguan [Delusional]{ "entity": "mental_disorder" }
+
+  - intent: ask_mental_disorder_causes
+    examples: |
+      - penyebab dari gangguan [Agorofobia]{ "entity": "mental_disorder" }
+      - apa penyebab dari gangguan [Anoreksia Nervosa]{ "entity": "mental_disorder" }
+      - apa saja penyebab dari gangguan [Autisme]{ "entity": "mental_disorder" }
+      - gangguan [Bad Mood]{ "entity": "mental_disorder" } penyebabnya apa saja
+      - gangguan [Bruxism]{ "entity": "mental_disorder" } penyebabnya itu apa saja ya
+      - gangguan [Bulimia Nervosa]{ "entity": "mental_disorder" } penyebabnya apa
+      - apa yang menyebabkan munculnya gangguan [Delirium]{ "entity": "mental_disorder" }
+      - gangguan [Delusional]{ "entity": "mental_disorder" } terjadi karena apa
+  
+  - intent: ask_mental_disorder_diagnosis
+    examples: |
+      - diagnosa gangguan [Agorofobia]{ "entity": "mental_disorder" } apa saja
+      - gimana diagnosa gangguan [Anoreksia Nervosa]{ "entity": "mental_disorder" }
+      - cara mendiagnosa gangguan [Autisme]{ "entity": "mental_disorder" }
+      - bagaimana mendiagnosa gangguan [Bad Mood]{ "entity": "mental_disorder" }
+      - bagaimana cara melakukan diagnosa gangguan [Bruxism]{ "entity": "mental_disorder" }
+      - apa saja yang dilakukan untuk mendiagnosa gangguan [Bulimia Nervosa]{ "entity": "mental_disorder" }
+      - langkah yang dilakukan untuk mendiagnosa gangguan [Delirium]{ "entity": "mental_disorder" }
+      - langkah apa saja yang dilakukan untuk mendiagnosa gangguan [Delusional]{ "entity": "mental_disorder" }
+
+  - intent: ask_mental_disorder_complications
+    examples: |
+      - komplikasi gangguan [Agorofobia]{ "entity": "mental_disorder" }
+      - apa saja komplikasi gangguan [Anoreksia Nervosa]{ "entity": "mental_disorder" }
+      - komplikasi apa saja yang dapat dialami dari gangguan [Autisme]{ "entity": "mental_disorder" }
+      - dampak komplikasi dari gangguan [Bad Mood]{ "entity": "mental_disorder" }
+      - apa saja dampak komplikasi dari gangguan  [Bruxism]{ "entity": "mental_disorder" }
+      - gangguan [Bulimia Nervosa] komplikasinya apa
+      - gangguan [Delirium]{ "entity": "mental_disorder" } apa saja komplikasinya
+      - sebutkan komplikasi gangguan [Delusional]{ "entity": "mental_disorder" }
+
+  - intent: ask_mental_disorder_how_to_treat
+    examples: |
+      - bagaimana cara menangani [Agorofobia]{ "entity": "mental_disorder" }
+      - cara apa saja yang dapat digunakan untuk menangani [Anoreksia Nervosa]{ "entity": "mental_disorder" }
+      - apa saja yang dibutuhkan untuk menangani [Autisme]{ "entity": "mental_disorder" }
+      - apa saja yang dapat dilakukan untuk menangani [Bad Mood]{ "entity": "mental_disorder" }
+      - penanganan apa yang dapat dilakukan untuk menangani [Bruxism]{ "entity": "mental_disorder" }
+      - apa yang perlu dilakukan untuk menangani gangguan [Bulimia Nervosa]{ "entity": "mental_disorder" }
+      - cara menangani gangguan [Delirium]{ "entity": "mental_disorder" } gimana ya
+      - gangguan [Delusional]{ "entity": "mental_disorder" } cara penangananya bagaimana
+
+  - intent: ask_mental_disorder_how_to_prevent
+    examples: |
+      - pencegahan gangguan [Agorofobia]{ "entity": "mental_disorder" }
+      - mencegah gangguan [Anoreksia Nervosa]{ "entity": "mental_disorder" }
+      - bagaimana mencegah gangguan [Autisme]{ "entity": "mental_disorder" }
+      - bagaimana cara mencegah gangguan [Bad Mood]{ "entity": "mental_disorder" }
+      - gangguan [Bruxism]{ "entity": "mental_disorder" } pencegahannya bagaimana
+      - gangguan [Bulimia Nervosa] dicegah bagaimana
+      - upaya apa yang dilakukan untuk pencegahan gangguan [Delirium]{ "entity": "mental_disorder" }
+      - upaya apa saja yang dilakukan untuk mencegah gangguan [Delusional]{ "entity": "mental_disorder" }
+
+  - intent: ask_mental_disorder_when_to_consult
+    examples: |
+      - kapan harus konsultasi ketika mengidap gangguan
+      - apakah dibutuhkan untuk melakukan konsultasi ketika mengalami gangguan
+      - haruskah melakukan konsultasi ketika mengidap gangguan
+      - ketika mengalami gangguan apakah perlu konsultasi
+
+  - intent: ask_mental_disorder_preparation_before_consulting
+    examples: |
+      - apa saja yang perlu dipersiapkan sebelum melakukan konsultasi
+      - keperluan apa saja yang dibutuhkan sebelum melakukan konsultasi
+      - apa yang dibutuhkan sebelum melakukan konsultasi
+      - perlukah mempersiapkan diri sebelum melakukan konsultasi
+
+  - intent: ask_mental_disorder_during_the_consultation
+    examples: |
+      - kira-kira pertanyaan apa saja yang akan ditanyakan oleh dokter saat melakukan konsultasi
+      - pertanyaan apa saja yang ditanyakan saat melakukan konsultasi
+      - pertanyaan apa yang muncul saat melakukan konsultasi
+      - saat melakukan konsultasi apa yang akan ditanyakan oleh dokter
+
+  - lookup: mental_disorder 
+    examples: |
+      - Agorofobia
+      - Anoreksia Nervosa
+      - Autisme
+      - Bad Mood
+      - Bruxism
+      - Bulimia Nervosa
+      - Delirium
+      - Delusional
+      - Depresi
+      - Depresi Pasca-persalinan
+      - Fobia
+      - Gagap
+      - Gaming Disorder
+      - Bipolar
+      - Dismorfik Tubuh
+      - Identitas Disosiatif (Kepribadian Ganda)
+      - Kecemasan Sosial
+      - Kecemasan Umum
+      - Kepribadian
+      - Kepribadian Ambang
+      - Kepribadian Antisosial
+      - Kepribadian Narsisistik
+      - Kepribadian Paranoid 
+      - Koordinasi Perkembangan
+      - Makan
+      - Makan Pica
+      - Panik
+      - Pemusatan Perhatian dan Hiperaktivitas (ADHD)
+      - Stres Akut
+      - Tidur Berjalan
+      - Gelisah
+      - Halusinasi
+      - Hipersomnia
+      - Insomnia
+      - Katatonia
+      - Kecanduan Alkohol
+      - Kecanduan Makanan
+      - Kecanduan Nikotin
+      - Kleptomania
+      - Mimpi Buruk
+      - Narkolepsi
+      - Obsessive Compulsive Disorder (OCD)
+      - Oppositional Defiant Disorder
+      - Paraphilia
+      - Parenting Stress
+      - Pedofilia
+      - Penyakit Alzheimer
+      - Perubahan Sikap
+      - Post Traumatic Disorder (PTSD)
+      - Prolonged Grief Disorder
+      - Psikosis
+      - Psikosis Postpartum
+      - Retardasi Mental
+      - Sindrom Asperger
+      - Sindrom Munchausen
+      - Skizofrenia
+      - Skizofrenia Katatonik
+      - Skizofrenia Paranoid
+      - Sleep Paralysis
+      - Sleepwalking
+      - Stres
+      - Substance Abuse Disorder
+      - Trikotilomania
+      - Trypophobia

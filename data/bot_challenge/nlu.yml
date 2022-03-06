@@ -1,0 +1,40 @@
+version: "2.0"
+
+nlu: 
+  - intent: ask_bot_who_are_you
+    examples: |
+      - siapa anda?
+      - siapa kamu?
+      - apakah anda bot?
+      - apakah anda manusia?
+      - apakah saya berbicara dengan bot?
+      - apakah saya berbicara dengan manusia?
+      - apakah kamu nyata?
+
+  - intent: ask_bot_gender
+    examples: |
+      - apa jenis kelamin anda?
+      - apakah anda memiliki jenis kelamin?
+      - apakah anda laki-laki?
+      - apakah anda perempuan?
+      - apakah anda seorang pria?
+      - apakah anda seorang wanita?
+
+  - intent: ask_bot_age
+    examples: |
+      - usia anda berapa?
+      - umur anda berapa?
+
+  - intent: ask_bot_location
+    examples: |
+      - anda tinggal dimana?
+      - dimanakah anda tinggal?
+
+  - intent: ask_bot_if_remember_user_name
+    examples: |
+      - kamu tau saya siapa?
+      - kamu tau siapa saya?
+      - kamu kenal saya?
+      - kamu kenal saya tidak?
+      - kamu masih ingat dengan saya?
+      - apakah kamu masih ingat dengan saya?

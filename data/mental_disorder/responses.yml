@@ -1,0 +1,37 @@
+version: "2.0"
+
+responses:
+  utter_ask_explore_mental_disorder_name:
+  - text: 'Gangguan mental apa yang ingin kamu ketahui? (Ketik dengan angka)'
+
+  utter_user_stop_from_mental_disorder_auto_exaplaination:
+  - text: 'Baik, mungkin lain kali lagi, apabila kamu masih ingin tau tentang masalah gangguan kesehatan mental, kamu dapat menghubungi aku kembali'
+  - text: 'Okay, mungkin lain kali lagi ya untuk penjelasannya. Apabila kamu masih pensaran dapat menanyakannya kembali kepadaku ^^'
+
+  utter_not_yet_learn_mental_disorder:
+  - text: 'Maaf, aku belum mengerti tentang gangguan tersebut'
+  - text: 'Sorry, aku belum dilatih untuk mengetahui tentang gangguan tersebut'
+
+  #when to consult
+  utter_mental_disorder.when_to_consult_mental_disorder:
+  - text: 'Berkonsultasilah dengan dokter atau psikolog jika Anda mengalami gejala gangguan tersebut. Jangan membiarkan kondisi Anda bertambah parah.'
+  
+  #preparation before consulting
+  utter_mental_disorder.preparation_before_consulting:
+  - text: |
+        Sebelum melakukan konsultasi kepada psikolog atau dokter, sebaikanya kamu mempersipakan terlebih dahulu apa yang harus dilakukan:
+        - Buatlah daftar mengenai gejala yang muncul.
+        - Catat riwayat penyakit yang pernah dan sedang dialami. Demikian pula dengan riwayat medis keluarga.
+        - Catat semua obat, suplemen, obat herbal, atau vitamin yang dikonsumsi.
+        - Catat pertanyaan-pertanyaan yang ingin diajukan kepada dokter.
+        - Mintalah keluarga atau teman untuk mendampingi saat berkonsultasi ke dokter. Mereka bisa memberi dukungan moral maupun membantu mengingat informasi yang disampaikan dokter.
+
+  #during the consultation
+  utter_mental_disorder.during_the_consultation:
+  - text: |
+        Dalam sesi sebuah konsultasi mungkin saja psikolog atau dokter akan bertanya hal berikut ini:
+        - Apa saja gejala yang Anda rasakan?
+        - Kapan gejala pertama kali muncul?
+        - Apakah Anda memiliki faktor risiko terkait gangguan tersebut?
+        - Apakah Anda rutin mengonsumsi obat-obatan tertentu?
+        - Apakah Anda pernah mencari bantuan medis? Bila iya, apa saja pengobatan yang telah Anda coba?

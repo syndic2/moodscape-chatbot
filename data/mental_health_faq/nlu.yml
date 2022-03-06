@@ -1,0 +1,162 @@
+version: "2.0"
+
+nlu: 
+  - intent: mental_health_faq/the_mean_of_having_mental_illness
+    examples: |
+      - apa yang dimaksud dengan penyakit atau gangguan mental
+      - apa sebenarnya yang dimaksud dengan penyakit atau gangguan mental
+      - apa artinya jika memiliki penyakit atau gangguan mental
+      - apa artinya menderita penyakit atau gangguan mental
+      - apa sebenarnya yang dimaksud dengan menderita penyakit atau gangguan mental
+
+  - intent: mental_health_faq/causes_of_mental_illness
+    examples: |
+      - siapa yang dapat terkena penyakit atau gangguan mental
+      - siapa saja yang dapat terkena penyakit atau gangguan mental
+      - siapa yang terkena dampak penyakit atau gangguan mental
+      - gangguan mental dapat mengenai siapa saja
+      - apa penyebab penyakit atau gangguan mental
+      - apa penyebab munculnya penyakit atau gangguan mental
+      - apa yang menyebabkan munculnya penyakit atau gangguan mental
+      - munculnya penyakit atau gangguan mental disebabkan karena apa
+
+  - intent: mental_health_faq/warning_signs_of_mental_illness
+    examples: |
+      - tanda-tanda apa saja yang menunjukkan adanya penyakit atau gangguan mental
+      - apa saja tanda-tanda yang menunjukkan adanya penyakit atau gangguan mental
+      - penyakit atau gangguan mental tanda-tandanya apa saja
+      - tanda yang menunjukkan adanya penyakit atau gangguan mental apa saja
+      - tanda-tanda gejala yang menunjukkan adanya penyakit atau gangguan mental apa saja
+
+  - intent: mental_health_faq/can_mental_illness_recovered
+    examples: |
+      - apakah penderita penyakit atau gangguan mental bisa sembuh
+      - penderita penyakit atau gangguan mental bisa sembuh apakah bisa sembuh
+      - apakah orang yang menderita penyakit atau gangguan mental bisa sembuh
+      - orang yang menderita penyakit atau gangguan mental apakah bisa sembuh
+      - penyakit atau ganggual mental apakah bisa disembuhkan
+
+  - intent: mental_health_faq/someone_who_have_mental_illness
+    examples: |
+      - apa yang harus saya lakukan jika saya mengenal seseorang yang tampaknya memiliki gejala penyakit atau gangguan mental
+      - apa yang dapat dilakukan jika kita mengenal seseorang yang tampaknya memiliki gejala penyakit atau gangguan mental
+      - jika kita mengenal seseorang yang memiliki gejala penyakit atau gangguan mental, apa yang dapat kita lakukan
+      - apa yang dapat kita lakukan apabila kita mengenal seseorang yang memiliki gejala penyakit atau gangguan mental
+      - kita dapat melakukan apa bila kita mengenal seseorang yang memiliki gejala penyakit atau gangguan mental
+
+  - intent: mental_health_faq/how_to_find_mental_health_professional
+    examples: |
+      - bagaimana saya bisa menemukan profesional kesehatan mental untuk diri saya atau kerabat saya
+      - bagaimana cara menemukan pakar kesehatan mental untuk diri saya atau kerabat saya
+      - cara mencari profesional bidang kesehatan mental untuk diri saya atau kerabat saya
+      - dimana saya dapat mencari psikolog atau psikiater untuk diri saya atau kerabat saya
+
+  - intent: mental_health_faq/available_treatment_options
+    examples: | 
+      - pilihan pengobatan apa yang tersedia
+      - pengobatan apa saja yang tersedia
+      - jenis pengobatan apa saja yang tersedia
+      - apa saja pilihan pengobatan yang tersedia
+
+  - intent: mental_health_faq/involved_in_treatment
+    examples: |
+      - jika saya terlibat dalam perawatan, apa yang perlu saya ketahui
+      - apa saja yang perlu saya ketahui apabila saya terlibat dalam perawatan
+      - hal-hal apa saja yang perlu diketahui apabila kita terlibat dalam proses perawatan
+      - apa saja yang perlu diperhatikan bila kita terlibat dalam suatu proses pengobatan atau perawatan
+      - bila kita terlibat dalam perawatan, apa saja yang perlu kita ketahui
+
+  - intent: mental_health_faq/mental_health_professional_diffrences
+    examples: |
+      - apa perberdaan antara profesional bidang kesehatan mental
+      - perbedaan antara jenis profesinal kesehatan mental apa
+      - apa yang membedakan antara banyaknya profesional dalam bidang kesehatan mental
+      - jenis dari profesional bidang kesehatan mental apa saja
+      - saya bingung dengan banyaknya ahli dalam bidang kesehatan mental, bedanya apa saja
+
+  - intent: mental_health_faq/where_else_to_get_help
+    examples: |
+      - di mana lagi saya bisa mendapatkan bantuan
+      - saya harus kemana untuk mendapatkan pertolongan untuk masalah saya
+      - saya bingung harus kemana untuk mengatasi masalah saya
+      - saya tidak tau harus berbuat apa atau kemana lagi karena masalah saya ini
+      - saya bisa mendapatkan bantuan dari mana ya
+
+  - intent: mental_health_faq/before_starting_new_medication
+    examples: |
+      - apa yang harus saya ketahui sebelum memulai pengobatan baru
+      - hal-hal apa saja yang perlu diketahui sebelum memulai sebuah pengobatan
+      - apa saja yang perlu diketahui ketika mau memulai ebuah pengobatan baru
+      - sebelum memulai pengobatan baru, hal-hal yang perlu diperhatikan apa saja ya
+      - saya bingung ketika memulai pengobatan baru, apa saya ya yang perlu saya ketahui
+
+  - intent: mental_health_faq/is_after_taking_medication_cured
+    examples: |
+      - jika saya merasa lebih baik setelah minum obat, apakah ini berarti saya sembuh dan dapat berhenti meminumnya
+      - apabila saya merasa lebih enakan setelah rutin meminum obat, apakah berarti saya sudah sembuh
+      - setelah meminum obat yang diberikan oleh dokter, saya merasa lebih baik, apakah berarti saya sudah sembuh
+      - obat yang saya minum dapat membuat diri saya lebih baik, apakah saya dapat berhenti meminumnya
+      - saya merasa lebih biak setelah minum obat, apakah ini saya dapat dikatakan sudah sembuh dan dapat berhenti minum obat
+
+  - intent: mental_health_faq/get_help_for_paying_medication
+    examples: |
+      - bagaimana saya bisa mendapatkan bantuan untuk membayar obat saya
+      - saya tidak memiliki uang yang cukup untuk membayar pengobatan saya, saya harus bagaimana ya
+      - dimana saya dapat mendapatkan bantun untuk membayar pengobatan saya
+      - apa yang harus saya lakukan bila saya tidak memiliki cukup uang untuk membayar obat-obatan saya
+      - bagaimana cara untuk mendapatkan bantuan untuk membayar obat saya, bila saya tidak memiliki cukup uang
+
+  - intent: mental_health_faq/find_the_right_therapy
+    examples: |
+      - bedasarkan apa jenis terapi dapat terbilang efektif
+      - bagaimana menentukan bahwa terapi ini lebih efektif dibandingkan dengan terapi lain yang pernah saya jalani
+      - terapi dapat terbilang efektif bedasarkan apa
+      - bagaimana saya menemukan terapi yang tepat
+      - menentukan terapi yang cocok untuk saya bagaimana ya
+      - mencari terapi yang tepat untuk masalah saya gimana ya
+
+  - intent: mental_health_faq/learn_types_of_mental_health_treatment
+    examples: |
+      - di mana saya bisa belajar tentang jenis perawatan kesehatan mental
+      - darimana saya dapat belajar mengenai jenis perawatan kesehatan mental
+      - jenis perawatan kesehatan mental apa saja ya
+      - apa saja jenis perawatan untuk menangani kesehatan mental
+      - darimana saya dapat belajar tentang jenis perawatan kesehatan mental
+
+  - intent: mental_health_faq/diffrent_types_of_mental_health_professionals
+    examples: |
+      - apa saja jenis-jenis profesional kesehatan mental
+      - jenis profesional bidang kesehatan mental apa saja ya
+      - saya kebingungan dengan berbagai jenis profesional kesehatan mental, jenisnya apa saja ya
+      - perbedaan dari setiap jenis profesi kesehatan mental apa saja
+
+  - intent: mental_health_faq/find_support_group
+    examples: |
+      - di mana saya dapat mencari kelompok pendukung atau support system
+      - bagaimana cara mencari support system yang tepat untuk saya
+      - darimana saya dapat mendapatkan kelompok pendukung untuk saya
+      - saya membutuhkan support system, darimana saya mendapatkan support system tersebut
+      - cara mencari kelompok pendukung yang tepat
+
+  - intent: mental_health_faq/find_inpatient_care
+    examples: |
+      - ke mana saya bisa mencari perawatan rawat inap
+      - dimana saya dapat mencari tempat rawat inap
+      - apakah perlu saya sampai mencari tempat rawat inap
+      - seberapa parah hingga seseorang harus sampai mencari tempat rawat inap
+
+  - intent: mental_health_faq/find_other_local_services
+    examples: |
+      - di mana saya dapat mencari layanan lokal lainnya
+      - dimana saya dapat mencari layanan bantuan lokal ditempat saya
+      - bagaimana saya mencari layanan bantuan di daerah tempat saya
+      - saya kebingungan mencari tempat layanan di tempat saya
+      - untuk mencari layanan lokal, saya harus mulai dari mana ya
+
+  - intent: mental_health_faq/learn_more_about_clinical_trials
+    examples: |
+      - dimana saya dapat mempelajari informasi lebih lanjut tentang uji klinis
+      - dari mana saya dapat mencari informasi lebih lanjut mengenai uji klinis
+      - untuk mempelajari informasi tentang uji klinis dapat dari mana ya
+      - saya mau mempelajari tentang uji klinis, harus cari dimana ya
+      - informasi mengenai uji klinis dapat dicari dari mana

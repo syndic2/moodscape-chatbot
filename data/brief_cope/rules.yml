@@ -1,0 +1,12 @@
+version: "2.0"
+
+rules:
+  - rule: user ask about emotion-focused coping
+    steps:
+    - intent: what_is_emotion_focused_coping
+    - action: utter_types_of_coping_strategy.response[emotion_focused_coping]
+
+  - rule: user ask about problem-focused coping
+    steps:
+    - intent: what_is_problem_focused_coping
+    - action: utter_types_of_coping_strategy.response[problem_focused_coping]

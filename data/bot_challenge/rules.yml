@@ -1,0 +1,27 @@
+version: "2.0"
+
+rules:
+  - rule: user ask about bot identity
+    steps:
+    - intent: ask_bot_who_are_you
+    - action: utter_ask_bot_who_are_you
+
+  - rule: user ask about bot gender
+    steps:
+    - intent: ask_bot_gender
+    - action: utter_ask_bot_gender
+
+  - rule: user ask about bot age
+    steps:
+    - intent: ask_bot_age
+    - action: utter_ask_bot_age
+
+  - rule: user ask about bot location
+    steps:
+    - intent: ask_bot_location
+    - action: utter_ask_bot_location
+
+  - rule: user ask bot if remember user name
+    steps:
+    - intent: ask_bot_if_remember_user_name
+    - action: utter_ask_bot_if_remember_user_name

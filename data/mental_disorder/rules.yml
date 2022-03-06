@@ -1,0 +1,63 @@
+version: "2.0"
+
+rules:
+  - rule: user stop from mental disorder explanation
+    steps:
+    - intent: stop_explore_mental_disorders
+    - action: utter_user_stop_from_mental_disorder_auto_exaplaination
+    - action: action_reset_explore_mental_disorder
+
+  - rule: user ask about mental disorder description
+    steps:
+    - intent: ask_mental_disorder_description
+    - action: action_get_mental_disorder_description
+
+  - rule: user ask about mental disorder types
+    steps:
+    - intent: ask_mental_disorder_types
+    - action: action_get_mental_disorder_types
+
+  - rule: user ask about mental disorder signs and sympthomps
+    steps:
+    - intent: ask_mental_disorder_signs_and_sympthomps
+    - action: action_get_mental_disorder_signs_and_sympthomps
+
+  - rule: user ask about mental disorder causes
+    steps:
+    - intent: ask_mental_disorder_causes
+    - action: action_get_mental_disorder_causes
+
+  - rule: user ask about mental disorder diagnosis
+    steps:
+    - intent: ask_mental_disorder_diagnosis
+    - action: action_get_mental_disorder_diagnosis
+
+  - rule: user ask about mental disorder complications
+    steps:
+    - intent: ask_mental_disorder_complications
+    - action: action_get_mental_disorder_complications
+
+  - rule: user ask about mental disorder how to treat
+    steps:
+    - intent: ask_mental_disorder_how_to_treat
+    - action: action_get_mental_disorder_how_to_treat
+
+  - rule: user ask about mental disorder how to prevent
+    steps:
+    - intent: ask_mental_disorder_how_to_prevent
+    - action: action_get_mental_disorder_how_to_prevent
+
+  - rule: user ask about when to consult to a therapist or doctor
+    steps:
+    - intent: ask_mental_disorder_when_to_consult
+    - action: utter_mental_disorder.when_to_consult_mental_disorder
+
+  - rule: user ask about what to prepare before consulting
+    steps:
+    - intent: ask_mental_disorder_preparation_before_consulting
+    - action: utter_mental_disorder.preparation_before_consulting
+  
+  - rule: user ask about what therapist or doctor do during the consultation
+    steps:
+    - intent: ask_mental_disorder_during_the_consultation
+    - action: utter_mental_disorder.during_the_consultation

@@ -130,7 +130,7 @@ class ActionGetMentalDisorderList(Action):
             response_text+= f"{i+1}. {mental_disorders[i]['name']}\n"
 
         dispatcher.utter_message(text= response_text)
-        dispatcher.utter_message(text= 'Untuk sekarang masih harus memilih dengan menulis manual gangguann mana yang kamu ingin kamu tau ya')
+        dispatcher.utter_message(text= 'Untuk sekarang masih harus memilih dengan menulis manual gangguan mana yang kamu ingin kamu tau ya')
 
         return [SlotSet('explore_mental_disorder_list', mental_disorders)]
 
@@ -175,7 +175,7 @@ class ActionGetMentalDisorderDetail(Action):
         response= requests.get(f'{api_urls["development"]}/mental-disorders/by-name/{mental_disorder_name}').json()
 
         if response['status'] is False:
-            dispatcher.utter_message(template= not_yet_learn_template)
+            dispatcher.utter_message(response= not_yet_learn_template)
 
         mental_disorder= response['mental_disorder']
         buttons= [
