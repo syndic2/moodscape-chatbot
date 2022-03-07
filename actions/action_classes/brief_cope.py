@@ -61,7 +61,7 @@ class ActionBriefCOPEResult(Action):
         else: coping_strategy= 'Avoidant'
 
         save_brief_cope_results= requests.post(
-            url= f'{api_urls["development"]}/brief-cope-evaluation/save',
+            url= f'{api_urls["production"]}/brief-cope-evaluation/save',
             headers= { 'Content-Type': 'application/json' },
             data= json.dumps({
                 'user_id': tracker.sender_id,
@@ -122,7 +122,7 @@ class ActionBriefCOPEResultHistories(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         dates= tracker.get_slot('datepicker_dates').split('/')
-        get_brief_cope_results= requests.get(f'{api_urls["development"]}/brief-cope-evaluation/{tracker.sender_id}?start_date={dates[0]}&end_date={dates[1]}')
+        get_brief_cope_results= requests.get(f'{api_urls["production"]}/brief-cope-evaluation/{tracker.sender_id}?start_date={dates[0]}&end_date={dates[1]}')
         response= get_brief_cope_results.json()
 
         if len(response['brief_cope_results']) == 0:
