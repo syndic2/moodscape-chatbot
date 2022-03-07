@@ -7,9 +7,11 @@ services:
     build: "./"
     restart: always
     volumes:
-    - ./actions:/app/actions
     - ./data:/app/data
-    command: bash -c "rm -rf models/* && rasa train && rasa run --enable-api --cors \"*\" --debug"
+    - ./actions:/app/actions
+    - ./models:/app/models
+    - ./tests:/app/tests
+    command: bash -c "rm -rf .rasa/* && rasa train && rasa run --enable-api --cors \"*\" --debug"
     ports:
     - '5005:8080'
     public: true
@@ -24,7 +26,7 @@ services:
     volumes:
     - ./actions:/app/actions
     - ./utilities:/app/utilities
-    command: ["rasa", "run", "actions"]
+    command: bash -c "rasa run actions"
     ports:
     - '5055:5055'
     networks:
