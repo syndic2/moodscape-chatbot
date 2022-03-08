@@ -156,7 +156,6 @@ entities:
   - brief_cope_answer.score_28
   #start - Brief-COPE attributes
 
-  - explore_mental_disorder_name
   - next_explore_mental_disorder_field
   - mental_disorder
 

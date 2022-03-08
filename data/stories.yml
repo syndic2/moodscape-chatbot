@@ -111,20 +111,28 @@ stories:
     - action: get_explore_mental_disorder_name_form
     - active_loop: get_explore_mental_disorder_name_form
     - active_loop: null
+    
     - action: action_get_mental_disorder_detail #short description
     - intent: continue_explore_mental_disorders
+    
     - action: action_get_mental_disorder_detail #types
     - intent: continue_explore_mental_disorders 
-    - action: action_get_mental_disorder_detail #signs  and sympthomps
+    
+    - action: action_get_mental_disorder_detail #signs and sympthomps
     - intent: continue_explore_mental_disorders 
+    
     - action: action_get_mental_disorder_detail #causes
     - intent: continue_explore_mental_disorders
+    
     - action: action_get_mental_disorder_detail #diagnosis
     - intent: continue_explore_mental_disorders
+    
     - action: action_get_mental_disorder_detail #complications
     - intent: continue_explore_mental_disorders
+    
     - action: action_get_mental_disorder_detail #how to treat
     - intent: continue_explore_mental_disorders
+    
     - action: action_get_mental_disorder_detail #how to prevent
     - action: action_reset_explore_mental_disorder
 

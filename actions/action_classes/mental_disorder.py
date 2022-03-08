@@ -9,10 +9,11 @@ import requests
 from utilities.constants import api_urls
 from utilities.helpers import extract_entity
 
+api_url= api_urls["production"]
 not_yet_learn_template= 'utter_not_yet_learn_mental_disorder'
 
 def get_mental_disorder(mental_disorder_name):
-    response= requests.get(f'{api_urls["production"]}/mental-disorders?name={mental_disorder_name}').json()
+    response= requests.get(f'{api_url}/mental-disorders?name={mental_disorder_name}').json()
 
     if len(response['mental_disorders']) == 0:
         return None
@@ -123,7 +124,7 @@ class ActionGetMentalDisorderList(Action):
         tracker: Tracker,
         domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:        
 
-        mental_disorders= requests.get(f'{api_urls["production"]}/mental-disorders/list').json()['mental_disorders']
+        mental_disorders= requests.get(f'{api_url}/mental-disorders/list').json()['mental_disorders']
         response_text= ''
 
         for i in range(len(mental_disorders)):
@@ -168,14 +169,15 @@ class ActionGetMentalDisorderDetail(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
+
         mental_disorder_index= int(tracker.get_slot('explore_mental_disorder_name'))-1
         mental_disorder_name= tracker.get_slot('explore_mental_disorder_list')[mental_disorder_index]['name']
 
-        response= requests.get(f'{api_urls["production"]}/mental-disorders/by-name/{mental_disorder_name}').json()
+        response= requests.get(f'{api_url}/mental-disorders/by-name/{mental_disorder_name}').json()
 
         if response['status'] is False:
             dispatcher.utter_message(response= not_yet_learn_template)
+            return []
 
         mental_disorder= response['mental_disorder']
         buttons= [
