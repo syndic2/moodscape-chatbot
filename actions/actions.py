@@ -73,3 +73,17 @@ class ActionInformShowDatePicker(Action):
         dispatcher.utter_message(json_message= dict({ 'is_show_datepicker': True }))
 
         return []
+
+class ActionGiveMindfullnessVideo(Action):
+
+    def name(self) -> Text:
+        return 'action_give_mindfullness_video'
+    
+    def run(self, dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        dispatcher.utter_message(text= 'Untuk membantu kamu dalam latihan Mindfullness ini, aku ada video yang mungkin dapat membantu kamu. Coba untuk melihat video yang aku kirimkan ini ya')
+        dispatcher.utter_message(json_message= dict({ 'is_show_video': True, 'video_url': 'https://www.youtube.com/embed/4wKh265mCiA' }))
+
+        return []

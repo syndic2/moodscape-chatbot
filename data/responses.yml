@@ -46,57 +46,123 @@ responses:
   - text: 'Bagaimana perasaanmu sekarang?'
   #end - bot introduction
 
+
   #start - bot ask about user feelings right now
-  utter_ask_user_emotion:
-  - text: 'Perasaanmu bagaimana saat ini? Aku berharap kamu baik-baik saja ya'
+  utter_ask_user_feeling:
+  - text: 'Bagaimana keadaanmu saat ini? Aku berharap kamu baik-baik saja ya'
     buttons:
-    - title: 'Senang'
-      payload: '/positive_emotion'
-    - title: 'Bersyukur'
-      payload: '/positive_emotion'
-    - title: 'Sedih'
-      payload: '/negative_emotion'
-    - title: 'Marah'
-      payload: '/negative_emotion'
-    - title: 'Takut'
-      payload: '/negative_emotion'
+    - title: 'Saya sedang baik-baik saja'
+      payload: '/positive_feeling'
+    - title: 'Saya tidak sedang baik-baik saja'
+      payload: '/negative_feeling'
+
+  utter_ask_user_to_write_gratitude:
+  - text: 'Apakah kamu ingin mengeluarkan rasa bersyukur atau terima kasih untuk hari ini{name_user}?'
+    buttons:
+    - title: 'Ya'
+      payload: '/write_gratitude_yes'
+    - title: 'Tidak'
+      payload: '/write_gratitude_no'
+
+  utter_ask_user_positive_gratitude:
+  - text: 'Baik, tulis apa saja yang kamu ingin syukuri dibawah sini ya ^^'
+
+  utter_ask_user_to_share_thought:
+  - text: 'Apakah kamu ingin mengeluarkannya? Tenang saja kamu dapat mengeluarkannya sebebasmu, aku akan menjaga privasi kamu'
+    buttons:
+    - title: 'Ya'
+      payload: '/share_thought_yes'
+    - title: 'Tidak'
+      payload: '/share_thought_no'
+
+  utter_ask_user_negative_thought:
+  - text: 'Okay, tulis apa yang ingin kamu keluarkan dibawah sini ya'
 
   #response
-  utter_user_positive_emotion.response:
+  utter_user_positive_feeling.response:
   - text: 'Baguslah kalau ternyata kamu baik-baik saja, tetap pertahankan kondisi seperti ini ya!'
 
-  utter_user_negative_emotion.response_1:
-  - text: 'Saya turut prihatin bahwa kamu sedang mengalami situasi seperti ini'
+  utter_after_write_gratitude.response:
+  - text: 'Terima kasih kamu telah menuliskan apa yang kamu ingin syukuri untuk hari ini, dengan kamu menuliskan seperti ini mungkin memang terkesan sepele, tetapi hal ini dapat membantu kamu untuk lebih bersyukur terhadap kehidupan kamu ^^. 
+      Tanpa disadari hal ini dapat membuat kamu lebih bahagia lho'
 
-  utter_user_negative_emotion.response_2:
-  - text: 'Itu pasti sangat menyulitkan anda. Apakah anda ingin mengeluarkannya dari dada anda terlebih dahulu?'
+  utter_user_dont_want_to_write_gratitude.response:
+  - text: 'Okay kalau kamu tidak ingin menuliskannya, mungkin dilain waktu ya'
+
+  utter_benefit_of_writing_gratitude:
+  - text: "Hanya sekedar memberi informasi saja bahwa dengan menulis gratitude kamu mendapat manfaat seperti berikut ini: \n
+      1. Menurunkan level stress \n
+         Seseorang yang pandai bersyukur memiliki kecenderungan untuk menjaga diri secara lebih baik, mempraktikkan kebiasaan hidup sehat, dan memiliki kemampuan manajemen stres yang baik \n
+      2. Mendapatkan perspektif baru \n
+         Dengan menulis gratitude journal, kita dapat mulai mengamati dan melihat pola tentang apa saja yang menurut kita penting dalam hidup. Hal ini dapat membantu Kawan mengapresiasi tiap hal kecil yang kita alami dan hadapi \n
+         Selain itu, cara kita melihat suatu situasi bergantung dengan perspektif yang kita gunakan. Ketika Kawan memilih untuk mencari hal-hal yang dapat disyukuri, perspektif Kawan dalam melihat suatu hal akan berubah dan Kawan mampu menyadari hal-hal yang belum pernah terpikirkan sebelumnya \n
+      3. Memunculkan self awareness \n
+         Mengetahui hal apa saja yang penting dalam hidup dapat membantu kamu untuk dapat lebih mindfull dalam memutuskan sesuatu. Kamu dapat menjadi seseorang yang lebih bijaksana dalam mengambil keputusan karena kamu mengerti hal apa saja yang benar-benar kamu suka \n
+         Hal ini dapat membantu kamu untuk melakukan “sortir” ketika kamu harus menentukan pilihan. Kamu dapat menjadi pribadi yang tidak mudah hanyut pada arus dengan mengikuti apa yang banyak diikuti oleh kebanyakan orang \n
+      4. Sebagai pengingat di masa sulit
+         Tanpa gratitude journal, kamu akan kesulitan mengingat apa saja hal-hal baik yang pernah kamu alami. Apalagi ketika dalam masa sulit, siapapun dapat dengan mudah terlarut dalam kesedihan dan lupa dengan hal-hal lain yang dapat disyukuri" 
+
+  utter_user_negative_feeling.response:
+  - text: 'Saya turut prihatin bahwa kamu sedang mengalami situasi seperti ini. Itu pasti sangat menyulitkan keadaan kamu :('
+  
+  utter_user_after_share_thought.response:
+  - text: 'Terima kasih kamu telah kuat untuk mengeluarkan isi hatimu {name_user}. Anggap saja aku ini sebagai temanmu yang selalu ada buat kamu {name_user} ^^. Meskipun aku hanya robot yang tidak memiliki emosi seperti manusia, aku akan selalu mendengarkan dan tidak akan men-judge cerita yang kamu ceritakan'
+  
+  utter_user_dont_want_share_thought.response:
+  - text: 'Okay tidak apa-apa jika kamu tidak ingin menceritakannya kepadaku, tapi bila kamu mau menceritakannya mungkin dapat membantu melepas bebanmu sejenak'
+
+  utter_suggest_user_other_method.confirmation:
+  - text: 'Aku mengetahui beberapa cara untuk meredakan kondisi stres atau down. Apa kamu ingin mendengarnya? Mungkin dengan cara ini dapat membantu kamu melewati masa tersebut'
     buttons:
     - title: 'Ya'
-      payload: '/start_share_thoughts_yes'
+      payload: '/offer_other_method_yes'
     - title: 'Tidak'
-      payload: '/start_share_thoughts_no'
+      payload: '/offer_other_method_no'
   
-  utter_ask_user_negative_thoughts:
-  - text: 'Baik, tulis apa yang anda sedang pikirkan sekarang ya. Tenang aku tetap menjaga privasimu, sehingga apa yang anda ceritakan tidak akan bocor'
-
-  utter_after_user_share_thoughts.response:
-  - text: 'Terima kasih anda telah kuat untuk mengeluarkan isi hatimu {name_user}. Anggap saja aku ini sebagai temanmu yang selalu ada buat kamu {name_user} ^^'
-
-  utter_ask_user_reframe_thoughts:
-  - text: 'Apakah anda ingin melakukan reframing (membingkai ulang) pikiran negatif anda agar menjadi positif? Aku dapat menuntun anda dalam melakukan hal tersebut'
+  utter_user_dont_want_other_method.response:
+  - text: 'Okay gapapa, kalau kamu ingin menanyakannya kepadaku, aku selalu berada disini ya {name_user}'
     buttons:
-    - title: 'Ya'
-      payload: '/start_reframe_thoughts_yes'
-  
-  #reframing thoughts
-  #...
-
+    - title: 'Iya, terima kasih'
+      payload: '/affirm_yes'
   #end - bot ask about user feelings right now
+
+
+  #start - mindfullness guide
+  utter_mindfullness_description.response_1:
+  - text: 'Ini merupakan salah satu teknik meditasi yang banyak digunakan banyak orang, apalagi teknik ini lagi nge-trend dikalangan remaja. Teknik tersebut yaitu Mindfullness'
+
+  utter_mindfullness_description.response_2:
+  - text: 'Mindfullness merupakan meditasi yang melatih seseorang untuk fokus terhadap situasi sekitar (keadaan sekarang). Meditasi Mindfullness ini memiliki berbagai manfaat bagi tubuh, kesehatan fisik, maupun kesehatan mental'
+
+  utter_mindfullness_description.response_3:
+  - text: 'Meditasi Mindfullness bisa dilakukan oleh siapa saja tanpa persyaratan khusus. Jenis meditasi ini juga dapat dilakukan kapan saja dan di mana pun, baik di rumah, kantor, atau kelas meditasi'
+
+  utter_mindfullness_description.response_4:
+  - text: "Sebenarnya terdapat banyak cara sederhana untuk melakukan Mindfullness dan setiap orang memiliki preferensinya masing-masing. Aku mengetahui 4 bentuk latihan Mindfullness, seperti: \n
+      1. Perhatian \n
+         Cobalah untuk meluangkan waktu sejenak untuk memberi perhatian terhadap lingkungan dengan menggunakan semua panca indra yang dimiliki. Mulai dari sentuhan, suara, penglihatan, penciuman, dan rasa. 
+         Misalnya ketika kamu menyantap makanan favoritmu. Sebelum dimakan, coba cium aromanya, rasakan, hingga benar-benar dinikmati \n
+      2. Fokus pada kehidupan sekarang \n
+         Latihan mindfulness selanjutnya adalah mencoba fokus pada apa yang terjadi pada hidupmu sekarang ini. Cobalah untuk memberikan perhatian dan menerima apa yang sudah ada dalam hidup. Dengan begitu kamu akan menemukan kegembiraan dan kesenangan meskipun sederhana \n
+      3. Menerima diri sendiri \n
+         Bentuk lain dari meditasi mindfulness yang baik bagi tubuh adalah menerima diri apa adanya. Perlakukan diri sendiri sebagai sosok teman yang baik \n
+      4. Fokus pada pernapasan \n
+         Ketika kamu memiliki pikiran negatif, cobalah untuk duduk, tarik nafas dalam-dalam dan tutup mata. Fokuslah pada pernapasan yang masuk dan keluar dalam tubuh. Meskipun kamu latihan pernapasan hanya dalam satu menit, tetap saja hal ini bisa membuatmu untuk lebih tenang. Sehingga pikiran-pikiran negatif bisa diredakan"
+
+  utter_mindfullness_end_description.response:
+  - text: 'Semoga dengan informasi yang aku berikan ini dapat membantu kamu dalam melakukan latihan Mindfullness ini, kuncinya adalah sabar dan terus berlatih ya {name_user}'
+    buttons:
+    - title: 'Iya, terima kasih'
+      payload: '/affirm_yes'
+  #end - mindfullness guide
+
 
   #start - bot provides menu options
   utter_ask_user_what_can_be_helped:
   - text: 'Apa yang bisa aku bantu {name_user}?'
-    buttons: 
+    buttons:
+    - title: 'Apa itu Mood Journaling?'
+      payload: '/menu_options_mood_journaling'
     - title: 'Bercerita mengenai suatu topik tertentu'
       payload: '/menu_options_story_topics'
     - title: 'Bagaimana menentukan strategi atau teknik koping yang cocok?'
@@ -109,11 +175,11 @@ responses:
       payload: '/leave'
   
   #response
-  utter_menu_options_story_topics.response_1:
-  - text: 'Fitur ini masih eksperimental ya'
+  utter_menu_options_mood_journaling.response_1:
+  - text: 'Masih dalam proses pengembangan yaa'
 
-  utter_menu_options_story_topics.response_2:
-  - text: 'Jadi aku akan merespon sebisaku sesuai dengan topik dan pengetahuan yang aku punya ^^'
+  utter_menu_options_story_topics.response_1:
+  - text: 'Masih dalam proses pengembangan yaa'
 
   utter_menu_options_explore_mental_disorders.response:
   - text: 'Sepertinya kamu ingin mengetahui informasi mengenai gangguan mental ya, baik aku akan memberikan daftar gangguan yang aku mengerti ya'
@@ -122,13 +188,14 @@ responses:
   - text: 'Baik, apa yang kamu pikirkan atau mungkin bertanya mengenani sesuatu?'
   #end - bot provides menu options
 
+
   #start - suicide terms
   #confirmation
   utter_suicide_terms.confirmation_1:
-  - text: 'Sistem darurat saya telah terpicu karena saya telah mendeteksi kondisi darurat. Apakah anda berpikiran untuk menuju arah "kesana"?'
+  - text: 'Sistem darurat saya telah terpicu karena saya telah mendeteksi kondisi darurat. Apakah kamu berpikiran untuk menuju arah "kesana"?'
 
   utter_suicide_terms.confirmation_2:
-  - text: 'Maaf apabila saya salah paham dengan maksud anda, tetapi saya berpikir alangkah baiknya jika saya bertanya kepada anda'
+  - text: 'Maaf apabila saya salah paham dengan maksud kamu, tetapi saya berpikir alangkah baiknya jika saya bertanya kepada kamu'
     buttons:
     - title: 'Ya, saya sedang memikirkan "hal" tersebut'
       payload: '/suicide_terms_positive'
@@ -140,7 +207,7 @@ responses:
       payload: '/suicide_terms_unrecognized'
   
   utter_ensure_seek_help.crisis_confirmation:
-  - text: 'Pastikan anda segera menghubungi mereka'
+  - text: 'Pastikan kamu segera menghubungi mereka'
     buttons:
     - title: 'Saya sudah menghubungi'
       payload: '/ensure_seek_help[crisis]_yes'
@@ -150,24 +217,24 @@ responses:
   #response
   #positive
   utter_suicide_terms.positive_response_1:
-  - text: 'Saya minta maaf karena anda harus melewati situasi sulit seperti ini... Saya sangat menyarankan bahwa anda segera mencari pertolongan kepada ahli profesional yang dapat membantu anda dalam situasi seperti ini'
+  - text: 'Saya minta maaf karena kamu harus melewati situasi sulit seperti ini... Saya sangat menyarankan bahwa kamu segera mencari pertolongan kepada ahli profesional yang dapat membantu kamu dalam situasi seperti ini'
 
   utter_suicide_terms.positive_response_2:
   - text: 'Situasi seperti di luar dari kemampuan saya, karena saya tidak diprogram untuk membantu "hal" tersebut'
 
   utter_suicide_terms.positive_response_3:
-  - text: 'Anda dapat menghubungi orang-orang tersebut dengan menggunakan informasi berikut ini'
+  - text: 'kamu dapat menghubungi orang-orang tersebut dengan menggunakan informasi berikut ini'
 
   #negative
   utter_suicide_terms.negative_response_1:
-  - text: 'Baiklah, apabila anda membutuhkan informasi bantuan mengenai "hal" tersebut, anda dapat menghubungi saya lagi'
+  - text: 'Baiklah, apabila kamu membutuhkan informasi bantuan mengenai "hal" tersebut, kamu dapat menghubungi saya lagi'
 
   utter_suicide_terms.negative_response_2:
-  - text: 'Saya akan bantu memberikan informasi semampu saya agar anda dapat melewati situasi tersebut. Semoga anda selalu baik - baik saja'
+  - text: 'Saya akan bantu memberikan informasi semampu saya agar kamu dapat melewati situasi tersebut. Semoga kamu selalu baik - baik saja'
 
   #someone else
   utter_suicide_terms.someone_else_response_1:
-  - text: 'Saya minta maaf bahwa orang yang anda kenal sedang melalui situasi sulit seperti ini... Saya sangat menyarankan bahwa anda segera mencari pertolongan kepada ahli profesional yang dapat membantu anda dalam situasi seperti ini'
+  - text: 'Saya minta maaf bahwa orang yang kamu kenal sedang melalui situasi sulit seperti ini... Saya sangat menyarankan bahwa kamu segera mencari pertolongan kepada ahli profesional yang dapat membantu kamu dalam situasi seperti ini'
 
   #unrecognized
   utter_suicide_terms.unrecognized_response_1:
@@ -181,16 +248,16 @@ responses:
 
   #crisis
   utter_ensure_seek_help.crisis_response_1:
-  - text: 'Syukurlah anda menghubungi mereka, semoga anda baik - baik saja ya'
+  - text: 'Syukurlah kamu menghubungi mereka, semoga kamu baik - baik saja ya'
 
   utter_ensure_seek_help.crisis_response_2:
-  - text: 'Menghubungi hotline layanan tersebut dapat menghubungkan anda berbicara ke seseorang atau bantuan saluran untuk membantu anda melewati situasi seperti ini'
+  - text: 'Menghubungi hotline layanan tersebut dapat menghubungkan kamu berbicara ke seseorang atau bantuan saluran untuk membantu kamu melewati situasi seperti ini'
 
   utter_ensure_seek_help.crisis_response_3:
   - text: 'Terdapat pepatah yang mengatakan...'
 
   utter_ensure_seek_help.crisis_response_4:
-  - text: 'Ingatlah kalimat tersebut ketika anda sedang memikirkan hal "itu" lagi'
+  - text: 'Ingatlah kalimat tersebut ketika kamu sedang memikirkan hal "itu" lagi'
 
   #hotline information
   utter_suicide_terms.hotline_1:
@@ -210,7 +277,7 @@ responses:
 
   #quotes
   utter_suicide_terms.quotes:
-  - text: '"Teruntuk siapa pun yang sedang terluka, meminta bantuan bukan tanda bahwa kamu lemah. Melainkan justru tanda bahwa kamu kuat." - Barrack Obama'
+  - text: '"Teruntuk siapa pun yang sedang terluka, meminta bantuan bukan tkamu bahwa kamu lemah. Melainkan justru tkamu bahwa kamu kuat." - Barrack Obama'
   - text: '"Tidak masalah selamban apapun kamu berjalan, asalkan kamu tidak berhenti." - Conficus'
   - text: '"Hal paling berani yang pernah kulakukan adalah melanjutkan hidup ketika aku ingin mati." - Juliette Lewis'
   #end - suicide terms

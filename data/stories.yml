@@ -9,43 +9,93 @@ stories:
     - active_loop: get_name_user_form
     - active_loop: null
     - action: action_user_logged_in
-    - action: utter_ask_user_emotion
-    - intent: positive_emotion
-    - action: utter_user_positive_emotion.response
+    - action: utter_ask_user_feeling
+
+
+  #start - user response with positive feeling
+  - story: user response with positive feeling
+    steps:
+    - intent: positive_feeling
+    - action: utter_user_positive_feeling.response
+    - action: utter_ask_user_to_write_gratitude
+  
+  #user write gratitude - yes
+  - story: user want to write gratitude
+    steps:
+    - intent: write_gratitude_yes
+    - action: get_user_positive_gratitude_form
+    - active_loop: get_user_positive_gratitude_form
+    - active_loop: null
+    - action: utter_after_write_gratitude.response
     - action: utter_ask_user_what_can_be_helped
 
-  #start - user response with negative emotion
-  - story: user response with negative emotion
+  #user write gratitude - no
+  - story: user dont want to write gratitude
     steps:
-    - intent: negative_emotion
-    - action: utter_user_negative_emotion.response_1
-    - action: utter_user_negative_emotion.response_2
+    - intent: write_gratitude_no
+    - action: utter_user_dont_want_to_write_gratitude.response
+    - action: utter_benefit_of_writing_gratitude
+    - action: utter_ask_user_what_can_be_helped
+  #end - user response with positive feeling
 
-  #user share their thoughts - yes
-  - story: user want to share their thoughts
+
+  #start - user response with negative feeling
+  - story: user response with negative feeling
     steps:
-    - intent: start_share_thoughts_yes
-    - action: get_user_negative_thoughts_form
-    - active_loop: get_user_negative_thoughts_form
+    - intent: negative_feeling
+    - action: utter_user_negative_feeling.response
+    - action: utter_ask_user_to_share_thought
+
+  #user share their thought - yes
+  - story: user want to share their thought
+    steps:
+    - intent: share_thought_yes
+    - action: get_user_negative_thought_form
+    - active_loop: get_user_negative_thought_form
     - active_loop: null
-    - action: utter_after_user_share_thoughts.response
-    - action: utter_ask_user_reframe_thoughts 
-    - intent: start_reframe_thoughts_yes
-    #lanjutkan ini besok untuk reframing thought
-
-  #user share their thoughts - no 
-  - story: user dont want to share their thoughts
+    - action: utter_user_after_share_thought.response
+    - action: utter_ask_user_what_can_be_helped
+  
+  #user share their thought - no
+  - story: user dont want to share their thought
     steps:
-    - intent: start_share_thoughts_no
-    - action: utter_ask_user_reframe_thoughts
-  #end - user response with negative emotion
+    - intent: share_thought_no
+    - action: utter_user_dont_want_share_thought.response
+    - action: utter_suggest_user_other_method.confirmation
+  
+  #user other suggested method - yes
+  - story: user want other suggested method
+    steps:
+    - intent: offer_other_method_yes
+    - action: utter_mindfullness_description.response_1
+    - action: utter_mindfullness_description.response_2
+    - action: utter_mindfullness_description.response_3
+    - action: utter_mindfullness_description.response_4
+    - action: action_give_mindfullness_video
+    - action: utter_mindfullness_end_description.response
+    - intent: affirm_yes
+    - action: utter_ask_user_what_can_be_helped
+
+  #user other suggested method - no
+  - story: user dont want other suggested method
+    steps:
+    - intent: offer_other_method_no
+    - action: utter_user_dont_want_other_method.response
+    - intent: affirm_yes
+    - action: utter_ask_user_what_can_be_helped
+  #end - user response with negative feeling
+
 
   #start - bot provide menu options
+  - story: user choose menu options - about mood journaling
+    steps:
+    - intent: menu_options_mood_journaling
+    - action: utter_menu_options_mood_journaling.response_1
+
   - story: user choose menu options - story topics
     steps:
     - intent: menu_options_story_topics
     - action: utter_menu_options_story_topics.response_1
-    - action: utter_menu_options_story_topics.response_2
   
   - story: user choose menu options - brief cope
     steps:
@@ -83,6 +133,7 @@ stories:
     - intent: menu_options_just_write
     - action: utter_menu_options_just_write.response
   #end - bot provide menu options 
+
 
   #start - emergency situation path
   - story: ask user if really in emergency situation

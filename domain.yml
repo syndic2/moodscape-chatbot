@@ -11,9 +11,15 @@ slots:
     type: text
     influence_conversation: false
 
-  user_negative_thoughts:
+  #start - user express feeling
+  user_positive_gratitude:
     type: text
     influence_conversation: false
+
+  user_negative_thought:
+    type: text
+    influence_conversation: false
+  #end - user express feeling
 
   #start - Brief-COPE attributes
   current_coping_strategy:
@@ -157,9 +163,10 @@ entities:
 intents:
   - greet
   - leave
+
   - initiate_bot_greet
-  - menu_options_help
   - set_datepicker_dates
+  - affirm_yes
 
   - ask_bot_who_are_you
   - ask_bot_gender
@@ -167,12 +174,17 @@ intents:
   - ask_bot_location
   - ask_bot_if_remember_user_name
 
-  - positive_emotion
-  - negative_emotion
-  - start_share_thoughts_yes
-  - start_share_thoughts_no
-  - start_reframe_thoughts_yes
+  - positive_feeling
+  - negative_feeling
+  - write_gratitude_yes
+  - write_gratitude_no
+  - share_thought_yes
+  - share_thought_no
+  - offer_other_method_yes
+  - offer_other_method_no  
 
+  - menu_options_help
+  - menu_options_mood_journaling
   - menu_options_story_topics
   - menu_options_explore_mental_disorders
   - menu_options_brief_cope
@@ -224,6 +236,7 @@ intents:
 actions:
   - action_user_logged_in
   - action_inform_show_datepicker
+  - action_give_mindfullness_video
 
   - action_brief_cope_result
   - action_brief_cope_result_histories
@@ -253,9 +266,14 @@ forms:
       name_user:
       - type: from_text
 
-  get_user_negative_thoughts_form:
+  get_user_positive_gratitude_form:
     required_slots:
-      user_negative_thoughts: 
+      user_positive_gratitude: 
+      - type: from_text
+
+  get_user_negative_thought_form:
+    required_slots:
+      user_negative_thought: 
       - type: from_text
 
   get_brief_cope_answer_form:

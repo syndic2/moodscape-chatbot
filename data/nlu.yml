@@ -37,51 +37,85 @@ nlu:
       - datepicker_dates: [2021-1-14/2022-2-15](datepicker_dates)
       - datepicker_dates: [2021-1-15/2022-2-14](datepicker_dates)
 
+  - intent: affirm_yes
+    examples: |
+      - affirm: yes
+      - affirm_yes
+
   #emotions
-  - intent: positive_emotion
+  - intent: positive_feeling
     examples: |
       - saya sedang merasa senang
       - aku lagi bahagia
       - perasaan saya saat ini sedang bahagia
       - saya merasa senang karena
       - kondisi saya sedang gembira
+      - saya merasa bahwa saya perlu menjadi orang yang kreatif
+      - saya tidak merasa bahwa kecemasan lagi tidak berada disekitar saya
+      - saya merasa bahwa saya sedang dalam jalur yang benar
+      - saya senang karena rencana saya jalan sesuai dengan harapan saya
+      - saya bersyukur karena saya masih diberi kesehatan sampai sekarang
 
-  - intent: negative_emotion
+  - intent: negative_feeling
     examples: |
       - saya sedang merasa sedih
       - saya sangat sedih sekali
       - perasaan saya yang saya alami sekarang adalah takut
       - saya sangat marah karena
+      - saya tidak merasa dipermalukan
+      - saya bisa berubah dari merasa sangat putus asa menjadi sangat penuh dengan harapan hanya dengan berada disekitar seseorang yang peduli dengan saya
+      - saya merasa kesal sekali
+      - saya merasa berbeban akhir-akhir ini tidak tahu mengapa
+      - saya merasa energi saya habis dan selalu kehausan
+      - saya merasa bahwa diri saya cukup menyedihkan setiap saat
+      - saya merasa kewalahan sekali
+      - saya pikir keluarga saya peduli dengan saya, tetapi mereka malah dengan diri saya ketika bertemu dengan orang lain
 
-  - intent: start_share_thoughts_yes
+  - intent: write_gratitude_yes
     examples: |
-      - share thoughts: yes
-      - share_thoughts: yes
-      - sharing thoughts: yes
-      - sharing_thoughts: yes
+      - write gratitude: yes
+      - write_gratitude: yes
 
-  - intent: start_share_thoughts_no
+  - intent: write_gratitude_yes
     examples: |
-      - share thoughts: no
-      - share_thoughts: no
-      - sharing_thoughts: no
-      - sharing thoughts: no
+      - write gratitude: no
+      - write_gratitude: no
 
-  - intent: start_reframe_thoughts_yes
+  - intent: share_thought_yes
     examples: |
-      - reframe thoughts: yes
-      - reframe_thoughts: yes
-      - reframing thoughts: yes
-      - reframing_thoughts: yes
+      - share thought: yes
+      - share_thought: yes
+
+  - intent: share_thought_no
+    examples: |
+      - share thought: no
+      - share_thought: no
+
+  - intent: offer_other_method_yes
+    examples: |
+      - offer other method: yes
+      - offer_other_method: yes
+
+  - intent: offer_other_method_no
+    examples: |
+      - offer other method: no
+      - offer_other_method: no
 
   #menu options
   - intent: menu_options_help
     examples: |
-      - /help
       - menu options: help
       - menu_options: help
       - help: menu options
       - help: menu_options
+
+  - intent: menu_options_mood_journaling
+    examples: |
+      - menu options: mood journaling
+      - menu options: mood
+      - menu options: journaling
+      - menu_options: mood journaling
+      - menu_options: mood_journaling
 
   - intent: menu_options_story_topics
     examples: |
