@@ -114,34 +114,34 @@ stories:
     - action: get_explore_mental_disorder_name_form
     - active_loop: get_explore_mental_disorder_name_form
     - active_loop: null
-
-    - action: action_get_mental_disorder_detail #short description
+    
+    - action: action_explore_mental_disorder_description #short description
     - intent: continue_explore_mental_disorders
     
-    - action: action_get_mental_disorder_detail #types
+    - action: action_explore_mental_disorder_types #types
     - intent: continue_explore_mental_disorders 
     
-    - action: action_get_mental_disorder_detail #signs and sympthomps
+    - action: action_explore_mental_disorder_signs_and_sympthomps #signs and sympthomps
     - intent: continue_explore_mental_disorders 
     
-    - action: action_get_mental_disorder_detail #causes
+    - action: action_explore_mental_disorder_causes #causes
     - intent: continue_explore_mental_disorders
     
-    - action: action_get_mental_disorder_detail #diagnosis
+    - action: action_explore_mental_disorder_diagnosis #diagnosis
     - intent: continue_explore_mental_disorders
     
-    - action: action_get_mental_disorder_detail #complications
+    - action: action_explore_mental_disorder_complications #complications
     - intent: continue_explore_mental_disorders
     
-    - action: action_get_mental_disorder_detail #how to treat
+    - action: action_explore_mental_disorder_how_to_treat #how to treat
     - intent: continue_explore_mental_disorders
     
-    - action: action_get_mental_disorder_detail #how to prevent
-    - action: action_reset_explore_mental_disorder
-
+    - action: action_explore_mental_disorder_how_to_prevent #how to prevent
+    
     - action: utter_after_explore_mental_disorders.response
-    - intent: /affirm_yes
+    - intent: affirm_yes
     - action: utter_you_are_welcome
+    - action: action_reset_explore_mental_disorder
     - action: utter_ask_user_what_can_be_helped
 
   - story: user choose menu options - about mental health

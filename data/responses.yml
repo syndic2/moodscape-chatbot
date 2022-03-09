@@ -203,10 +203,10 @@ responses:
   - text: 'Itu tadi merupakan penjelasan gangguan mental yang aku ketahui, apabila kamu ingin tahu yang lain, kamu bisa menanyakannya ke aku lagi ya. Semoga dapat membantu ya'
     buttons:
     - title: 'Iya, terima kasih'
-      payload: /affirm_yes
+      payload: '/affirm_yes'
 
   utter_menu_options_about_mental_health.response:
-  - text: 'Apa ada yang ingin kamu tanyakan seputar kesehatan mental?'
+  - text: 'Apa ada yang ingin kamu tanyakan seputar kesehatan mental? Kamu bisa bertanya seperti Aapa yang dimaksud dengan penyakit atau gangguan mental?"'
   #end - bot provides menu options
 
 

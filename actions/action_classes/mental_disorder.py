@@ -1,4 +1,5 @@
 from typing import Any, Text, Dict, List
+from matplotlib.pyplot import text
 from rasa_sdk import Tracker, Action, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet
@@ -108,7 +109,7 @@ def get_mental_disorder_detail(mental_disorder, field):
         how_to_prevent= ''
 
         if len(mental_disorder['how_to_prevent']) == 0:
-            how_to_prevent= 'Maaf data cara mencegah gangguan ini belum tersedia atau mungki aku yang belum mengerti'
+            how_to_prevent= 'Maaf data cara mencegah gangguan ini belum tersedia atau mungkin aku yang belum mengerti'
         else:
             for item in mental_disorder['how_to_prevent']:
                 how_to_prevent+= item+'\n'
@@ -131,7 +132,6 @@ class ActionGetMentalDisorderList(Action):
             response_text+= f"{i+1}. {mental_disorders[i]['name']}\n"
 
         dispatcher.utter_message(text= response_text)
-        dispatcher.utter_message(text= 'Untuk sekarang masih harus memilih dengan menulis manual gangguan mana yang kamu ingin kamu tau ya')
 
         return [SlotSet('explore_mental_disorder_list', mental_disorders)]
 
@@ -161,10 +161,11 @@ class ValidateGetExploreMentalDisorderNameForm(FormValidationAction):
 
         return { 'explore_mental_disorder_name': slot_value }
 
-class ActionGetMentalDisorderDetail(Action):
+#In story
+class ActionExploreMentalDisorderDescription(Action):
 
     def name(self) -> Text:
-        return 'action_get_mental_disorder_detail'
+        return 'action_explore_mental_disorder_description'
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -181,55 +182,216 @@ class ActionGetMentalDisorderDetail(Action):
 
         mental_disorder= response['mental_disorder']
         buttons= [
-            { 'title': 'Lanjut',  'payload': '' },
+            { 'title': 'Lanjut',  'payload': '/continue_explore_mental_disorders' },
             { 'title': 'Berhenti', 'payload': '/stop_explore_mental_disorders' } 
         ]
-        next_field= tracker.get_slot('next_explore_mental_disorder_field')
-        
-        if next_field is None:
-            buttons[0]['payload']= '/continue_explore_mental_disorders{ "next_explore_mental_disorder_field": "types" }'
-            
-            dispatcher.utter_message(text= 'Baik, aku akan menjelaskannya ya')
-            dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'short_description'), buttons= buttons)
-        else:
-            if next_field == 'types':
-                buttons[0]['payload']= '/continue_explore_mental_disorders{ "next_explore_mental_disorder_field": "signs_and_sympthomps" }'
-
-                dispatcher.utter_message(text= f"Berikut dibawah merupakan jenis dari gangguan {mental_disorder['name']}")
-                dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'types'), buttons= buttons)
-            elif next_field == 'signs_and_sympthomps':
-                buttons[0]['payload']= '/continue_explore_mental_disorders{ "next_explore_mental_disorder_field": "causes" }'
-
-                dispatcher.utter_message(text= f"Berikut dibawah merupakan tanda dan gejala dari gangguan {mental_disorder['name']}")
-                dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'signs_and_sympthomps'), buttons= buttons)
-            elif next_field == 'causes':
-                buttons[0]['payload']= '/continue_explore_mental_disorders{ "next_explore_mental_disorder_field": "diagnosis" }'
-
-                dispatcher.utter_message(text= f"Berikut dibawah merupakan penyebab dari gangguan {mental_disorder['name']}")
-                dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'causes'), buttons= buttons)
-            elif next_field == 'diagnosis':
-                buttons[0]['payload']= '/continue_explore_mental_disorders{ "next_explore_mental_disorder_field": "complications" }'
-
-                dispatcher.utter_message(text= f"Berikut dibawah merupakan cara mendiagnosa dari gangguan {mental_disorder['name']}")
-                dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'diagnosis'), buttons= buttons)            
-            elif next_field == 'complications':
-                buttons[0]['payload']= '/continue_explore_mental_disorders{ "next_explore_mental_disorder_field": "how_to_treat" }'
-
-                dispatcher.utter_message(text= f"Berikut dibawah merupakan komplikasi yang dapat terjadi dari gangguan {mental_disorder['name']}")
-                dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'complications'), buttons= buttons)
-            elif next_field == 'how_to_treat':
-                buttons[0]['payload']= '/continue_explore_mental_disorders{ "next_explore_mental_disorder_field": "how_to_prevent" }'
-
-                dispatcher.utter_message(text= f"Berikut dibawah merupakan cara menangani dari gangguan {mental_disorder['name']}")
-                dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'how_to_treat'), buttons= buttons)
-            elif next_field == 'how_to_prevent':
-                buttons[0]['payload']= '/continue_explore_mental_disorders{ "next_explore_mental_disorder_field": None }'
-
-                dispatcher.utter_message(text= f"Terakhir yaitu merupakan cara mencegah atau mengurangi timbulnya gangguan {mental_disorder['name']}")
-                dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'how_to_prevent'))
+           
+        dispatcher.utter_message(text= f"Baik, aku akan menjelaskannya ya. Untuk yang pertama yaitu pengertian dari {mental_disorder_name}")
+        dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'short_description'), buttons= buttons)
 
         return []
 
+class ActionExploreMentalDisorderTypes(Action):
+
+    def name(self) -> Text:
+        return 'action_explore_mental_disorder_types'
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        mental_disorder_index= int(tracker.get_slot('explore_mental_disorder_name'))-1
+        mental_disorder_name= tracker.get_slot('explore_mental_disorder_list')[mental_disorder_index]['name']
+
+        response= requests.get(f'{api_url}/mental-disorders/by-name/{mental_disorder_name}').json()
+
+        if response['status'] is False:
+            dispatcher.utter_message(response= not_yet_learn_template)
+            return []
+
+        mental_disorder= response['mental_disorder']
+        buttons= [
+            { 'title': 'Lanjut',  'payload': '/continue_explore_mental_disorders' },
+            { 'title': 'Berhenti', 'payload': '/stop_explore_mental_disorders' } 
+        ]
+            
+        dispatcher.utter_message(text= f"Berikut yaitu merupakan jenis dari gangguan {mental_disorder['name']}")
+        dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'types'), buttons= buttons)
+
+        return []
+
+class ActionExploreMentalDisorderSignsAndSympthomps(Action):
+
+    def name(self) -> Text:
+        return 'action_explore_mental_disorder_signs_and_sympthomps'
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        mental_disorder_index= int(tracker.get_slot('explore_mental_disorder_name'))-1
+        mental_disorder_name= tracker.get_slot('explore_mental_disorder_list')[mental_disorder_index]['name']
+
+        response= requests.get(f'{api_url}/mental-disorders/by-name/{mental_disorder_name}').json()
+
+        if response['status'] is False:
+            dispatcher.utter_message(response= not_yet_learn_template)
+            return []
+
+        mental_disorder= response['mental_disorder']
+        buttons= [
+            { 'title': 'Lanjut',  'payload': '/continue_explore_mental_disorders' },
+            { 'title': 'Berhenti', 'payload': '/stop_explore_mental_disorders' } 
+        ]
+            
+        dispatcher.utter_message(text= f"Berikutnya yaitu merupakan tanda dan gejala dari gangguan {mental_disorder['name']}")
+        dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'signs_and_sympthomps'), buttons= buttons)
+
+        return []
+
+class ActionExploreMentalDisorderCauses(Action):
+
+    def name(self) -> Text:
+        return 'action_explore_mental_disorder_causes'
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        mental_disorder_index= int(tracker.get_slot('explore_mental_disorder_name'))-1
+        mental_disorder_name= tracker.get_slot('explore_mental_disorder_list')[mental_disorder_index]['name']
+
+        response= requests.get(f'{api_url}/mental-disorders/by-name/{mental_disorder_name}').json()
+
+        if response['status'] is False:
+            dispatcher.utter_message(response= not_yet_learn_template)
+            return []
+
+        mental_disorder= response['mental_disorder']
+        buttons= [
+            { 'title': 'Lanjut',  'payload': '/continue_explore_mental_disorders' },
+            { 'title': 'Berhenti', 'payload': '/stop_explore_mental_disorders' } 
+        ]
+            
+        dispatcher.utter_message(text= f"Berikut yaitu merupakan penyebab dari gangguan {mental_disorder['name']}")
+        dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'causes'), buttons= buttons)
+
+        return []
+
+class ActionExploreMentalDisorderDiagnosis(Action):
+
+    def name(self) -> Text:
+        return 'action_explore_mental_disorder_diagnosis'
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        mental_disorder_index= int(tracker.get_slot('explore_mental_disorder_name'))-1
+        mental_disorder_name= tracker.get_slot('explore_mental_disorder_list')[mental_disorder_index]['name']
+
+        response= requests.get(f'{api_url}/mental-disorders/by-name/{mental_disorder_name}').json()
+
+        if response['status'] is False:
+            dispatcher.utter_message(response= not_yet_learn_template)
+            return []
+
+        mental_disorder= response['mental_disorder']
+        buttons= [
+            { 'title': 'Lanjut',  'payload': '/continue_explore_mental_disorders' },
+            { 'title': 'Berhenti', 'payload': '/stop_explore_mental_disorders' } 
+        ]
+            
+        dispatcher.utter_message(text= f"Berikut yaitu merupakan cara mendiagnosa dari gangguan {mental_disorder['name']}")
+        dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'diagnosis'), buttons= buttons)            
+
+        return []
+
+class ActionExploreMentalDisorderComplications(Action):
+
+    def name(self) -> Text:
+        return 'action_explore_mental_disorder_complications'
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        mental_disorder_index= int(tracker.get_slot('explore_mental_disorder_name'))-1
+        mental_disorder_name= tracker.get_slot('explore_mental_disorder_list')[mental_disorder_index]['name']
+
+        response= requests.get(f'{api_url}/mental-disorders/by-name/{mental_disorder_name}').json()
+
+        if response['status'] is False:
+            dispatcher.utter_message(response= not_yet_learn_template)
+            return []
+
+        mental_disorder= response['mental_disorder']
+        buttons= [
+            { 'title': 'Lanjut',  'payload': '/continue_explore_mental_disorders' },
+            { 'title': 'Berhenti', 'payload': '/stop_explore_mental_disorders' } 
+        ]
+            
+        dispatcher.utter_message(text= f"Berikut yaitu merupakan komplikasi yang dapat terjadi dari gangguan {mental_disorder['name']}")
+        dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'complications'), buttons= buttons)          
+
+        return []
+
+class ActionExploreMentalDisorderHowToTreat(Action):
+
+    def name(self) -> Text:
+        return 'action_explore_mental_disorder_how_to_treat'
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        mental_disorder_index= int(tracker.get_slot('explore_mental_disorder_name'))-1
+        mental_disorder_name= tracker.get_slot('explore_mental_disorder_list')[mental_disorder_index]['name']
+
+        response= requests.get(f'{api_url}/mental-disorders/by-name/{mental_disorder_name}').json()
+
+        if response['status'] is False:
+            dispatcher.utter_message(response= not_yet_learn_template)
+            return []
+
+        mental_disorder= response['mental_disorder']
+        buttons= [
+            { 'title': 'Lanjut',  'payload': '/continue_explore_mental_disorders' },
+            { 'title': 'Berhenti', 'payload': '/stop_explore_mental_disorders' } 
+        ]
+            
+        dispatcher.utter_message(text= f"Berikut yaitu cara menangani dari gangguan {mental_disorder['name']}")
+        dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'how_to_treat'), buttons= buttons)        
+
+        return []
+
+class ActionExploreMentalDisorderHowToPrevent(Action):
+
+    def name(self) -> Text:
+        return 'action_explore_mental_disorder_how_to_prevent'
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        mental_disorder_index= int(tracker.get_slot('explore_mental_disorder_name'))-1
+        mental_disorder_name= tracker.get_slot('explore_mental_disorder_list')[mental_disorder_index]['name']
+
+        response= requests.get(f'{api_url}/mental-disorders/by-name/{mental_disorder_name}').json()
+
+        if response['status'] is False:
+            dispatcher.utter_message(response= not_yet_learn_template)
+            return []
+
+        mental_disorder= response['mental_disorder']
+            
+        dispatcher.utter_message(text= f"Terakhir yaitu merupakan cara mencegah atau mengurangi timbulnya gangguan {mental_disorder['name']}")
+        dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'how_to_prevent'))        
+
+        return []
+
+
+#In rules
 class ActionGetMentalDisorderDescription(Action):
 
     def name(self) -> Text:

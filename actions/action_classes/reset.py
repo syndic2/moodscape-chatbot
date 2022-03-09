@@ -28,7 +28,4 @@ class ActionResetExploreMentalDisorder(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        return [
-            SlotSet('explore_mental_disorder_name', None), 
-            SlotSet('next_explore_mental_disorder_field', None)
-        ]
+        return [SlotSet('explore_mental_disorder_name', None)]
