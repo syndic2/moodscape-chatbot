@@ -9,8 +9,6 @@ services:
     volumes:
     - ./data:/app/data
     - ./actions:/app/actions
-    - ./models:/app/models
-    - ./tests:/app/tests
     command: bash -c "rm -rf .rasa/* && rasa train && rasa run --enable-api --cors \"*\" --debug"
     ports:
     - '5005:5005'

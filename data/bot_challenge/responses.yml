@@ -2,8 +2,8 @@ version: "2.0"
 
 responses:
   utter_ask_bot_who_are_you:
-  - text: 'Aku Moddie. Aku bukan manusia, aku adalah sebuah BOT yang dirancang untuk membantu kamu dalam sisi emosional ketika kamu merasa tidak enak'
-  - text: 'Nama aku Moddie. Aku bukan manusia, melainkan aku adalah sebuah BOT yang dirancang untuk membantu kamu dalam sisi emosional ketika kamu merasa lagi buruk' 
+  - text: 'Aku Moddie. Aku bukan manusia, aku adalah sebuah BOT yang dirancang untuk membantu memberikan informasi seputar kesehatan mental'
+  - text: 'Nama aku Moddie. Aku bukan manusia, melainkan aku adalah sebuah BOT yang dirancang sebagai bentuk edukasi kesehatan mental ' 
 
   utter_ask_bot_gender:
   - text: 'Menurut penciptaku, aku berjenis kelamin laki-laki dan merupakan pria dewasa yang menggunakan kaca mata sekaligus berjanggut'

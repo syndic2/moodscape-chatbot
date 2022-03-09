@@ -91,11 +91,14 @@ stories:
     steps:
     - intent: menu_options_mood_journaling
     - action: utter_menu_options_mood_journaling.response_1
+    - action: utter_menu_options_mood_journaling.response_2
+    - action: utter_menu_options_mood_journaling.response_3
+    - action: utter_ask_user_what_can_be_helped
 
-  - story: user choose menu options - story topics
-    steps:
-    - intent: menu_options_story_topics
-    - action: utter_menu_options_story_topics.response_1
+  # - story: user choose menu options - story topics
+  #   steps:
+  #   - intent: menu_options_story_topics
+  #   - action: utter_menu_options_story_topics.response_1
   
   - story: user choose menu options - brief cope
     steps:
@@ -111,7 +114,7 @@ stories:
     - action: get_explore_mental_disorder_name_form
     - active_loop: get_explore_mental_disorder_name_form
     - active_loop: null
-    
+
     - action: action_get_mental_disorder_detail #short description
     - intent: continue_explore_mental_disorders
     
@@ -136,10 +139,15 @@ stories:
     - action: action_get_mental_disorder_detail #how to prevent
     - action: action_reset_explore_mental_disorder
 
-  - story: user choose menu options - just write
+    - action: utter_after_explore_mental_disorders.response
+    - intent: /affirm_yes
+    - action: utter_you_are_welcome
+    - action: utter_ask_user_what_can_be_helped
+
+  - story: user choose menu options - about mental health
     steps:
-    - intent: menu_options_just_write
-    - action: utter_menu_options_just_write.response
+    - intent: menu_options_about_mental_health
+    - action: utter_menu_options_about_mental_health.response
   #end - bot provide menu options 
 
 
@@ -163,6 +171,7 @@ stories:
     - intent: suicide_terms_negative
     - action: utter_suicide_terms.negative_response_1
     - action: utter_suicide_terms.negative_response_2
+    - action: utter_ask_user_what_can_be_helped
 
   #user friends or families in emergency situation
   - story: user friends or families in emergency situation
@@ -200,9 +209,11 @@ stories:
     - action: utter_ensure_seek_help.crisis_response_3
     - action: utter_suicide_terms.quotes  
     - action: utter_ensure_seek_help.crisis_response_4
+    - action: utter_ask_user_what_can_be_helped
 
   - story: user dont want to seek help
     steps:
     - intent: ensure_seek_help[crisis]_no
     - action: utter_ensure_seek_help.crisis_response_2
+    - action: utter_ask_user_what_can_be_helped
   #end - emergency situation path

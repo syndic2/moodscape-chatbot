@@ -7,9 +7,6 @@ slots:
   user_provided_name:
     type: bool
     influence_conversation: false
-  datepicker_dates:
-    type: text
-    influence_conversation: false
 
   #start - user express feeling
   user_positive_gratitude:
@@ -187,7 +184,7 @@ intents:
   - menu_options_story_topics
   - menu_options_explore_mental_disorders
   - menu_options_brief_cope
-  - menu_options_just_write
+  - menu_options_about_mental_health
   
   - what_is_brief_cope
   - what_is_emotion_focused_coping

@@ -11,6 +11,10 @@ responses:
   - text: 'Hai juga yang disana'
   - text: 'Halo juga yang disana'
 
+  utter_you_are_welcome:
+  - text: 'Sama-sama, senang bisa membantu'
+  - text: 'Terima kasih kembali, Senang bisa membantu kamu juga'
+
   utter_leave:
   - text: 'Bai'
   - text: 'Bye'
@@ -163,20 +167,31 @@ responses:
     buttons:
     - title: 'Apa itu Mood Journaling?'
       payload: '/menu_options_mood_journaling'
-    - title: 'Bercerita mengenai suatu topik tertentu'
-      payload: '/menu_options_story_topics'
+    # - title: 'Bercerita mengenai suatu topik tertentu'
+    #   payload: '/menu_options_story_topics'
     - title: 'Bagaimana menentukan strategi atau teknik koping yang cocok?'
       payload: '/menu_options_brief_cope'
     - title: 'Jelajahi gangguan mental'
       payload: '/menu_options_explore_mental_disorders'
-    - title: 'Tulisa saja...'
-      payload: '/menu_options_just_write'
+    - title: 'Tanya seputar kesehatan mental'
+      payload: '/menu_options_about_mental_health'
     - title: 'Bye'
       payload: '/leave'
   
   #response
   utter_menu_options_mood_journaling.response_1:
-  - text: 'Masih dalam proses pengembangan yaa'
+  - text: 'Mood adalah kegiatan mencatat perjalanan emosimu setiap hari lewat jurnal. Kamu bisa mencatat apa saja emosi yang muncul di hari tersebut, apa saja yang kamu pikirkan, dan kejadian apa yang menimbulkan emosi tersebut. Biasanya peralatan yang perlu dipersiapkan hanya notebook dan pulpen atau spidol berwarna'
+  
+  utter_menu_options_mood_journaling.response_2:
+  - text: "Dengan mencatat kejadian sehari-hari atau perasaan yang dimiliki memang terkesan receh. Sehingga banyak orang yang tidak menyangka bila journaling bisa bermanfaat untuk kesehatan mental. Padahal journaling juga bisa dilakukan sebagai terapi dan relaksasi bila dilakukan secara rutin. Berikut ini beberapa manfaat journaling untuk kesehatan mental \n
+      Berikut ini beberapa manfaat journaling untuk kesehatan mental: \n
+      \u2022 Mengidentifikasi pemicu eksternal dan internal yang menyebabkan perubahan suasana hati \n
+      \u2022 Mempelajari lebih lanjut tentang pengaruh faktor-faktor seperti tidur, diet, dan aktivitas sehari-hari terhadap suasana hati \n
+      \u2022 Membantu menemukan pola dan memahami perubahan suasana hati \n
+      \u2022 Membantu menentukan jenis perawatan yang bisa membantu meningkatkan suasana hati"
+
+  utter_menu_options_mood_journaling.response_3:
+  - text: 'Pada aplikasi yang kamu gunakan ini ada fitur tersebut loh, kamu bisa menggunakannya untuk Mood Journal harianmu, coba buka disini ya [Moodscape Mood Tracker](https://moodscape-app.web.app/side-menu/tabs/moods)'
 
   utter_menu_options_story_topics.response_1:
   - text: 'Masih dalam proses pengembangan yaa'
@@ -184,8 +199,14 @@ responses:
   utter_menu_options_explore_mental_disorders.response:
   - text: 'Sepertinya kamu ingin mengetahui informasi mengenai gangguan mental ya, baik aku akan memberikan daftar gangguan yang aku mengerti ya'
   
-  utter_menu_options_just_write.response:
-  - text: 'Baik, apa yang kamu pikirkan atau mungkin bertanya mengenani sesuatu?'
+  utter_after_explore_mental_disorders.response:
+  - text: 'Itu tadi merupakan penjelasan gangguan mental yang aku ketahui, apabila kamu ingin tahu yang lain, kamu bisa menanyakannya ke aku lagi ya. Semoga dapat membantu ya'
+    buttons:
+    - title: 'Iya, terima kasih'
+      payload: /affirm_yes
+
+  utter_menu_options_about_mental_health.response:
+  - text: 'Apa ada yang ingin kamu tanyakan seputar kesehatan mental?'
   #end - bot provides menu options
 
 

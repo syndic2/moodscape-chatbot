@@ -31,11 +31,8 @@ nlu:
 
   - intent: set_datepicker_dates
     examples: |
-      - datepicker_dates: [2021-1-11/2022-2-18](datepicker_dates)
+      - datepicker dates: [2021-1-11/2022-2-18](datepicker_dates)
       - datepicker_dates: [2021-1-12/2022-2-17](datepicker_dates)
-      - datepicker_dates: [2021-1-13/2022-2-16](datepicker_dates)
-      - datepicker_dates: [2021-1-14/2022-2-15](datepicker_dates)
-      - datepicker_dates: [2021-1-15/2022-2-14](datepicker_dates)
 
   - intent: affirm_yes
     examples: |
@@ -142,13 +139,13 @@ nlu:
       - menu_options: mental disorders
       - menu_options: mental_disorders
 
-  - intent: menu_options_just_write
+  - intent: menu_options_about_mental_health
     examples: |
-      - menu options: just write
-      - menu options: just
-      - menu options: write
-      - menu_options: just write
-      - menu_options: just_write 
+      - menu options: about mental health
+      - menu options: mental health
+      - menu options: about mental
+      - menu_options: about_health
+      - menu_options: about_mental_health
 
   - intent: continue_explore_mental_disorders
     examples: |
@@ -167,6 +164,7 @@ nlu:
   #suicide terms
   - intent: suicide_terms
     examples: |
+      - suicide
       - bundir
       - bunuh diri
       - ingin bundir
@@ -178,7 +176,7 @@ nlu:
       - ingin melukai diri sendiri
       - ingin menusuk diri sendiri
       - ingin menggantung diri
-
+      
   - intent: suicide_terms_positive
     examples: |
       - ya, saya sedang memikirkan tentang "hal" tersebut

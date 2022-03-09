@@ -6,6 +6,7 @@ from typing import Any, Text, Dict, List
 import json, requests
 
 from utilities.constants import api_urls
+from utilities.helpers import extract_entity
 
 class ActionBriefCOPEResult(Action):
 
@@ -121,7 +122,7 @@ class ActionBriefCOPEResultHistories(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        dates= tracker.get_slot('datepicker_dates').split('/')
+        dates= extract_entity('datepicker_dates', tracker.latest_message['entities']).split('/')
         get_brief_cope_results= requests.get(f'{api_urls["production"]}/brief-cope-evaluation/{tracker.sender_id}?start_date={dates[0]}&end_date={dates[1]}')
         response= get_brief_cope_results.json()
 
