@@ -17,7 +17,8 @@ nlu:
       - meditasi jenisnya apa aja ya?
       - kira-kira meditasi apa ya yang cocok buat saya?
       - tipe meditasi ada apa saja?
-  
+      - contoh dari teknik meditasi
+
   - intent: meditation_type
     examples: |
       - meditation_type
