@@ -1,0 +1,26 @@
+version: "2.0"
+
+nlu:
+  - intent: maintain_mental_health
+    examples: |
+      - bagaimana cara kita meningkatkan kesehatan mental
+      - cara menjaga kesehatan mental
+      - apa yang dapat dilakukan untuk menjaga stabilitas dari kesehatan mental
+      - tips apa saja yang dapat dilakukan untuk menjaga kestabilan dari mental kita
+      - cara sederhana apa saja untuk menjaga kesehatan mental
+      - cara sederhana apa saja yang dapat dilakukan untuk menstabilkan kesehatan mental
+  
+  - intent: meditation_technique
+    examples: |
+      - jenis meditasi ada apa aja ya?
+      - apa kamu mengetahui tentang jenis-jenis meditasi?
+      - meditasi jenisnya apa aja ya?
+      - kira-kira meditasi apa ya yang cocok buat saya?
+      - tipe meditasi ada apa saja?
+  
+  - intent: meditation_type
+    examples: |
+      - meditation_type
+      - meditation-type
+      - medtiation/type
+      - meditation type

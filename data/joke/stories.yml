@@ -1,0 +1,10 @@
+version: "2.0"
+
+stories:
+  - story: user want to get random joke
+    steps:
+    - intent: tell_random_joke
+    - action: action_random_joke
+    - action: utter_after_tell_joke
+    - intent: affirm_yes 
+    - action: utter_ask_user_what_can_be_helped

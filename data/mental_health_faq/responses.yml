@@ -64,18 +64,18 @@ responses:
   
   utter_mental_health_faq/someone_who_have_mental_illness:
   - text: 'Meskipun aplikasi ini tidak dapat menggantikan saran profesional, aku menyarankan untuk mereka yang memiliki gejala untuk berbicara dengan teman dan anggota keluarga mereka dan mencari nasihat dari profesional kesehatan mental. Semakin cepat kondisi kesehatan mental diidentifikasi dan diobati, 
-      semakin cepat mereka dapat menuju pemulihan. Jika kamu mengenal seseorang yang sedang mengalami masalah, jangan berasumsi bahwa masalah tersebut akan selesai dengan sendirinya. Beri tahu mereka bahwa kamu peduli dengan mereka, dan bahwa ada pilihan perawatan yang tersedia yang akan membantu mereka sembuh.
-      Bicaralah dengan profesional kesehatan mental atau konselor jika menurut kamu teman atau anggota keluarga mengalami gejala kondisi kesehatan mental. Jika orang yang anda cintai memiliki gejala hingga dampak dari gangguan mental, mereka perlu tau bahwa kamu mendukung mereka, dengan demikian mereka mungkin
+      semakin cepat mereka dapat menuju pemulihan. Jika anda mengenal seseorang yang sedang mengalami masalah, jangan berasumsi bahwa masalah tersebut akan selesai dengan sendirinya. Beri tahu mereka bahwa anda peduli dengan mereka, dan bahwa ada pilihan perawatan yang tersedia yang akan membantu mereka sembuh.
+      Bicaralah dengan profesional kesehatan mental atau konselor jika menurut anda teman atau anggota keluarga mengalami gejala kondisi kesehatan mental. Jika orang yang anda cintai memiliki gejala hingga dampak dari gangguan mental, mereka perlu tau bahwa anda mendukung mereka, dengan demikian mereka mungkin
       akan meminta bantuan ke ahli profesional'
 
   utter_mental_health_faq/how_to_find_mental_health_professional:
-  - text: 'Merasa nyaman dengan profesional yang bekerja dengan kamu atau kerabat kamu sangat penting untuk keberhasilan perawatan. Menemukan profesional yang paling sesuai dengan kebutuhan kamu mungkin memerlukan penelitian. Mulailah dengan mencari penyedia di wilayah kamu ya'
+  - text: 'Merasa nyaman dengan profesional yang bekerja dengan anda atau kerabat anda sangat penting untuk keberhasilan perawatan. Menemukan profesional yang paling sesuai dengan kebutuhan anda mungkin memerlukan penelitian. Mulailah dengan mencari penyedia di wilayah anda ya'
 
   utter_mental_health_faq/available_treatment_options:
-  - text: 'Sama seperti ada berbagai jenis obat untuk penyakit fisik, pilihan pengobatan yang berbeda tersedia untuk individu dengan penyakit mental. Perawatan bekerja secara berbeda untuk orang yang berbeda. Penting untuk menemukan apa yang paling cocok untuk kamu atau kerabat kamu yang lainnya'
+  - text: 'Sama seperti ada berbagai jenis obat untuk penyakit fisik, pilihan pengobatan yang berbeda tersedia untuk individu dengan penyakit mental. Perawatan bekerja secara berbeda untuk orang yang berbeda. Penting untuk menemukan apa yang paling cocok untuk anda atau kerabat anda yang lainnya'
 
   utter_mental_health_faq/involved_in_treatment:
-  - text: "Awal pengobatan adalah langkah besar bagi individu dan keluarga dan dapat membuat kewalahan. Penting untuk mendampingi dan terlibat dalam proses perawatan sesering mungkin. Terdapat beberapa pertanyaan yang mungin perlu kamu jawab yaitu meliputi: \n
+  - text: "Awal pengobatan adalah langkah besar bagi individu dan keluarga dan dapat membuat kewalahan. Penting untuk mendampingi dan terlibat dalam proses perawatan sesering mungkin. Terdapat beberapa pertanyaan yang mungin perlu anda jawab yaitu meliputi: \n
     \u2022 Apa yang diketahui tentang penyebab penyakit khusus ini? \n
     \u2022 Apakah ada diagnosis lain di mana gejala-gejala ini biasa terjadi? \n
     \u2022 Apakah anda biasanya menyertakan pemeriksaan fisik atau neurologis? \n
@@ -99,7 +99,7 @@ responses:
       Mungkin anda dapat memulai dari tempat sekitar anda yang menyediakan layanan untuk berbicara, mendengarkan, dan membantu anda dalam melakukan perawatan. Selain itu juga banyak orang menganggap dukungan sebaya dapat membantu pemulihan anda. Ada berbagai organisasi yang menawarkan kelompok pendukung atau support system
       dan beberapa kelompok pendukung ini dipimpin oleh rekan sebaya sementara yang lain mungkin dipimpin oleh profesional kesehatan mental"
   
-  utter_mental_health/before_starting_new_medication:
+  utter_mental_health_faq/before_starting_new_medication:
   - text: |
         Sumber informasi terbaik mengenai obat adalah dokter yang meresepkannya. Mereka seharusnya dapat menjawab pertanyaan-pertanyaan yang ditanyakan oleh pasien seperti ini:
         1. Apa yang seharusnya dilakukan oleh obat tersebut?
@@ -113,13 +113,13 @@ responses:
         9. Bagaimana and (dokter) memantau pengobatan dan gejala apa yang mengindikasikan bahwa obat tersebut harus dinaikkan, diturunkan, atau diubah?
         10. Semua obat harus diminum sesuai petunjuk. Sebagian besar obat untuk penyakit mental tidak berfungsi jika diminum secara tidak teratur, dan dosis tambahan dapat menyebabkan efek samping yang parah dan terkadang berbahaya. Banyak obat psikiatri mulai memiliki efek yang menguntungkan hanya setelah dikonsumsi selama beberapa minggu
   
-  utter_mental_health/is_after_taking_medication_cured:
+  utter_mental_health_faq/is_after_taking_medication_cured:
   - text: "Tidak jarang orang berhenti minum obat ketika mereka merasa gejalanya terkendali. Orang lain mungkin memilih untuk berhenti minum obat karena efek sampingnya, tanpa menyadari bahwa sebagian besar efek samping dapat dikelola secara efektif. Meskipun mungkin tampak masuk akal untuk berhenti minum obat, masalahnya adalah paling sering, gejalanya akan kembali.
       Jika anda atau kerabat sedang minum obat, sangat penting bagi anda untuk bekerja sama dengan dokter anda sebelum membuat keputusan tentang perubahan apa pun dalam perawatan anda. \n\nMasalah lain dengan menghentikan pengobatan, terutama untuk menghentikannya secara tiba-tiba, adalah anda mungkin mengalami gejala putus obat. itu bisa sangat tidak menyenangkan
       Jika anda dan dokter anda merasa uji coba obat anda adalah ide yang baik, perlu untuk mengurangi dosis obat secara perlahan agar gejala ini tidak terjadi. \n\nPenting bagi dokter dan apoteker anda untuk bekerja sama untuk memastikan obat anda bekerja dengan aman dan efektif. Anda harus berbicara dengan mereka tentang apa yang anda lakukan dan jika ada efek samping 
       yang membuat anda tidak mau melanjutkan pengobatan. Mereka akan bekerja dengan anda untuk mengembangkan strategi untuk meminimalkan efek samping ini, atau akan membuat rencana untuk beralih ke pengobatan lain yang lebih cocok"
   
-  utter_mental_health/get_help_for_paying_medication:
+  utter_mental_health_faq/get_help_for_paying_medication:
   - text: "Kini anda dapat menggunakan BPJS Kesehatan yang bisa melakukan perawatan untuk menangani gangguan mental. Layanan yang diberikan adalah konseling di fasilitas kesehatan tingkat pertama, yaitu di Puskesmas. Melansir media internal resmi BPJS Kesehatan, ada prosedur yang harus terlebih dahulu dilakukan untuk mendapatkan layanan ini. Berikut adalah langkah-langkah yang
       dapat anda ikuti \n\n
       
@@ -129,23 +129,64 @@ responses:
       Perlu diketahui, gangguan atau masalah pada kesehatan mental bukan merupakan hal yang aneh apalagi bersifat aib. Tidak berbeda dengan kondisi fisik, kondisi kesehatan psikologis juga bisa terganggu. Ada banyak faktor yang bisa menjadi penyebab hal ini terjadi, termasuk faktor lingkungan sosial atau pengalaman traumatis yang dilalui sebelumnya. Untuk informasi lebih lanjut
       dapat melihat pada https://www.halodoc.com/artikel/perawatan-kesehatan-mental-bisa-diklaim-di-bpjs"
   
-  utter_mental_health/find_the_right_therapy:
+  utter_mental_health_faq/find_the_right_therapy:
   - text: 'Berbagai jenis terapi lebih efektif berdasarkan sifat kondisi dan/atau gejala kesehatan mental dan orang yang mengalaminya (misalnya, anak-anak akan mendapat manfaat dari terapis yang berspesialisasi dalam kesehatan mental anak-anak). Namun, ada beberapa jenis perawatan dan terapi yang dapat membantu'
 
-  utter_mental_health/learn_types_of_mental_health_treatment:
+  utter_mental_health_faq/learn_types_of_mental_health_treatment:
   - text: 'Kondisi kesehatan mental sering diobati dengan pengobatan, terapi atau kombinasi keduanya. Namun, ada banyak jenis perawatan yang tersedia termasuk perawatan pelengkap & alternatif, rencana swadaya, dan dukungan sebaya. Perawatan sangat pribadi dan harus didiskusikan oleh orang dengan kondisi kesehatan mental dan timnya'
 
-  utter_mental_health/diffrent_types_of_mental_health_professionals:
+  utter_mental_health_faq/diffrent_types_of_mental_health_professionals:
   - text: 'Ada banyak jenis profesional kesehatan mental. Menemukan yang tepat untuk anda mungkin memerlukan beberapa penelitian'
 
-  utter_mental_health/find_support_group:
+  utter_mental_health_faq/find_support_group:
   - text: 'Banyak orang menganggap dukungan sebaya sebagai alat yang berguna yang dapat membantu pemulihan mereka. Ada berbagai organisasi yang menawarkan kelompok pendukung untuk konsumen, anggota keluarga dan teman mereka. Beberapa kelompok pendukung dipimpin oleh rekan sebaya, sementara yang lain mungkin dipimpin oleh seorang profesional kesehatan mental'
 
-  utter_mental_health/find_inpatient_care:
+  utter_mental_health_faq/find_inpatient_care:
   - text: 'Jika anda atau seseorang yang Anda kenal berada dalam krisis, perawatan rawat inap dapat membantu. Perawatan rawat inap dapat membantu orang menstabilkan pengobatan baru, menyesuaikan diri dengan gejala baru, atau mendapatkan bantuan yang mereka butuhkan'
 
-  utter_mental_health/find_other_local_services:
+  utter_mental_health_faq/find_other_local_services:
   - text: 'Banyak submer-sumber informasi yang dapat digunakan untuk membantu anda menemukan perawatan kesehatan mental di komunitas anda, apalagi dengan zaman sekarang yang dipermudah dengan menggunakan internet. Informasi tersebut dapat membantu Anda menemukan terapis yang tepat, dan memungkinkan anda untuk lebih memahami pilihan pengobatan yang layak dan proses pengobatan'
 
-  utter_mental_health/learn_more_about_clinical_trials:
+  utter_mental_health_faq/learn_more_about_clinical_trials:
   - text: 'Terkadang, konsumen layanan kesehatan mental dapat mempertimbangkan untuk berpartisipasi dalam studi penelitian ketika mereka tidak mengalami perbaikan meskipun telah mencoba berbagai pengobatan dan perawatan. Studi penelitian (juga dikenal sebagai uji klinis) mungkin melibatkan penggunaan obat baru atau pendekatan pengobatan baru yang keamanan dan efektivitasnya sedang diuji. Meskipun kami mendukung inovasi di lapangan, konsumen harus diperingatkan bahwa ada risiko yang terkait dengan uji klinis, pastikan Anda mengetahuinya sebelum mendaftar'
+
+  utter_mental_health_faq/what_is_mental_health:
+  - text: 'Kita semua memiliki kesehatan mental yang terdiri dari keyakinan, pikiran, perasaan, dan perilaku kita'
+
+  utter_mental_health_faq/support_doesnt_help:
+  - text: 'Mungkin sulit untuk menemukan hal-hal yang akan membantu anda, karena hal-hal yang berbeda'
+
+  utter_mental_health_faq/prevent_mental_health_problems:
+  - text: 'Kita semua dapat menderita masalah kesehatan mental, tetapi mengembangkan kesejahteraan, ketahanan, dan mencari bantuan sejak dini dapat membantu mencegah masalah tersebut menjadi serius'
+
+  utter_mental_health_faq/cures_for_mental_health_problem:
+  - text: 'Seringkali lebih realistis dan membantu untuk mengetahui apa yang membantu masalah yang anda hadapi. Berbicara, konseling, pengobatan, persahabatan, olahraga, tidur yang baik dan nutrisi, dan pekerjaan yang berarti semuanya dapat membantu anda'
+
+  utter_mental_health_faq/worried_about_mental_health:
+  - text: 'Yang paling penting adalah berbicara dengan seseorang yang anda percayai. Ini mungkin teman, kolega, anggota, keluarga, atau dokter umum. Selain berbicara dengan seseorang, mungkin berguna untuk mengetahui lebih banyak informasi tentang apa yang anda alami. Hal-hal ini dapat membantu untuk mendapatkan beberapa perspektif tentang apa yang anda alami, dan menjadi awal untuk mendapatkan bantuan'
+  
+  utter_mental_health_faq/how_to_know_if_unwell:
+  - text: 'Jika keyakinan, pikiran, perasaan, atau perilaku Anda memiliki dampak signifikan pada kemampuan anda untuk berfungsi dengan cara yang mungkin dianggap normal atau biasa, penting untuk mencari bantuan segera'
+
+  utter_mental_health_faq/worried_about_relative_mental_health:
+  - text: 'Ini mungkin tergantung pada hubungan anda dengan mereka. Pelan-pelan untuk mendorong mereka untuk mencari bantuan dan dukungan yang tepat sangat membantu untuk memulainya'
+
+  utter_mental_health_faq/need_to_keep_informed:
+  - text: 'Berpikiran untuk menjauhi media informasi terkadang merupaka cara yang baik untuk menjaga diri dari pengaruh luar, tetapi tetaplah penting untuk tetap mengikuti informasi sepetingnya saja. Kita semua memiliki peran untuk mengurangi penyebaran virus. Penting bagi anda untuk mengetahui apa yang harus dilakukan dan bagaimana cara anda harus melakukannya. Ini penting untuk kesehatan tetangga Anda dan kesehatan mental Anda sendiri, dan mengambil tindakan dapat membantu mengatasi perasaan sulit seperti keputusasaan dan keputusasaan. 
+      Orang yang menerima informasi yang baik dan akurat memiliki tingkat stres, kecemasan, dan depresi yang lebih rendah. Tetap terinformasi tidak berarti Anda harus mengikuti berita sepanjang hari. Periksa beberapa kali sehari, tetap berpegang pada sumber media yang tepercaya. Pastikan untuk menggunakan keterampilan berpikir kritis yang baik.'
+
+  utter_mental_health_faq/health_information_is_good_or_bad:
+  - text: "Siapa pun dapat memposting apapun secara online. Terserah pembaca untuk berpikir kritis tentang informasi untuk memutuskan apakah tampaknya membantu, jujur, atau aman. Berikut adalah poin-poin penting yang perlu diingat saat anda menentukan informasi mana yang layak dipertimbangkan dan informasi mana yang tidak valid \n
+      \u2022 Sangat mudah untuk menyebarkan informasi secara online, dan kita tidak dapat berasumsi bahwa sumber yang kita baca atau tonton adalah sumber aslinya \n
+      \u2022 Sebelum anda dapat mengevaluasi apa pun, anda perlu mengetahui dari mana klaim itu berasal dan menentukan apakah itu sumber yang dapat dipercaya \n
+      \u2022 Sumber terpecaya tentang virus COVID-19 termasuk Organisasi Kesehatan Dunia (WHO), kementrian, dan lembaga pemerintahan Indonesia seperti Kementrian Kesehatan Republik Indonesia (KEMENKES). Ilmuwan dan peneliti di universitas dan institusi lain serta profesional ilmu kesehatan juga merupakan sumber informasi yang penting \n
+      \u2022 Headline dan judul harus sederhana dan pendek. Mungkin juga headline atau judul disengaja seperti berita yang mengejutkan untuk membujuk anda membaca lebih lanjut berita tersebut \n
+      \u2022 Sumber yang berasal dari situs milik pemerintah, lembaga yang dibawahi oleh pemerintah, penyedia layanan kesehatan yang terkenal, universitas atau kelompok profesional medis merupakan sumber yang paling dapat dipercaya. Berhati-hatilah dengan situs yang tidak dicantumkan penulisnya atau tidak terdapat identitas dari situs tersebut. Periksa kembali penulis dan kredensial dari 'pakar' yang dikutip atau dikutip untuk melihat apakah mereka benar-benar ahli dalam topik yang sedang dibahas \n
+      \u2022 Dapatkah anda menemukan bukti lain dari sumber lain untuk mendukung klaim tersebut? Apakah penulis mencantumkan sumbernya? Apakah sumbernya sah, seperti jurnal penelitian? \n
+      \u2022 Siapa yang membayar untuk situs tersebut? Produk atau layanan apa yang diiklankan? Tautan atau situs lain apa yang mereka promosikan? Apakah anda belajar sesuatu dari sebuah cerita atau pengalaman, atau apakah Anda hanya diarahkan untuk membeli produk atau layanan? \n
+      \u2022 Media sosial bisa menjadi cara yang bagus untuk tetap berhubungan dengan keluarga dan teman, terutama saat kita mempraktikkan jarak fisik atau isolasi diri. Media sosial juga dapat menjadi cara penting untuk belajar dari pakar kesehatan dan terhubung ke layanan dukungan dan kelompok bantuan timbal balik di komunitas anda \n
+      \u2022 Seperti sumber informasi lainnya, penting untuk menggunakan keterampilan berpikir kritis yang baik saat anda menggunakan media sosial. Studi menemukan bahwa mencari informasi kesehatan di media sosial umumnya memiliki hasil yang sangat beragam. Anda dapat melihat asal sumber baik atau buruk saling berdampignan. Selain itu, postingan media sosial cenderung pendek dan jarang menangkap semua yang perlu anda pertimbangkan. 
+             Mereka umumnya berguna sebagai cara untuk mulai belajar atau mengeksplorasi sudut pandang yang berbeda daripada tempat untuk mengumpulkan semua informasi"
+
+  utter_mental_health_faq/manage_difficult_thoughts_or_feelings:
+  - text: 'Pengalihan adalah alat yang sangat valid untuk membantu anda mengatasi sesuatu ketika segala sesuatu terasa berlebihan atau ketika anda merasa kesepian atau terisolasi.  Jika anda tidak memiliki banyak energi atau fokus saat ini, cobalah gangguan ringan seperti menonton TV, browsing Youtube, mendengarkan podcast atau buku audio, bermain game di ponsel anda, membaca buku atau majalah yang mudah, atau bekerja pada proyek seni sederhana'

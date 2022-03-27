@@ -115,6 +115,14 @@ slots:
     type: list
     influence_conversation: false
 
+  mental_disorder:
+    type: text
+    influence_conversation: false
+
+  meditation_type: #medtiation type name
+    type: text
+    influence_conversation: false
+
 entities:
   - name_user
   - datepicker_dates
@@ -151,6 +159,7 @@ entities:
   #start - Brief-COPE attributes
 
   - mental_disorder
+  - meditation_type
 
 intents:
   - greet
@@ -176,6 +185,7 @@ intents:
   - offer_other_method_no  
 
   - menu_options_help
+  - start_menu_options
   - menu_options_mood_journaling
   - menu_options_story_topics
   - menu_options_explore_mental_disorders
@@ -214,6 +224,8 @@ intents:
   - ask_mental_disorder_when_to_consult
   - ask_mental_disorder_preparation_before_consulting
   - ask_mental_disorder_during_the_consultation
+  
+  - self_diagnose_terms
 
   - suicide_terms
   - suicide_terms_positive
@@ -223,7 +235,12 @@ intents:
   - ensure_seek_help[crisis]_yes
   - ensure_seek_help[crisis]_no
 
+  - maintain_mental_health
+  - meditation_technique
+  - meditation_type
   - mental_health_faq
+  
+  - tell_random_joke
 
 actions:
   - action_user_logged_in
@@ -251,10 +268,19 @@ actions:
   - action_get_mental_disorder_complications
   - action_get_mental_disorder_how_to_treat
   - action_get_mental_disorder_how_to_prevent
+  - action_self_diagnose_terms
+  
+  - action_get_meditation
+  
+  - action_random_joke
 
+  #send media (image or video)
+  - action_show_meditation_image
+  
   #reset slot
   - action_reset_brief_cope_evaluation
   - action_reset_explore_mental_disorder
+  - action_reset_meditation_type
 
   #validation
   - validate_get_name_user_form
@@ -367,6 +393,12 @@ forms:
     required_slots:
       explore_mental_disorder_name:
       - type: from_text
+
+  get_meditation_type_form:
+    required_slots:
+      meditation_type:
+      - type: from_entity
+        entity: meditation_type
 
 session_config: 
   session_expiration_time: 60

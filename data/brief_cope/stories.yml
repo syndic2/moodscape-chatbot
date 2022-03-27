@@ -82,7 +82,7 @@ stories:
     - intent: set_datepicker_dates
     - action: action_brief_cope_result_histories
 
-  #user want to stop form Brief COPE evaluation
+  #user want to stop from Brief COPE evaluation
   - story: user stop from Brief COPE evaluation
     steps:
     - intent: stop_brief_cope
@@ -90,4 +90,3 @@ stories:
     - intent: stop_brief_cope_yes
     - action: utter_start_brief_cope.response[confirm_no]
     - action: action_reset_brief_cope_evaluation
-  #end - Brief-COPE evaluation path

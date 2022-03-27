@@ -340,6 +340,8 @@ responses:
       payload: '/brief_cope_options_often{{ "brief_cope_answer.score_19": 3 }}'
     - title: 'Selalu'
       payload: '/brief_cope_options_always{{ "brief_cope_answer.score_19": 4 }}'
+    - title: 'Berhenti disini'
+      payload: '/stop_brief_cope'
 
   utter_ask_brief_cope_answer.score_20:
   - text: 'Aku sudah menerima kenyataan atau fakta bahwa itu telah terjadi'

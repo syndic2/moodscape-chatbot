@@ -162,6 +162,18 @@ responses:
 
 
   #start - bot provides menu options
+  utter_menu_options_help:
+  - text: 'Apa yang ingin dilakukan?'
+    buttons:
+    - title: 'Teknik-teknik meditasi'
+      payload: '/meditation_technique'
+    - title: 'Berikan aku lelucon'
+      payload: '/tell_random_joke'
+    - title: 'Tampilkan menu awal'
+      payload: '/start_menu_options'
+    - title: 'Reset percakapan'
+      payload: '/restart' 
+
   utter_ask_user_what_can_be_helped:
   - text: 'Apa yang bisa aku bantu {name_user}?'
     buttons:
@@ -169,7 +181,7 @@ responses:
       payload: '/menu_options_mood_journaling'
     # - title: 'Bercerita mengenai suatu topik tertentu'
     #   payload: '/menu_options_story_topics'
-    - title: 'Bagaimana menentukan strategi atau teknik koping yang cocok?'
+    - title: 'Menentukan strategi koping'
       payload: '/menu_options_brief_cope'
     - title: 'Jelajahi gangguan mental'
       payload: '/menu_options_explore_mental_disorders'
@@ -191,7 +203,7 @@ responses:
       \u2022 Membantu menentukan jenis perawatan yang bisa membantu meningkatkan suasana hati"
 
   utter_menu_options_mood_journaling.response_3:
-  - text: 'Pada aplikasi yang kamu gunakan ini ada fitur tersebut loh, kamu bisa menggunakannya untuk Mood Journal harianmu, coba buka disini ya [Moodscape Mood Tracker](https://moodscape-app.web.app/side-menu/tabs/moods)'
+  - text: "Pada aplikasi yang kamu gunakan ini ada fitur tersebut loh, kamu bisa menggunakannya untuk Mood Journal harianmu, coba buka disini ya [Moodscape Mood Tracker](https://moodscape-app.web.app/side-menu/tabs/moods)"
 
   utter_menu_options_story_topics.response_1:
   - text: 'Masih dalam proses pengembangan yaa'
@@ -208,6 +220,51 @@ responses:
   utter_menu_options_about_mental_health.response:
   - text: 'Apa ada yang ingin kamu tanyakan seputar kesehatan mental? Kamu bisa bertanya seperti Aapa yang dimaksud dengan penyakit atau gangguan mental?"'
   #end - bot provides menu options
+
+
+  #start - self diagnose terms
+  utter_explain_self_diagnose.response_1:
+  - text: 'Sebelum anda mengklaim bahwa diri anda mengidap gangguan tersebut, alangkah baiknya anda berkonsultasi dengan Psikolog terlebih dahulu ya. Karena jika anda langsung mengklaim memiliki hal tersebut, sama saja anda melakukan self-diagnosis'
+
+  utter_explain_self_diagnose.response_2:
+  - text: 'Self-diagnosis adalah mendiagnosis diri sendiri mengidap sebuah gangguan atau penyakit bedasarkan pengetahuan diri sendiri atau informasi yang didapatkan secara mandiri. Saat melakukan self-diagnosis, sebenarnya kamu sedang berasumsi seolah-olah kamu mengetahui masalah kesehatan yang dialami'
+    buttons:
+    - title: 'Oh begitu, baik'
+      payload: '/affirm_yes'
+
+  utter_explain_self_diagnose.response_3:
+  - text: 'Sebenarnya self-diagnosis bisa membantu memberikan gambaran diri sendiri, namun jika tidak dilanjutkan dengan mengubungi profesional atau ahli jatuhnya bisa berbahaya. Sudah banyak profesional yang menanggapi mengenai hal ini, dan menyuarakan untuk mencari bantuan ahli dan menginformasikan mengenai bahaya melakukan diagnosis diri sendiri'
+    buttons:
+    - title: 'Bahayanya apa saja?'
+      payload: '/affirm_yes'
+  
+  utter_self_diagnose_risk.response:
+  - text: "Mengutip pernyataan Dr. Srini Pillay, M.D yang sudah berpengalaman selama 25 tahun sebagai psikiatri dan menjabat sebagai Asisten Profesor Psikiatri di Harvard Medical School, berikut merupakan bahaya apa saja yang didapatkan ketika melakukan diagnosis terhadap diri sendiri \n
+      1. Tidak dapat membedakan penyakit medis yang menyamar sebagai sindrom kejiwaan \n
+      2. Meragukan kemampuan profesional (seperti dokter dan psikolog) \n
+      3. Kita mampu melihat dan mengenal diri sendiri, namun kita membutuhkan cermin untuk melihat diri kita lebih jelas. Dalam hal ini, dokter dan psikologlah yang berperan sebagai cermin \n
+      4. Menganggap keadaan diri sendiri sangat buruk. Kenyataannya tidak seburuk itu atau bahkan baik-baik saja \n
+      5. Menyangkal tentang gejala yang dialami (denial) \n
+      6. Apa yang dirasakan belum tentu menganggu produktifitas sehari-hari, sehingga tidak dapat diklasifikasikan sebagai masalah psikologis"
+    buttons:
+    - title: 'Cara menghindarinya bagaimana?'
+      payload: '/affirm_yes'
+
+  utter_self_diagnose_avoid.response:
+  - text: "Ada beberapa cara untuk menghindari yang namanya self-diagnosis, seperti dibawah ini \n
+      1. Memilah informasi yang didapatkan dari internet \n
+        Tidak semua informasi yang ada di internet adalah benar dan jelas sumbernya. Kita sebagai pengguna harus pintar dan kritis memilah informasi yang ada di internet. Sebagai pengguna jangan dengan mudah tersugesti dan mencocokan gejala yang ada terhadap keadaan diri sendiri \n
+      2. Berdiskusi dengan teman dan keluarga \n
+        Mencurahkan pikiran dan perasaan diri dengan orang terdekat erbukti ampuh untuk mengatasi tingkat stress pada individu.  Salah satu cara efektif yang dilakukan Masyarakat Indonesia untuk mengurangi stress adalah dengan bercerita kepada teman atau keluarga
+      3. Menghubungi profesional \n
+        Psikolog mampu menangani berbagai hal menyangkut kejiwaan seperti konsultasi pendidikan, pernikahan, pertumbuhan dan Perkembangan, psikoterapi, asesmen, forensik. Jadi bukan hanya menangani “orang gila” seperti yang berkembang di masyarakat saat ini"
+  
+  utter_self_diagnose_end_explaination.response:
+  - text: 'Tadi merupakan informasi yang dapat aku berikan ke kamu, semoga dapat membantu ya. Ingat jangan langsung melakukan self-diagnosis kepada dirimu sendiri, tetap hubungi ahli profesional terlebih dahulu'
+    buttons:
+    - title: 'Baik, terima kasih atas informasinya'
+      payload: '/affirm_yes'
+  #end - self diagnose terms
 
 
   #start - suicide terms

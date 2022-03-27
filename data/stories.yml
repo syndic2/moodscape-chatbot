@@ -151,6 +151,26 @@ stories:
   #end - bot provide menu options 
 
 
+  #start - self diagnose path
+  - story: user have self diagnose
+    steps:
+    - intent: self_diagnose_terms
+    - action: utter_explain_self_diagnose.response_1
+    - action: utter_explain_self_diagnose.response_2
+    - intent: affirm_yes
+    - action: utter_explain_self_diagnose.response_3
+    - intent: affirm_yes
+    - action: utter_self_diagnose_risk.response
+    - intent: affirm_yes
+    - action: utter_self_diagnose_avoid.response
+    - action: utter_self_diagnose_end_explaination.response
+    - intent: affirm_yes
+    - action: action_self_diagnose_terms
+    - intent: affirm_yes
+    - action: utter_you_are_welcome
+  #end - self diagnose path
+
+
   #start - emergency situation path
   - story: ask user if really in emergency situation
     steps:

@@ -106,6 +106,13 @@ nlu:
       - help: menu options
       - help: menu_options
 
+  - intent: start_menu_options
+    examples: |
+      - start menu options
+      - start_menu options
+      - options: start menu
+      - options: start_menu
+
   - intent: menu_options_mood_journaling
     examples: |
       - menu options: mood journaling

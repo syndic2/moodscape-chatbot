@@ -10,8 +10,13 @@ rules:
     steps:
     - intent: leave
     - action: utter_leave
-
+  
   - rule: bot show help for menu options
     steps:
     - intent: menu_options_help
+    - action: utter_menu_options_help
+
+  - rule: bot show start menu options
+    steps:
+    - intent: start_menu_options
     - action: utter_ask_user_what_can_be_helped

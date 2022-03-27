@@ -1,0 +1,11 @@
+version: "2.0"
+
+nlu:
+  - intent: tell_random_joke
+    examples: |
+      - berikan saya cerita lucu apapun
+      - saya sedang sedih, berikan saya cerita lucu atau humor
+      - kasih cerita humor dong
+      - kasih saya cerita untuk menaikkan mood saya
+      - tolong bantu menaikkan mood saya dong
+      - hibur saya dong

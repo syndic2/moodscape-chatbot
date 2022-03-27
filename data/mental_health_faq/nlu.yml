@@ -160,3 +160,73 @@ nlu:
       - untuk mempelajari informasi tentang uji klinis dapat dari mana ya
       - saya mau mempelajari tentang uji klinis, harus cari dimana ya
       - informasi mengenai uji klinis dapat dicari dari mana
+  
+  - intent: mental_health_faq/what_is_mental_health
+    examples: |
+      - apa yang dimaksud dengan kesehatan mental
+      - apa itu kesehatan mental
+      - jelaskan apa yang dimaksud denga kesehatan mental
+      - saya tidak mengerti kesehatan mental itu apa, tolong jelaskan
+      - kesehatan mental adalah
+
+  - intent: mental_health_faq/support_doesnt_help
+    examples: |
+      - apa yang harus saya lakukan jika dukungan dari kerabat atau keluarga tidak membantu
+      - apa yang harus diperbuat bila dukungan dari orang sekitar tidak dapat membantu saya
+      - saya bingung harus apa, semua dukungan dari teman dan keluarga saya tidak membantu
+      - semua dukungan yang saya terima dari kerabat terdekat tidak dapat membantu saya sama sekali
+      - saya kesulitan untuk menemukan hal-hal baru yang dapat membantu saya
+  
+  - intent: mental_health_faq/prevent_mental_health_problems
+    examples: |
+      - bisakah kita mencegah masalah kesehatan mental
+      - apakah kita bisa mencegah masalah kesehatan mental
+      - gangguan kesehatan mental apakah dapat dicegah
+
+  - intent: mental_health_faq/cures_for_mental_health_problem
+    examples: |
+      - apakah ada pengobatan untuk masalah kesehatan mental
+      - apa obat untuk masalah kesehatan mental
+      - bagaimana pengobatan untuk masalah kesehatan mental
+      - bagaimana cara mengobati masalah kesehatan mental
+  
+  - intent: mental_health_faq/worried_about_mental_health
+    examples: |
+      - apa yang harus saya lakukan jika saya khawatir dengan kesehatan mental saya
+      - saya khawatir dengan kesehatan mental saya, apa yang dapat saya lakukan
+      - saya bingung harus bagaimana terhadap kesehatan mental saya
+
+  - intent: mental_health_faq/how_to_know_if_unwell
+    examples: |
+      - bagaimana saya mengetahui bahwa kesehatan mental saya sedang tidak sehat
+      - cara mengetahui bila kesehatan mental sedang terganggu
+      - saya kebingungan mengetahui apakah kesehatan mental saya terganggu apa tidak
+      - bagaimana saya tahu bahwa kesehatan mental saya sedang terganggu
+  
+  - intent: mental_health_faq/worried_about_relative_mental_health
+    examples: |
+      - apa yang harus saya lakukan jika khawatir dengan kesehatan mental orang terdekat saya
+      - saya khawatir dengan kesehatan mental teman saya, apa yang dapat saya lakukan
+      - saya bingung harus bagaimana terhadap kesehatan mental teman atau keluarga saya
+  
+  - intent: mental_health_faq/need_to_keep_informed
+    examples: |
+      - mengapa kita harus tetap perlu mendapatkan informasi
+      - alasan tetap harus mengikut informasi
+      - berita hoaks atau buruk kian hari mempengaruhi pikiran saya, apakah kita perlu untuk tetap update
+      - saya ingin menutup diri dari informasi manapun
+  
+  - intent: mental_health_faq/health_information_is_good_or_bad
+    examples: |
+      - cara mengetahui informasi mengenai kesehatan mental baik atau buruk 
+      - bagaimana saya bisa tahu apakah informasi kesehatan itu baik atau buruk
+      - bagaimana cara saya mengetahui apakah informasi kesehatan baik atau buruk
+      - saya tidak dapat mengetahui apakah informasi kesehatan itu baik atau buruk
+    
+  - intent: mental_health_faq/manage_difficult_thoughts_or_feelings
+    examples: |
+      - bagaimana saya bisa menggunakan pengalihan untuk bisa mengatur pikiran yang sulit atau perasaan
+      - apa yang harus saya lakukan ketika kesusan untuk mengatur pikiran dan perasaan yang sulit
+      - saya kesusahan untuk mengatur pikiran dan perasaan yang sulit, apa yang harus saya lakukan ya
+      - saya merasa pikiran dan perasaan saya sulit untuk dikendalikan
+      - cara menggunakan pengalihan untuk pikiran dan perasaan

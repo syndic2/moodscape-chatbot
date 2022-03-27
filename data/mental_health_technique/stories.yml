@@ -1,0 +1,19 @@
+version: "2.0"
+
+stories:
+  - story: user want to know how to maintain mental health
+    steps: 
+    - intent: maintain_mental_health
+    - action: utter_simple_ways_to_maintain_mental_health 
+
+  - story: user want to know meditation type 
+    steps:
+    - intent: meditation_technique
+    - action: get_meditation_type_form
+    - active_loop: get_meditation_type_form
+    - active_loop: null
+    - action: action_get_meditation
+    - intent: affirm_yes
+    - action: action_show_meditation_image
+    - action: action_reset_meditation_type
+    - action: utter_ask_user_what_can_be_helped

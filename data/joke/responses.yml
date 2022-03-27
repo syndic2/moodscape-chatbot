@@ -1,0 +1,78 @@
+version: "2.0"
+
+responses:
+  utter_after_tell_joke:
+  - text: 'Bagaimana dengan cerita tadi? :D, semoga dengan humor pendek tadi dapat menghibur kamu ya'
+    buttons: 
+    - title: 'Berikan aku cerita yang lain lagi'
+      payload: '/tell_random_joke'
+    - title: 'Berhenti disini'
+      payload: '/affirm_yes'
+
+  utter_joke_story_1:
+  - text: "Ada seorang suami yang didompetnya terdapat foto istrinya. Teman-temannya memuji dia sebagai suami yang ideal \n
+    Salah seorang temannya bertanya apa gunanya membawa foto istri. Dia menjawab: kalau aku punya persoalan dikantor aku selalu memandang foto tersebut dan persoalan itu hilang \n
+    Wah alangkah berbahagianya kamu mempunyai istri seperti itu, bagaimana bisa begitu? tanya temannya \n
+    Jawabnya: Ya, kalau saya melihat foto istri saya, semua persoalan apapun di kantor, menjadi tidak ada apa-apanya dibandingkan dengan persoalan dia!!"
+
+  utter_joke_story_2:
+  - text: "Dokter kepada pasiennya, kakek yang berusia 72 tahun... \n
+    Dokter: Pak, rasa sakit dikaki kanan anda itu tampaknya akibat penyakit rematik \n
+    Pasien: Penyakit rematik itu apa, dok? \n
+    Dokter: Rematik itu salah satu penyakit yang menyerang sendi, Pak. Penyakit itu dapat disebabkan, misalnya, karena usia Bapak sudah tua... \n
+    Pasien: Eh dokter jangan coba-coba bohongin saya ya!!! Kaki sebelah kirinya umurnya juga udah sama tuanya, tapi ga sakit apa-apa tuh"
+  
+  utter_joke_story_3:
+  - text: "Suami: Dok, istri saya itu cantik, tapi.. sory, begonya minta ampun \n
+    Psikiater: Tapi menurut analisa saya, kalian berdua memang berjodoh... \n
+    Suami: Loh, kok bisa? \n
+    Psikiater: Begini, anda tau kenapa istri anda cantik? Supaya anda mau sama dia.. Anda tau kenapa istri anda bego? Supaya dia mau sama anda..."
+  
+  utter_joke_story_4:
+  - text: "Budi, seorang pemuda yang telah sekian lama hidup sendiri menemukan Lina kekasih pujaan hatinya, tetapi pernikahan mereka tidak berlangsung lama karena perbedaan keyakinan. \n
+    Amir yang merupakan sahabat Budi mempertanyakan perihal penyebab perpisahan mereka \n
+    Amir: Kenapa broo sampai kalian bercerai seperti ini, apa masalahnya? \n
+    Budi: Kita berbeda keyakinan bro, sudah ngga tahan lagi \n
+    Amir: Bukannya kalian seagama ya? \n
+    Budi: Memang... \n
+    Amir: Lantas kenapa sampai bercerai karena perbedaan keyakinan, apa yang dimasalahkan? \n
+    Budi: Selama ini aku selalu yakin bahwa aku ini ganteng, tapi Lina tidak bisa menerima keyakinanku itu dan selalu mempermasalahkannya \n
+    Amir: ?@#$%&*$W%^W&E*"
+
+  utter_joke_story_5:
+  - text: "Kisah dua bocah dirumah sakit \n
+    Bocah 1: Kenapa kamu disini? \n
+    Bocah 2: Aku ke sini untuk operasi amandel \n
+    Bocah 1: Jangan takut, waktu aku umur  empat tahun juga pernah dioperasi. Kamu hanya perlu tidur dan bangun-bangun dokter akan memberimu es krim. Itu sebenarnya cukup menyenangkan \n
+    Bocah 2: Hah… syukurlah. Kalau kamu ngapain ke sini? \n
+    Bocah 1: Aku mau sunat \n
+    Bocah 2: Wah, semoga beruntung, kawan! Aku dulu langsung disunat saat baru lahir dan setelah itu aku tak bisa berjalan selama satu tahun"
+  
+  utter_joke_story_6:
+  - text: "Seorang ibu mengajar anaknya memasak, sambil menyiapkan hidangan untuk berbuka puasa \n
+    Ibu: Neng tolong taruh wajan diatas kompor \n
+    Anak: Baik bu, terus apa lagi \n
+    Ibu: Masukkan 2 sendok makan minyak goreng, tunggu sampai panas \n
+    Anak: Iya bu, ini minyak nya sudah panas \n
+    Ibu: Nah masukkan bumbu yang sudah di uleg halus tunggu sampai baunya harum \n
+    Anak: Sudah bu, terus apa lagi \n
+    Ibu: Tuangkan santan yang dipanci itu tunggu sampai mendidih \n
+    Anak: Bu, santan sudah mendidih terus bagaimana? \n
+    Ibu: Kalau sudah mendidih kasih salam (daun salam) \n
+    Anak: Mendekatkan mukanya ke wajan sambil berbisik ASSALAMMUALAIKUM…"
+
+  utter_joke_story_7:
+  - text: "Pada suatu hari, seorang ibu bersama anaknya dari bangsa tikus sedang asik mengobrol di atas selokan. Tak lama kemudian, tiba-tiba seekor kelelawar lewat di atas mereka \n
+    Anak tikus: Bu, yang tadi lewat di atas kita apa yah? \n
+    Ibu: Oww..! yang tadi itu namanya kelelawar \n
+    Anak tikus: tapi, Bu, kok mukanya mirip kita? \n 
+    Ibu: Iyaa… mukanya memang mirip kita, dia juga termasuk sebangsa kita, cuma waktu kuliah dia ambil jurusan penerbangan"
+  
+  utter_joke_story_8:
+  - text: "Guru bertanya cita – cita kepada muridnya. \n
+    Guru: Dillah cita-cita kamu apa? \n
+    Dillah: Jadi polisi bu, kalau ada penjahat yang ganggu ibu, aku bisa menembak dan nangkap mereka. Gratis untuk ibu \n
+    Guru: Dillah, ibu jadi terharu. Murdi kamu jadi apa? \n
+    Murdi: Kalo aku pengen jadi dokter bu, supaya bila ada penjahat melukai ibu, aku bisa rawat. Khusus buat ibu, gratis! \n
+    Guru: Ibu jadi sangat terharu. Kalau kamu, Utong, mau jadi apa? \n
+    Utong: Tukang gali kubur, bu. kalau Dillah tidak berhasil menangkap dan penjahat berhasil melukai, dan ferdi gak berhasil merawat ibu, dan ibu meninggal, kan sudah ku sediain kuburan.. Gratis. . tis. . tis. .tis untuk ibu"

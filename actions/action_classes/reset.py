@@ -29,3 +29,14 @@ class ActionResetExploreMentalDisorder(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         return [SlotSet('explore_mental_disorder_name', None)]
+
+class ActionResetMeditationType(Action):
+
+    def name(self) -> Text:
+        return 'action_reset_meditation_type'
+    
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        return [SlotSet('meditation_type', None)]

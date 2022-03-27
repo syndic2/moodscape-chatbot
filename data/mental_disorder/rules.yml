@@ -6,6 +6,7 @@ rules:
     - intent: stop_explore_mental_disorders
     - action: utter_user_stop_from_mental_disorder_auto_exaplaination
     - action: action_reset_explore_mental_disorder
+    - action: utter_ask_user_what_can_be_helped
 
   - rule: user ask about mental disorder description
     steps:

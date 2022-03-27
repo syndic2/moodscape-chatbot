@@ -519,3 +519,28 @@ class ActionGetMentalDisorderHowToPrevent(Action):
         dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'how_to_prevent'))
 
         return []
+
+class ActionSelfDiagnoseTerms(Action):
+
+    def name(self) -> Text:
+        return 'action_self_diagnose_terms'
+
+    def run(self, dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:  
+
+        mental_disorder_name= tracker.get_slot('mental_disorder')
+        mental_disorder= get_mental_disorder(mental_disorder_name.title()) 
+
+        dispatcher.utter_message(text= f'Oh iya tadi kalau tidak salah dengar, kamu menyinggung tentang gangguan {mental_disorder_name} ya?')
+        dispatcher.utter_message(text= f'Ini sebagai informasi tambahan untuk kamu ya mengenai ciri-ciri dari gangguan {mental_disorder_name}') 
+
+        if mental_disorder is not None:
+            dispatcher.utter_message(
+                text= 'Maaf, sepertinya untuk data tersebut aku belum memiliki informasinya. Untuk membantu pengembangan, kamu bisa melaporkan pesan ini ya', 
+                buttons= [{ 'title': 'Oh, okay kalo begitu. Terima kasih', 'payload': '/affirm_yes'}]
+            )
+        else:
+            dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'signs_and_sympthomps'), buttons= [{ 'title': 'Terima kasih atas tambahan informasinya', 'payload': '/affirm_yes'}])
+
+        return []

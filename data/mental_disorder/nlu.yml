@@ -110,6 +110,16 @@ nlu:
       - pertanyaan apa yang muncul saat melakukan konsultasi
       - saat melakukan konsultasi apa yang akan ditanyakan oleh dokter
 
+  #self diagnose
+  - intent: self_diagnose_terms
+    examples: | 
+      - saya merasa sedang [depresi]{ "entity": "mental_disorder", "value": "Depresi" } karena pekerjaan saya yang menumpuk
+      - sepertinya saya terkena gangguan [bipolar]{ "entity": "mental_disorder", "value": "Bipolar" }
+      - mood atau suasana hati saya sering berubah-ubah, itu termasuk dengan gangguan [bipolar]{ "entity": "mental_disorder", "value": "Bipolar" }
+      - terkadang saya sering berbicara sendiri, apa mungkin saya terkena [halusinasi]{ "entity": "mental_disorder", "value": "Halusinasi" }
+      - apakah tidak suka dengan hal yang kotor termasuk [OCD]{ "entity": "mental_disorder", "value": "Obsessive Compulsive Disorder OCD" }
+      - asam lambung saya sering naik, apa mungkin ini akibat dari [stres berat]{ "entity": "mental_disorder", "value": "Stres Akut" }
+
   - lookup: mental_disorder 
     examples: |
       - Agorofobia
@@ -127,7 +137,7 @@ nlu:
       - Gaming Disorder
       - Bipolar
       - Dismorfik Tubuh
-      - Identitas Disosiatif (Kepribadian Ganda)
+      - Identitas Disosiatif Kepribadian Ganda
       - Kecemasan Sosial
       - Kecemasan Umum
       - Kepribadian
@@ -139,7 +149,7 @@ nlu:
       - Makan
       - Makan Pica
       - Panik
-      - Pemusatan Perhatian dan Hiperaktivitas (ADHD)
+      - Pemusatan Perhatian dan Hiperaktivitas ADHD
       - Stres Akut
       - Tidur Berjalan
       - Gelisah
@@ -153,14 +163,14 @@ nlu:
       - Kleptomania
       - Mimpi Buruk
       - Narkolepsi
-      - Obsessive Compulsive Disorder (OCD)
+      - Obsessive Compulsive Disorder OCD
       - Oppositional Defiant Disorder
       - Paraphilia
       - Parenting Stress
       - Pedofilia
       - Penyakit Alzheimer
       - Perubahan Sikap
-      - Post Traumatic Disorder (PTSD)
+      - Post Traumatic Disorder PTSD
       - Prolonged Grief Disorder
       - Psikosis
       - Psikosis Postpartum
