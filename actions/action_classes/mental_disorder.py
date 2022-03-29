@@ -10,7 +10,7 @@ import requests
 from utilities.constants import api_urls
 from utilities.helpers import extract_entity
 
-api_url= api_urls["production"]
+api_url= api_urls["development2"]
 not_yet_learn_template= 'utter_not_yet_learn_mental_disorder'
 
 def get_mental_disorder(mental_disorder_name):
