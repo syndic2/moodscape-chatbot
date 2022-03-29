@@ -3,6 +3,8 @@ version: "2.0"
 nlu: 
   - intent: mental_health_faq/the_mean_of_having_mental_illness
     examples: |
+      - apa yang dimaksud dengan penyakit mental
+      - apa yang dimaksud dengan gangguan mental
       - apa yang dimaksud dengan penyakit atau gangguan mental
       - apa sebenarnya yang dimaksud dengan penyakit atau gangguan mental
       - apa artinya jika memiliki penyakit atau gangguan mental

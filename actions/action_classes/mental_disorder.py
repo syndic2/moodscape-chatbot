@@ -10,7 +10,7 @@ import requests
 from utilities.constants import api_urls
 from utilities.helpers import extract_entity
 
-api_url= api_urls["development2"]
+api_url= api_urls["development"]
 not_yet_learn_template= 'utter_not_yet_learn_mental_disorder'
 
 def get_mental_disorder(mental_disorder_name):
@@ -407,10 +407,17 @@ class ActionGetMentalDisorderDescription(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
         mental_disorder_name= extract_entity('mental_disorder', tracker.latest_message['entities'])        
-        mental_disorder= get_mental_disorder(mental_disorder_name.title())
 
-        dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'short_description')) 
+        if mental_disorder_name is None:
+            dispatcher.utter_message(text= 'Maaf aku tidak mengerti apa yang kamu maksudkan. Mungkin kamu bisa bantu untuk melaporkan pesan ini ^^')
+        else:
+            mental_disorder= get_mental_disorder(mental_disorder_name)
 
+            if mental_disorder is None:
+                dispatcher.utter_message(text= 'Maaf aku masih belum mengetahui informasi mengenai gangguan yang kamu tanyakan. Mungkin kamu bisa bantu untuk melaporkan pesan ini ya ^^')
+            else: 
+                dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'short_description')) 
+        
         return [] 
 
 class ActionGetMentalDisorderTypes(Action):
@@ -423,9 +430,16 @@ class ActionGetMentalDisorderTypes(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         mental_disorder_name= extract_entity('mental_disorder', tracker.latest_message['entities'])        
-        mental_disorder= get_mental_disorder(mental_disorder_name.title())
 
-        dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'types'))
+        if mental_disorder_name is None:
+            dispatcher.utter_message(text= 'Maaf aku tidak mengerti yapa yang kamu maksudkan. Mungkin kamu bisa bantu untuk melaporkan pesan ini ^^')
+        else:
+            mental_disorder= get_mental_disorder(mental_disorder_name)
+
+            if mental_disorder is None:
+                dispatcher.utter_message(text= 'Maaf aku masih belum mengetahui informasi mengenai gangguan yang kamu tanyakan. Mungkin kamu bisa bantu untuk melaporkan pesan ini ya ^^')
+            else:
+                dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'types'))
 
         return []
 
@@ -439,9 +453,16 @@ class ActionGetMentalDisorderSignsAndSympthomps(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         mental_disorder_name= extract_entity('mental_disorder', tracker.latest_message['entities'])        
-        mental_disorder= get_mental_disorder(mental_disorder_name.title())          
+        
+        if mental_disorder_name is None:
+            dispatcher.utter_message(text= 'Maaf aku tidak mengerti yapa yang kamu maksudkan. Mungkin kamu bisa bantu untuk melaporkan pesan ini ^^')
+        else:
+            mental_disorder= get_mental_disorder(mental_disorder_name)
 
-        dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'signs_and_sympthomps'))
+            if mental_disorder is None:
+                dispatcher.utter_message(text= 'Maaf aku masih belum mengetahui informasi mengenai gangguan yang kamu tanyakan. Mungkin kamu bisa bantu untuk melaporkan pesan ini ya ^^')
+            else:
+                dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'signs_and_sympthomps'))
 
         return []
 
@@ -455,9 +476,16 @@ class ActionGetMentalDisorderCauses(Action):
         domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         mental_disorder_name= extract_entity('mental_disorder', tracker.latest_message['entities'])        
-        mental_disorder= get_mental_disorder(mental_disorder_name.title())  
 
-        dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'causes'))
+        if mental_disorder_name is None:
+            dispatcher.utter_message(text= 'Maaf aku tidak mengerti yapa yang kamu maksudkan. Mungkin kamu bisa bantu untuk melaporkan pesan ini ^^')
+        else:
+            mental_disorder= get_mental_disorder(mental_disorder_name)
+
+            if mental_disorder is None:
+                dispatcher.utter_message(text= 'Maaf aku masih belum mengetahui informasi mengenai gangguan yang kamu tanyakan. Mungkin kamu bisa bantu untuk melaporkan pesan ini ya ^^')
+            else:
+                dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'causes'))
 
         return []
 
@@ -471,9 +499,16 @@ class ActionMentalDisorderDiagnosis(Action):
         domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
         mental_disorder_name= extract_entity('mental_disorder', tracker.latest_message['entities'])        
-        mental_disorder= get_mental_disorder(mental_disorder_name.title())  
 
-        dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'diagnosis'))
+        if mental_disorder_name is None:
+            dispatcher.utter_message(text= 'Maaf aku tidak mengerti yapa yang kamu maksudkan. Mungkin kamu bisa bantu untuk melaporkan pesan ini ^^')
+        else:
+            mental_disorder= get_mental_disorder(mental_disorder_name)  
+            
+            if mental_disorder is None:
+                dispatcher.utter_message(text= 'Maaf aku masih belum mengetahui informasi mengenai gangguan yang kamu tanyakan. Mungkin kamu bisa bantu untuk melaporkan pesan ini ya ^^')
+            else:
+                dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'diagnosis'))
 
         return []
 
@@ -487,9 +522,16 @@ class ActionGetMentalDisorderComplications(Action):
         domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         mental_disorder_name= extract_entity('mental_disorder', tracker.latest_message['entities'])        
-        mental_disorder= get_mental_disorder(mental_disorder_name.title())  
 
-        dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'complications'))
+        if mental_disorder_name is None:
+            dispatcher.utter_message(text= 'Maaf aku tidak mengerti yapa yang kamu maksudkan. Mungkin kamu bisa bantu untuk melaporkan pesan ini ^^')
+        else:
+            mental_disorder= get_mental_disorder(mental_disorder_name)
+            
+            if mental_disorder is None:
+                dispatcher.utter_message(text= 'Maaf aku masih belum mengetahui informasi mengenai gangguan yang kamu tanyakan. Mungkin kamu bisa bantu untuk melaporkan pesan ini ya ^^')
+            else:
+                dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'complications'))
 
         return []
 
@@ -503,10 +545,17 @@ class ActionGetMentalDisorderHowToTreat(Action):
         domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
         mental_disorder_name= extract_entity('mental_disorder', tracker.latest_message['entities'])        
-        mental_disorder= get_mental_disorder(mental_disorder_name.title())  
 
-        dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'how_to_treat'))
+        if mental_disorder_name is None:
+            dispatcher.utter_message(text= 'Maaf aku tidak mengerti yapa yang kamu maksudkan. Mungkin kamu bisa bantu untuk melaporkan pesan ini ^^')
+        else:
+            mental_disorder= get_mental_disorder(mental_disorder_name)
 
+            if mental_disorder is None:
+                dispatcher.utter_message(text= 'Maaf aku masih belum mengetahui informasi mengenai gangguan yang kamu tanyakan. Mungkin kamu bisa bantu untuk melaporkan pesan ini ya ^^')
+            else:
+                dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'how_to_treat'))
+        
         return []
 
 class ActionGetMentalDisorderHowToPrevent(Action):
@@ -519,9 +568,16 @@ class ActionGetMentalDisorderHowToPrevent(Action):
         domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
         mental_disorder_name= extract_entity('mental_disorder', tracker.latest_message['entities'])        
-        mental_disorder= get_mental_disorder(mental_disorder_name.title())  
-
-        dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'how_to_prevent'))
+        
+        if mental_disorder_name is None:
+            dispatcher.utter_message(text= 'Maaf aku tidak mengerti yapa yang kamu maksudkan. Mungkin kamu bisa bantu untuk melaporkan pesan ini ^^')
+        else:
+            mental_disorder= get_mental_disorder(mental_disorder_name)  
+            
+            if mental_disorder is None:
+                dispatcher.utter_message(text= 'Maaf aku masih belum mengetahui informasi mengenai gangguan yang kamu tanyakan. Mungkin kamu bisa bantu untuk melaporkan pesan ini ya ^^')
+            else:
+                dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'how_to_prevent'))
 
         return []
 
@@ -535,17 +591,20 @@ class ActionSelfDiagnoseTerms(Action):
         domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:  
 
         mental_disorder_name= tracker.get_slot('mental_disorder')
-        mental_disorder= get_mental_disorder(mental_disorder_name.title()) 
 
-        dispatcher.utter_message(text= f'Oh iya tadi kalau tidak salah dengar, kamu menyinggung tentang gangguan {mental_disorder_name} ya?')
-        dispatcher.utter_message(text= f'Ini sebagai informasi tambahan untuk kamu ya mengenai ciri-ciri dari gangguan {mental_disorder_name}') 
-
-        if mental_disorder is not None:
-            dispatcher.utter_message(
-                text= 'Maaf, sepertinya untuk data tersebut aku belum memiliki informasinya. Untuk membantu pengembangan, kamu bisa melaporkan pesan ini ya', 
-                buttons= [{ 'title': 'Oh, okay kalo begitu. Terima kasih', 'payload': '/affirm_yes'}]
-            )
+        if mental_disorder_name is None:
+            dispatcher.utter_message(text= 'Maaf aku tidak mengerti yapa yang kamu maksudkan. Mungkin kamu bisa bantu untuk melaporkan pesan ini ^^')
         else:
-            dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'signs_and_sympthomps'), buttons= [{ 'title': 'Terima kasih atas tambahan informasinya', 'payload': '/affirm_yes'}])
+            mental_disorder= get_mental_disorder(mental_disorder_name) 
+            dispatcher.utter_message(text= f'Oh iya tadi kalau tidak salah dengar, kamu menyinggung tentang gangguan {mental_disorder_name} ya?')
+            dispatcher.utter_message(text= f'Ini sebagai informasi tambahan untuk kamu ya mengenai ciri-ciri dari gangguan {mental_disorder_name}') 
+
+            if mental_disorder is None:
+                dispatcher.utter_message(
+                    text= 'Maaf, sepertinya untuk data tersebut aku belum memiliki informasinya. Untuk membantu pengembangan, kamu bisa melaporkan pesan ini ya', 
+                    buttons= [{ 'title': 'Oh, okay kalo begitu. Terima kasih', 'payload': '/affirm_yes'}]
+                )
+            else:
+                dispatcher.utter_message(text= get_mental_disorder_detail(mental_disorder, 'signs_and_sympthomps'), buttons= [{ 'title': 'Terima kasih atas tambahan informasinya', 'payload': '/affirm_yes'}])
 
         return []

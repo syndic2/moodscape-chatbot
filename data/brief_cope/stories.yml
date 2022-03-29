@@ -51,7 +51,8 @@ stories:
     - action: action_brief_cope_result
     - action: utter_end_brief_cope.response[notes_1]
     - action: utter_end_brief_cope.response[notes_2]
-    - action: action_reset_brief_cope_evaluation
+    - action: action_reset_brief_cope_evaluation  
+    - action: utter_ask_user_what_can_be_helped
 
   - story: ask user for start Brief-COPE evaluation (yes) - interrupted
     steps:
@@ -65,6 +66,7 @@ stories:
     - action: utter_end_brief_cope.response[notes_1]
     - action: utter_end_brief_cope.response[notes_2]
     - action: action_reset_brief_cope_evaluation
+    - action: utter_ask_user_what_can_be_helped
 
   #start evaluation: no
   - story: ask user for start Brief-COPE evaluation (no)
@@ -73,7 +75,8 @@ stories:
     - action: utter_start_brief_cope.confirmation
     - intent: start_brief_cope_no
     - action: utter_start_brief_cope.response[confirm_no]
-  
+    - action: utter_ask_user_what_can_be_helped
+
   #user want to see their evaluation result histories
   - story: user want to see Brief-COPE evaluation result histories
     steps:
@@ -81,6 +84,7 @@ stories:
     - action: action_inform_show_datepicker
     - intent: set_datepicker_dates
     - action: action_brief_cope_result_histories
+    - action: utter_ask_user_what_can_be_helped
 
   #user want to stop from Brief COPE evaluation
   - story: user stop from Brief COPE evaluation
@@ -90,3 +94,4 @@ stories:
     - intent: stop_brief_cope_yes
     - action: utter_start_brief_cope.response[confirm_no]
     - action: action_reset_brief_cope_evaluation
+    - action: utter_ask_user_what_can_be_helped
