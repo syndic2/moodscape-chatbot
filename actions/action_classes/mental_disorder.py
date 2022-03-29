@@ -72,8 +72,13 @@ def get_mental_disorder_detail(mental_disorder, field):
             for item in mental_disorder['diagnosis']:
                 diagnosis+= '- '+item['point']+'\n'
 
-                if item['description'] != '':
-                    diagnosis+= '  \u2022 '+item['description']+'\n'
+                if isinstance(item['description'], list):
+                    if len(item['description']) != 0:
+                        for description in item['description']:
+                            diagnosis+= '  \u2022 '+description+'\n'
+                else:
+                    if item['description'] != '':
+                        diagnosis+= '  \u2022 '+item['description']+'\n'
 
         return diagnosis
     
